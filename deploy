@@ -5,8 +5,10 @@ echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
 # Build the project.
 hugo --minify # if using a theme, replace with `hugo -t <YOURTHEME>`
 
+# Change the public directory into docs (because of gh-pages dumb limitation)
+mv public docs 
 # Go To Public folder
-cd public
+cd docs
 # Add changes to git.
 git add .
 
