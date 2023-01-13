@@ -1,18 +1,3 @@
-:root{
-    --bg-dark: #2e3440;
-    --bg-light: #3b4252;
-    
-    --text: #d8dee9;
-
-    --error: #bf616a;
-    --alert: #ebcb8b;
-    --success: #a3be8c;
-
-    --primary: #a3be8c;
-    --secondary: #b48ead;
-}
-
-
 * {
     box-sizing: border-box;
 }
