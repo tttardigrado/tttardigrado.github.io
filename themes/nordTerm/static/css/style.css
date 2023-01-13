@@ -1,0 +1,122 @@
+:root{
+    --bg-dark: #2e3440;
+    --bg-light: #3b4252;
+    
+    --text: #d8dee9;
+
+    --error: #bf616a;
+    --alert: #ebcb8b;
+    --success: #a3be8c;
+
+    --primary: #a3be8c;
+    --secondary: #b48ead;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    background-color: var(--bg-dark);
+    color: var(--text);
+
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    font-family: sans-serif;
+}
+
+
+
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding-top: 1.5rem;
+    padding-bottom: 10vh;
+}
+
+
+.nav-btn {
+    border-radius: 50px;
+    height: 0.85rem;
+    width: 0.85rem;
+    margin-left: 1rem;
+}
+
+.nav-btn:hover {
+    background-color: var(--bg-dark);
+    transition: 0.2s ease-in-out;
+}
+
+footer {
+    width: 90%;
+    max-width: 1500px;
+    position: fixed;
+    bottom: 3vh;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+h1 {
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary);
+}
+
+h1, h2, h3, h4, h5, h6,
+h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {
+    color: var(--primary);
+}
+
+h1::before { content: "# "; }
+h2::before { content: "## "; }
+h3::before { content: "### "; }
+h4::before { content: "#### "; }
+h5::before { content: "##### "; }
+h6::before { content: "###### "; }
+
+img {
+    display: block;
+    max-width: 90%;
+    max-height: 10rem;
+    margin: 2rem auto;
+}
+
+blockquote, pre {
+    background-color: var(--bg-light) !important ;
+    padding: 1rem;
+    margin: 2rem auto;
+    border-left: 0.5rem solid var(--primary);
+}
+
+pre code {
+    font-weight: bold ;
+    font-size: 1.2em !important;
+    text-shadow: 1px 2px 2px rgb(0, 0, 0, 0.1) !important;
+    border-radius: none !important;
+}
+
+hr {
+    border-top: 2px solid var(--primary);
+    opacity: 0.5;
+}
+
+code {
+    color: var(--primary);
+}
+
+a {
+    text-decoration: none;
+    color: var(--secondary);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+li::marker {
+    color: var(--secondary);
+}

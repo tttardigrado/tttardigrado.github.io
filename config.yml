@@ -1,0 +1,5 @@
+baseURL: "https://tardigrade.com/"
+languageCode: "en-us"
+title: "λx.Tardigrado"
+
+theme: "nordTerm"

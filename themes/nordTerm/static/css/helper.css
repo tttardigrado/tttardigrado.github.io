@@ -1,0 +1,33 @@
+.flex-center-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mx-2 {
+    margin-left: 0.5rem !important;
+    margin-right: 0.5rem !important;
+}
+
+.p-2 { padding: 0.5rem !important }
+
+.txt-up { text-transform: uppercase }
+
+.fw-bold { font-weight: bold }
+
+.bg-dark      { background-color: var(--bg-dark)   }
+.bg-light     { background-color: var(--bg-light)  }
+.bg-error     { background-color: var(--error)     }
+.bg-alert     { background-color: var(--alert)     }
+.bg-success   { background-color: var(--success)   }
+.bg-primary   { background-color: var(--primary)   }
+.bg-secondary { background-color: var(--secondary) }
+
+
+.fg-dark      { color: var(--bg-dark)   }
+.fg-light     { color: var(--bg-light)  }
+.fg-error     { color: var(--error)     }
+.fg-alert     { color: var(--alert)     }
+.fg-success   { color: var(--success)   }
+.fg-primary   { color: var(--primary)   }
+.fg-secondary { color: var(--secondary) }
