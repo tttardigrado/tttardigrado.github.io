@@ -78,7 +78,7 @@ img {
 blockquote, pre {
     background-color: var(--bg-light) !important ;
     padding: 1rem;
-    margin: 2rem auto;
+    margin: 4rem auto;
     border-left: 0.5rem solid var(--primary);
 }
 
