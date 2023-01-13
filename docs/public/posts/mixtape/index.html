@@ -1,0 +1,140 @@
+<!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=stylesheet type=text/css href=/css/style.css>
+<link rel=stylesheet type=text/css href=/css/helper.css>
+<link rel=stylesheet type=text/css href=/css/prism.css>
+<link rel=stylesheet type=text/css href=https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css>
+<title>🪐 Tardigrado | Mixtape</title>
+<style>:root{--bg-dark:#2e3440;--bg-light:#3b4252;--text:#d8dee9;--error:#bf616a;--alert:#ebcb8b;--success:#a3be8c;--primary:#a3be8c;--secondary:#b48ead}</style>
+</head><body><nav class="flex-center-between bg-light">
+<a href=/ class="p-2 fw-bold fg-text">Tardigrado</a>
+<div class="p-2 flex-center-between">
+<div class="nav-btn bg-alert"></div>
+<div class="nav-btn bg-success"></div>
+<div class="nav-btn bg-error"></div>
+</div>
+</nav><main id=content>
+<h1>Mixtape</h1>
+<i class="bi bi-calendar-event-fill me-1"></i>
+<time datetime=14-06-2022>Jun 14, 2022</time>
+<a href=https://tttardigrado.github.io/tags/esolangs class=tag><i class="bi bi-tags-fill me-1"></i> esolangs</a>
+<a href=https://tttardigrado.github.io/tags/nim class=tag><i class="bi bi-tags-fill me-1"></i> nim</a>
+<hr>
+<p><code>MixTape</code> (MT) is a new <strong>esoteric programming language</strong> (EsoLang) that is composed of a <strong>Grid</strong> and a <strong>Tape</strong> similar to Befunge’s and Brainfuck’s respectively. You might be asking: “Why another language?”. Oh sweet summer child, do you think I need any reason to create a new dumb language? I just wanna have fun.</p>
+<h2 id=the-tape>The Tape</h2>
+<p>After all what the hell is a <strong>Tape</strong>? A tape is just a 1-dimension collection of cells that can be manipulated.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>+---+---+---+---+---+---+---+---+ . . .
+│ <span style=color:#ae81ff>0</span> │ <span style=color:#ae81ff>1</span> │ <span style=color:#ae81ff>2</span> │ <span style=color:#ae81ff>3</span> │ <span style=color:#ae81ff>4</span> │ <span style=color:#ae81ff>5</span> │ <span style=color:#ae81ff>6</span> │ <span style=color:#ae81ff>7</span> │ . . .
++---+---+---+---+---+---+---+---+ . . .
+              ^
+</code></pre></div><p>Each <strong>Cell</strong> is a byte that can hold values from <strong>0</strong> to <strong>255</strong>. The Tape is made of <strong>256</strong> cells and a <strong>Head</strong> that points to the current cell.</p>
+<h2 id=the-grid>The Grid</h2>
+<p>A <strong>Grid</strong> is a 2-dimension 256x256 collection of characters that compose your program. Each character is assigned to a given operation that either manipulates the grid itself or the tape.</p>
+<p>The Grid also has a <strong>pointer</strong> that stores the current coordinate of the program. It starts at the top-left <strong>(0,0)</strong> and starts moving to the right. If this pointer moves out of the grid borders it will wrap around.</p>
+<h2 id=manipulation-of-the-tape>Manipulation of the Tape</h2>
+<p>The first thing we can manipulate is the <strong>Head</strong>. If you want to move the head to the <strong>left</strong>, use <code>{</code> and if you want to move it to the right use <code>}</code>.</p>
+<p>The head wraps around, i.e. if you try to move left at index 0 it moves to index 255 and if you try to move right at index 255 it moves to index 0.
+The second thing we can manipulate are the cells themselves. There are 4 kinds of operations that you can use on them: <strong>Increment</strong>, <strong>Decrement</strong>, <strong>Set</strong> and <strong>Read</strong>.</p>
+<p>You can use the <code>+</code> command to <strong>Increment</strong> and <code>-</code> to <strong>Decrement</strong> the given cell. Both operations wrap in a similar way to the tape’s head movement.</p>
+<p><strong>Setting</strong> is a bit more interesting since there are several ways to do it:
+<code>0</code> Sets the cell to 0.
+Any letter character (from <code>A</code> to <code>z</code>) will set the cell to it’s corresponding ASCII values (ex: <code>A</code> is 65).
+<code>?</code> will set the cell to a random value between 0 and 255.
+<code>”</code> will ask the user for a character and set the cell to it’s ASCII value
+<code>=</code> will ask the user for an integer and set the cell to it’s value (mod 255)</p>
+<p><strong>Reading</strong> is also an interesting operation:
+<code>$</code> Reads the value of the current cell, converts it to ASCII and prints it.
+<code>#</code> Reads the value of the current cell, prints it without converting it to a ASCII (it prints an integer)
+<code>@</code> Reads the value of the current cell and moves the head to the corresponding cell (ex: if the value is 10, the head will be moved to index 10)</p>
+<h2 id=manipulation-of-the-grid>Manipulation of the Grid</h2>
+<p>The <strong>Pointer</strong> moves, but there are several ways to manipulate it’s movement.
+<code>></code> Sets the movement direction to <strong>Right</strong>
+<code>&lt;</code> Sets the movement direction to <strong>Left</strong>
+<code>^</code> Sets the movement direction to <strong>Up</strong>
+<code>v</code> Sets the movement direction to <strong>Down</strong></p>
+<p>There are two conditional movement operators. They look at the value of the current cell and move to a different direction according to the value
+<code>|</code> If the value is 0, sets the direction to <strong>Up</strong>, otherwise sets it to <strong>Down</strong>
+<code>_</code> If the value is 0, sets the direction to <strong>Left</strong>, otherwise sets it to <strong>Right</strong></p>
+<p>Sometimes, we might want want to ignore certain characters and just jump to the next one. The <code>~</code> command does exactly that. If the pointer finds this command, it will keep moving in the same direction, but ignore the command after <code>~</code></p>
+<p>The last way to manipulate the grid is to move it’s pointer to a specific place. This can be achieved with the <code>&</code> operator that sets <strong>x</strong> to the value of the current cell and <strong>y</strong> to the value of the next cell (mod 30 so that it does not overflow)</p>
+<h2 id=strings>Strings</h2>
+<p>Esolangs are famous for being hard to write and output strings (hello world programs become super interesting once you enter the esolangs world). Since Mixtape is somewhat a Befunge clone, I wanted to add some <strong>String mode</strong> like the on found on Befunge.</p>
+<p>The string mode can be started and ended with the <code>”</code> command. Every character found between an opening and closing <code>”</code> will be interpreted as a string character and stored on the tape.</p>
+<p>Let’s see an example to make the concept easier to understand:<code>“ABCD”</code>
+Every character in this string will be converted to it’s ASCII representation, the current cell will be set to that value and the head will move right.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>                           A   B   C   D
++---+---+---+---+---+    +----+----+----+----+---+
+| <span style=color:#ae81ff>0</span> | <span style=color:#ae81ff>0</span> | <span style=color:#ae81ff>0</span> | <span style=color:#ae81ff>0</span> | <span style=color:#ae81ff>0</span> | -&gt; | <span style=color:#ae81ff>65</span> | <span style=color:#ae81ff>66</span> | <span style=color:#ae81ff>67</span> | <span style=color:#ae81ff>68</span> | <span style=color:#ae81ff>0</span> | 
++---+---+---+---+---+    +----+----+----+----+---+
+  ^                                            ^
+</code></pre></div><h2 id=resetting-and-ending-the-program>Resetting And Ending the program</h2>
+<p>There are two reset commands: <code>:</code> and <code>.</code>
+<code>:</code> resets the grid, setting the pointer coordinates to (0,0)
+<code>.</code> resets the tape, setting the head and every cell to 0</p>
+<p>A nice mnemonic for this is that the grid is 2D and <code>:</code> has 2 dots, while the tape is 1D and <code>.</code> has 1 dot.</p>
+<p>The program ends when it reaches a <code>!</code>. If it is the first character it will imediatamente stop and do nothing (not a very useful program if you ask me). If the program never reaches <code>!</code>, it will loop for ever (well, at least until you get bored and close the terminal)</p>
+<h2 id=cheat-sheet>Cheat Sheet</h2>
+<ul>
+<li>Grid
+<ul>
+<li><code>></code> Right</li>
+<li><code>&lt;</code> Left</li>
+<li><code>^</code> Up</li>
+<li><code>v</code> Down</li>
+<li><code>_</code> Left / Right</li>
+<li><code>|</code> Up / Down</li>
+<li><code>~</code> Ignore</li>
+<li><code>&</code> Go to (x, y)</li>
+<li><code>”</code> Start/End the string mode</li>
+</ul>
+</li>
+<li>Tape
+<ul>
+<li><code>{</code> Head Left</li>
+<li><code>}</code> Head Right</li>
+<li><code>+</code> Cell Up</li>
+<li><code>-</code> Cell Down</li>
+<li><code>?</code> Cell Random</li>
+<li><code>’</code> Get character from input</li>
+<li><code>=</code> Get integer from input</li>
+<li><code>$</code> Print cell as ASCII</li>
+<li><code>#</code> Print cell as integer</li>
+<li><code>@</code> Head to x</li>
+<li><code>0</code> Cell becomes 0</li>
+<li><code>1-9</code> Repeat the last tape operation x times</li>
+</ul>
+</li>
+<li>Resetting and Ending
+<ul>
+<li><code>:</code> Reset the Grid</li>
+<li><code>.</code> Reset the Tape</li>
+<li><code>!</code> End the program</li>
+</ul>
+</li>
+</ul>
+<h2 id=final-notes>Final Notes</h2>
+<p>Any unrecognised characters inside the grid will throw an error. This means that you shouldn’t use them, unless you like errors for some weird reason.</p>
+<p>Suggestions and contributions are appreciated. If you have an idea, want to help with documentation or implementation, found a bug or anything else, please open a pull request, an issue or message me on twitter or instagram.</p>
+<hr>
+<h3 id=resources>Resources</h3>
+<ol>
+<li><a href=https://esolangs.org/wiki/Brainfuck>Brainfuck</a></li>
+<li><a href=https://esolangs.org/wiki/Befunge>Befunge</a></li>
+<li><a href=https://github.com/tttardigrado/mixtape>MixTape</a></li>
+</ol>
+</main><footer class="flex-center-between bg-light">
+<div class="p-2 txt-up fw-bold bg-primary fg-light">Mixtape</div>
+<div class="p-2 flex-center-between">
+<a href=https://github.com/tttardigrado target=_blank class=icon>
+<i class="mx-2 bi bi-github"></i>
+</a>
+<a href=https://twitter.com/_tardigrado_ target=_blank class=icon>
+<i class="mx-2 bi bi-twitter"></i>
+</a>
+<a href=https://www.instagram.com/_tardigrado_/ target=_blank class=icon>
+<i class="mx-2 bi bi-instagram"></i>
+</a>
+</div>
+</footer><script src=/js/prism.js></script></body>
+</html>
