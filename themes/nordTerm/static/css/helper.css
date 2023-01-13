@@ -9,6 +9,10 @@
     margin-right: 0.5rem !important;
 }
 
+.me-1 {
+    margin-right: 0.2rem !important;
+}
+
 .p-2 { padding: 0.5rem !important }
 
 .txt-up { text-transform: uppercase }
@@ -29,5 +33,6 @@
 .fg-error     { color: var(--error)     }
 .fg-alert     { color: var(--alert)     }
 .fg-success   { color: var(--success)   }
+.fg-text      { color: var(--text)      }
 .fg-primary   { color: var(--primary)   }
 .fg-secondary { color: var(--secondary) }

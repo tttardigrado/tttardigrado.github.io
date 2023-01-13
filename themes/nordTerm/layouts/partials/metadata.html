@@ -1,0 +1,11 @@
+{{ $dateTime := .Date.Format "02-01-2006" }}
+{{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
+<i class="bi bi-calendar-event-fill me-1"></i>
+<time datetime="{{ $dateTime }}">{{ .Date.Format $dateFormat }}</time>
+
+{{ with .Params.tags }}
+    {{ range . }}
+        {{ $href := print (absURL "tags/") (urlize .) }}
+        <a href="{{ $href }}" class="tag"><i class="bi bi-tags-fill me-1"></i> {{ . }}</a>
+    {{end}} 
+{{end}}

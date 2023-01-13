@@ -61,14 +61,18 @@ footer {
     transform: translate(-50%, 0);
 }
 
-h1 {
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--primary);
+a {
+    text-decoration: none;
+    color: var(--secondary);
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 h1, h2, h3, h4, h5, h6,
 h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {
-    color: var(--primary);
+    color: var(--primary) !important;
 }
 
 h1::before { content: "# "; }
@@ -102,21 +106,35 @@ pre code {
 hr {
     border-top: 2px solid var(--primary);
     opacity: 0.5;
+    margin: 2rem auto;
 }
 
 code {
     color: var(--primary);
 }
 
-a {
-    text-decoration: none;
-    color: var(--secondary);
-}
 
-a:hover {
-    text-decoration: underline;
-}
 
 li::marker {
     color: var(--secondary);
+}
+
+
+.post {
+    margin: 2rem auto;
+}
+
+.tag, time {
+    margin-right: 1rem;
+}
+
+
+.icon {
+    color: var(--text);
+}
+
+.icon:hover {
+    color: var(--secondary);
+    text-decoration: none;
+    transition: 0.2s ease-in-out;;
 }

@@ -1,0 +1,13 @@
+{{ define "main" }}
+
+
+<h2>All Posts</h2>
+
+{{ .Content }}
+
+{{ range .Site.RegularPages }}
+    {{ partial "post_card.html" .}}
+{{end}}
+
+
+{{ end }}

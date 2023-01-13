@@ -1,5 +1,21 @@
 baseURL: "https://tardigrade.com/"
 languageCode: "en-us"
-title: "λx.Tardigrado"
+title: "Tardigrado"
 
 theme: "nordTerm"
+
+frontmatter:
+  date:
+    - publishDate
+    - :filename
+    - date
+    - :fileModTime
+
+params:
+  social:
+    - icon: "github"
+      url:  "https://github.com/tttardigrado"
+    - icon: "twitter"
+      url:  "https://twitter.com/_tardigrado_"
+    - icon: "instagram"
+      url:  "https://www.instagram.com/_tardigrado_/"

@@ -1,48 +1,14 @@
 {{ define "main" }}
-<h1>Heading 1</h1>
-<h2>Heading 2</h2>
-<h3>Heading 3</h3>
-<h4>Heading 4</h4>
-<h5>Heading 5</h5>
-<h6>Heading 6</h6>
 
 
-<ul>
-    <li>item 1</li>
-    <li>item 2</li>
-    <li>item 3</li>
-    <li>item 4</li>
-</ul>
+<h2>Most Recent Posts</h2>
 
-<ol>
-    <li>item 1</li>
-    <li>item 2</li>
-    <li>item 3</li>
-    <li>item 4</li>
-</ol>
-
-<hr>
-
-<p>Lorem ipsum dolor sit amet <strong>Lorem</strong> consectetur <code>Lorem</code> adipisicing elit. Placeat, <em>Lorem</em> explicabo?</p>
-
-<blockquote>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto aspernatur cumque accusamus quas unde fuga quibusdam expedita quisquam deleniti est!
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium, eum.
-</blockquote>
-
-
-
-<p>Lorem ipsum dolor sit amet consectetur  <a href="google.com">google link</a> adipisicing elit. Totam odio doloremque fugiat optio hic dicta tempora temporibus fuga tenetur quasi quibusdam, ut, libero esse quia delectus distinctio, illo id cupiditate saepe sint dolores necessitatibus corrupti deserunt? Ducimus vel similique esse dolorem aut, exercitationem dolor maiores assumenda ipsam vitae aliquam atque.</p>
-
-<img src="./img.png" alt="Logo">
-
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam odio doloremque fugiat optio hic dicta tempora temporibus fuga tenetur quasi quibusdam, ut, libero esse quia delectus distinctio, illo id cupiditate saepe sint dolores necessitatibus corrupti deserunt? Ducimus vel similique esse dolorem aut, exercitationem dolor maiores assumenda ipsam vitae aliquam atque.</p>
-
-<img src="./img2.png" alt="Logo">
-
-
-<pre><code class="language-python">def __main__() -> None:
-"""Hello World program in python"""
-print(("Hello, World"))</code></pre>
+<div>
+    {{ range ( .Site.RegularPages | first 3 ) }}
+        {{ partial "post_card.html" .}}
+    {{end}}
+    
+    <a href="/posts">See all posts</a>
+</div>
 
 {{ end }}

@@ -1,0 +1,12 @@
+{{ define "main" }}
+
+
+<h2>{{ .Title }}</h2>
+
+{{ range .Pages.ByPublishDate.Reverse }}
+    {{ partial "post_card.html" .}}
+{{ end }}
+
+
+{{ end }}
+
