@@ -33,7 +33,7 @@ I currently study <code>Computer Science</code> at Universidade do Porto.</p>
 
 <h2>Most Recent Posts</h2>
 
-<div>
+<div style="padding: 0 2rem;">
     {{ range ( .Site.RegularPages | first 3 ) }}
         {{ partial "post_card.html" .}}
     {{end}}
