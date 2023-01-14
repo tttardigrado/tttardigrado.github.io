@@ -12,14 +12,6 @@ frontmatter:
     - :fileModTime
 
 params:
-  social:
-    - icon: "github"
-      url:  "https://github.com/tttardigrado"
-    - icon: "twitter"
-      url:  "https://twitter.com/_tardigrado_"
-    - icon: "instagram"
-      url:  "https://www.instagram.com/_tardigrado_/"
-  
   colors:
     bgDark: "#2e3440"
     bgLight: "#3b4252"

@@ -76,8 +76,8 @@ img {
 
 blockquote, pre {
     background-color: var(--bg-light) !important ;
-    padding: 1rem;
-    margin: 4rem auto;
+    padding: 1rem !important;
+    margin: 2.5rem auto !important;
     border-left: 0.5rem solid var(--primary);
 }
 
@@ -98,12 +98,9 @@ code {
     color: var(--primary);
 }
 
-
-
 li::marker {
     color: var(--secondary);
 }
-
 
 .post {
     margin: 2rem auto;
@@ -111,15 +108,4 @@ li::marker {
 
 .tag, time {
     margin-right: 1rem;
-}
-
-
-.icon {
-    color: var(--text);
-}
-
-.icon:hover {
-    color: var(--secondary);
-    text-decoration: none;
-    transition: 0.2s ease-in-out;;
 }
