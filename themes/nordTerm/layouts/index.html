@@ -33,12 +33,11 @@ I'm currently a first year 💻 <code>Computer Science</code> student at Univers
 <br>
 <h2>Most Recent Posts</h2>
 
-<div style="padding: 0 2rem;">
-    {{ range ( .Site.RegularPages.ByPublishDate.Reverse | first 3 ) }}
-        {{ partial "post_card.html" .}}
-    {{end}}
+
+{{ range ( .Site.RegularPages.ByPublishDate.Reverse | first 3 ) }}
+    {{ partial "post_card.html" .}}
+{{end}}
     
-    <a href="/posts">See all posts</a>
-</div>
+<a href="/posts">See all posts</a>
 
 {{ end }}
