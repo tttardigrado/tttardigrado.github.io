@@ -1,0 +1,110 @@
+<!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=stylesheet type=text/css href=/css/style.css>
+<link rel=stylesheet type=text/css href=/css/helper.css>
+<link rel=stylesheet type=text/css href=/css/prism.css>
+<link rel=stylesheet type=text/css href=https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css integrity=sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0 crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js integrity=sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4 crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous onload=renderMathInElement(document.body)></script>
+<title>🪐 Tardigrado | PF - Ficha 1</title>
+<style>:root{--bg-dark:#2e3440;--bg-light:#3b4252;--text:#d8dee9;--error:#bf616a;--alert:#ebcb8b;--success:#a3be8c;--primary:#a3be8c;--secondary:#b48ead}</style>
+</head><body><nav class="flex-center-between bg-light">
+<a href=/ class="p-2 fw-bold fg-text">Tardigrado</a>
+<div class="p-2 flex-center-between">
+<div class="nav-btn bg-alert"></div>
+<div class="nav-btn bg-success"></div>
+<div class="nav-btn bg-error"></div>
+</div>
+</nav><main id=content>
+<h1>PF - Ficha 1</h1>
+<i class="bi bi-calendar-event-fill me-1"></i>
+<time datetime=17-01-2023>Jan 17, 2023</time>
+<a href=https://tttardigrado.github.io/tags/lcc class=tag><i class="bi bi-tags-fill me-1"></i> lcc</a>
+<a href=https://tttardigrado.github.io/tags/funcional class=tag><i class="bi bi-tags-fill me-1"></i> funcional</a>
+<hr>
+<h2 id=11>1.1</h2>
+<p>Considere as seguintes definições de funções:</p>
+<p><code>incr x = x + 1</code></p>
+<p><code>triplo x = 3 * x</code></p>
+<p><code>boasVindas nome = "Olá, " ++ nome ++ "!"</code></p>
+<p>Simplifique as expressões seguintes o máximo possível efectuando reduções passo-a-passo</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#a6e22e>incr</span> (triplo <span style=color:#ae81ff>3</span>)
+  <span style=color:#f92672>=&gt;</span> incr (<span style=color:#ae81ff>3</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>3</span>)
+  <span style=color:#f92672>=&gt;</span> incr <span style=color:#ae81ff>9</span>
+  <span style=color:#f92672>=&gt;</span> <span style=color:#ae81ff>9</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>
+  <span style=color:#f92672>=&gt;</span> <span style=color:#ae81ff>10</span>
+
+<span style=color:#a6e22e>triplo</span> (incr <span style=color:#ae81ff>3</span>)
+  <span style=color:#f92672>=&gt;</span> triplo (<span style=color:#ae81ff>3</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>) 
+  <span style=color:#f92672>=&gt;</span> triplo <span style=color:#ae81ff>4</span>
+  <span style=color:#f92672>=&gt;</span> <span style=color:#ae81ff>3</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>4</span>
+  <span style=color:#f92672>=&gt;</span> <span style=color:#ae81ff>12</span>
+
+<span style=color:#a6e22e>boasVindas</span> <span style=color:#e6db74>&#34;Linguagem&#34;</span> <span style=color:#f92672>++</span> <span style=color:#e6db74>&#34; Haskell&#34;</span>
+  <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#34;Olá, &#34;</span> <span style=color:#f92672>++</span> <span style=color:#e6db74>&#34;Linguagem&#34;</span> <span style=color:#f92672>++</span> <span style=color:#e6db74>&#34;!&#34;</span> <span style=color:#f92672>++</span> <span style=color:#e6db74>&#34; Haskell&#34;</span>
+  <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#34;Olá, Linguagem&#34;</span> <span style=color:#f92672>++</span> <span style=color:#e6db74>&#34;!&#34;</span> <span style=color:#f92672>++</span> <span style=color:#e6db74>&#34; Haskell&#34;</span>
+  <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#34;Olá, Linguagem!&#34;</span> <span style=color:#f92672>++</span> <span style=color:#e6db74>&#34; Haskell&#34;</span>
+  <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#34;Olá, Linguagem! Haskell&#34;</span>
+
+<span style=color:#a6e22e>boasVindas</span> (<span style=color:#e6db74>&#34;Linguagem&#34;</span> <span style=color:#f92672>++</span> <span style=color:#e6db74>&#34; Haskell&#34;</span>)
+  <span style=color:#f92672>=&gt;</span> boasVindas <span style=color:#e6db74>&#34;Linguagem Haskell&#34;</span>
+  <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#34;Olá, &#34;</span> <span style=color:#f92672>++</span> <span style=color:#e6db74>&#34;Linguagem Haskell&#34;</span> <span style=color:#f92672>++</span> <span style=color:#e6db74>&#34;!&#34;</span>
+  <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#34;Olá, Linguagem Haskell&#34;</span> <span style=color:#f92672>++</span> <span style=color:#e6db74>&#34;!&#34;</span>
+  <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#34;Olá, Linguagem Haskell!&#34;</span>
+
+<span style=color:#a6e22e>boasVindas</span> (boasVindas <span style=color:#e6db74>&#34;Haskell&#34;</span>)
+  <span style=color:#f92672>=&gt;</span> boasVindas (<span style=color:#e6db74>&#34;Olá, &#34;</span> <span style=color:#f92672>++</span> <span style=color:#e6db74>&#34;Haskell&#34;</span> <span style=color:#f92672>++</span> <span style=color:#e6db74>&#34;!&#34;</span>)
+  <span style=color:#f92672>=&gt;</span> boasVindas (<span style=color:#e6db74>&#34;Olá, Haskell&#34;</span> <span style=color:#f92672>++</span> <span style=color:#e6db74>&#34;!&#34;</span>)
+  <span style=color:#f92672>=&gt;</span> boasVindas <span style=color:#e6db74>&#34;Olá, Haskell!&#34;</span>
+  <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#34;Olá, &#34;</span> <span style=color:#f92672>++</span> <span style=color:#e6db74>&#34;Olá, Haskell!&#34;</span> <span style=color:#f92672>++</span> <span style=color:#e6db74>&#34;!&#34;</span>
+  <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#34;Olá, Olá, Haskell!&#34;</span> <span style=color:#f92672>++</span> <span style=color:#e6db74>&#34;!&#34;</span>
+  <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#34;Olá, Olá, Haskell!!&#34;</span>
+</code></pre></div><h2 id=12>1.2</h2>
+<p>Para que três valores possam ser medidas dos lados de um triângulo deve
+verifcar-se a seguinte condição: qualquer dos valores deve ser inferior à soma
+dos outros dois. Complete a defnição de uma função que testa esta condição. O
+resultado deve ser um valor boleano (<code>True</code> ou <code>False</code>).</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#a6e22e>testaTriangulo</span> <span style=color:#f92672>::</span> <span style=color:#66d9ef>Float</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>Float</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>Float</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>Bool</span>
+<span style=color:#a6e22e>testaTriangulo</span> a b c <span style=color:#f92672>=</span> a <span style=color:#f92672>&lt;</span> b <span style=color:#f92672>+</span> c <span style=color:#f92672>&amp;&amp;</span> b <span style=color:#f92672>&lt;</span> a <span style=color:#f92672>+</span> c <span style=color:#f92672>&amp;&amp;</span> c <span style=color:#f92672>&lt;</span> a <span style=color:#f92672>+</span> b
+</code></pre></div><h2 id=13>1.3</h2>
+<p>Podemos calcular a área A de um triângulo de lados <code>a</code>, <code>b</code>, <code>c</code> usando a fórmula de Heron:
+$$ A = \sqrt{s(s-a)(s-b)(s-c)}$$
+$$s = (a+b+c)/2$$
+Complete a seguinte defnição em Haskell duma função
+para calcular esta área.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#a6e22e>areaTriangulo</span> <span style=color:#f92672>::</span> <span style=color:#66d9ef>Float</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>Float</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>Float</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>Float</span>
+<span style=color:#a6e22e>areaTriangulo</span> a b c <span style=color:#f92672>=</span> srt <span style=color:#f92672>$</span> s <span style=color:#f92672>*</span> (s <span style=color:#f92672>-</span> a) <span style=color:#f92672>*</span> (s <span style=color:#f92672>-</span> b) <span style=color:#f92672>*</span> (s <span style=color:#f92672>-</span> c)
+  <span style=color:#66d9ef>where</span> s <span style=color:#f92672>=</span> (a <span style=color:#f92672>+</span> b <span style=color:#f92672>+</span> c) <span style=color:#f92672>/</span> <span style=color:#ae81ff>2</span>
+</code></pre></div><h2 id=14>1.4</h2>
+<p>Usando as funções <code>length</code>, <code>take</code>, <code>drop</code> apresentadas na primeira aula,
+escreva uma função metades que divide uma lista em duas com metade do
+comprimento (aproximadamente).</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#a6e22e>metades</span> <span style=color:#f92672>::</span> [a] <span style=color:#f92672>-&gt;</span> ([a], [a])
+<span style=color:#a6e22e>metades</span> xs <span style=color:#f92672>=</span> (take half xs, drop half xs)
+  <span style=color:#66d9ef>where</span> half <span style=color:#f92672>=</span> length xs `div` <span style=color:#ae81ff>2</span>
+</code></pre></div><h2 id=15>1.5</h2>
+<p>Neste exercício pretende-se que use as funções do prelúdio-padrão de pro-
+cessamento de lista apresentadas na primeira aula: <code>head</code>, <code>tail</code>, <code>length</code>, <code>take</code>,
+<code>drop</code> e <code>reverse</code></p>
+<h3 id=151>1.5.1</h3>
+<p>Encontre duas definições para a função <code>last</code> que obtém o último elemento da lista</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#a6e22e>last&#39;</span>, last&#39;&#39; <span style=color:#f92672>::</span> [a] <span style=color:#f92672>-&gt;</span> a
+<span style=color:#a6e22e>last&#39;</span>     <span style=color:#f92672>=</span> head <span style=color:#f92672>.</span> reverse
+<span style=color:#a6e22e>last&#39;&#39;</span> xs <span style=color:#f92672>=</span> head <span style=color:#f92672>$</span> drop (length xs <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>) xs
+</code></pre></div><h3 id=152>1.5.2</h3>
+<p>Encontre duas definições para a função <code>init</code> que remove o último elemento da lista</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#a6e22e>init&#39;</span>, init&#39;&#39; <span style=color:#f92672>::</span> [a] <span style=color:#f92672>-&gt;</span> [a]
+<span style=color:#a6e22e>init&#39;</span>     <span style=color:#f92672>=</span> reverse <span style=color:#f92672>.</span> tail <span style=color:#f92672>.</span> reverse
+<span style=color:#a6e22e>init&#39;&#39;</span> xs <span style=color:#f92672>=</span> take (length xs <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>) xs
+</code></pre></div><h2 id=16>1.6</h2>
+<p>Os coefcientes binomiais correspondem ao número de formas distintas de escolher <code>k</code> objetos entre <code>n</code> (ou, equivalentemente, o número de subconjuntos com <code>k</code> elementos que podemos formar de um conjunto de <code>n</code> elementos).</p>
+<p>Complete a defnição duma função que calcule o coeficient binomial, sabendo que
+$$\binom n k = \frac{n!}{k!(n-k)!}$$</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#a6e22e>binom</span> <span style=color:#f92672>::</span> <span style=color:#66d9ef>Integer</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>Integer</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>Integer</span>
+<span style=color:#a6e22e>binom</span> n k <span style=color:#f92672>=</span> fact n `div` (fact k <span style=color:#f92672>*</span> fact (n<span style=color:#f92672>-</span>k))
+  <span style=color:#66d9ef>where</span> fact a <span style=color:#f92672>=</span> product [<span style=color:#ae81ff>1</span><span style=color:#f92672>..</span>a]
+</code></pre></div>
+</main><script src=/js/prism.js></script></body>
+</html>
