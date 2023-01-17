@@ -1,7 +1,8 @@
 ---
-title: "Ficha2"
+title: "PF - Ficha 2"
 date: 2023-01-17T15:40:58Z
 tags: ["lcc", "funcional"]
+summary: "My solutions for the functional programming course's worksheet #2"
 ---
 
 ## 2.1

@@ -2,6 +2,7 @@
 title: "PF - Ficha 1"
 date: 2023-01-17T14:29:01Z
 tags: ["lcc", "funcional"]
+summary: "My solutions for the functional programming course's worksheet #1"
 ---
 
 ## 1.1
