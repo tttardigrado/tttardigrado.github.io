@@ -20,7 +20,10 @@
 </nav><main id=content>
 <h1>Build you a brainfuck compiler for the greater good</h1>
 <i class="bi bi-calendar-event-fill me-1"></i>
-<time datetime=14-01-2023>Jan 14, 2023</time>
+<time datetime=19-01-2023>Jan 19, 2023</time>
+<a href=https://tttardigrado.github.io/tags/haskell class=tag><i class="bi bi-tags-fill me-1"></i> haskell</a>
+<a href=https://tttardigrado.github.io/tags/esolangs class=tag><i class="bi bi-tags-fill me-1"></i> esolangs</a>
+<a href=https://tttardigrado.github.io/tags/compilers class=tag><i class="bi bi-tags-fill me-1"></i> compilers</a>
 <hr>
 <p>I <code>love</code> brainfuck. Most of my friends probably hate it because, sometimes, I talk wayyyyyy too much about it&mldr; but I love brainfuck.</p>
 <p>It&rsquo;s an exercise on simplicity, design, and, honestly, quite fun. Since I learned about brainfuck, I&rsquo;ve implemented interpreters in several languages, written small programs, and designed <a href=https://tttardigrado.github.io/posts/mixtape/>languages inspired by it</a>, but there was something that I had not yet crossed out of my todo list: a brainfuck compiler.</p>
@@ -40,36 +43,44 @@
 <thead>
 <tr>
 <th>Instruction</th>
+<th>C equivalent</th>
 <th>Meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>+</td>
+<td><code>*ptr += 1;</code></td>
 <td>increment the current cell</td>
 </tr>
 <tr>
 <td>-</td>
+<td><code>*ptr -= 1;</code></td>
 <td>decrement the current cell</td>
 </tr>
 <tr>
 <td>&lt;</td>
+<td><code>ptr += 1;</code></td>
 <td>move the head left</td>
 </tr>
 <tr>
 <td>></td>
+<td><code>ptr -= 1;</code></td>
 <td>move the head right</td>
 </tr>
 <tr>
 <td>.</td>
+<td><code>putchar(*ptr);</code></td>
 <td>print the current cell&rsquo;s as ASCII</td>
 </tr>
 <tr>
 <td>,</td>
+<td><code>*ptr=getchar();</code></td>
 <td>set the current cell to user input</td>
 </tr>
 <tr>
 <td>[ ]</td>
+<td><code>while (*ptr) {}</code></td>
 <td>while loop</td>
 </tr>
 </tbody>
@@ -90,7 +101,7 @@
 </code></pre></div><p>Now that we comprehend the output, we must understand the input. Brainfuck&rsquo;s syntax is simple and is described by the following (equally simple) grammar:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&lt;bf&gt; ::<span style=color:#f92672>=</span> + | - | &lt; | &gt; | . | , | <span style=color:#f92672>[</span>&lt;bf&gt;<span style=color:#f92672>]</span> | &lt;bf&gt;&lt;bf&gt;
 </code></pre></div><p>This representation is called <a href=https://matt.might.net/articles/grammars-bnf-ebnf/>Backus-Naur-Form (BNF)</a>. If you don&rsquo;t know how to interpret <em>BNF</em>, it essentially says that a valid program is one that can be obtained by successively expanding <code>&lt;bf></code> into one of that patterns. This means that <code>+++[>]</code> is valid, while <code>+++[</code> is not.</p>
-<p>Knowing both the input and the output, the only missing piece (arguably the most important) is the tool that performs the translation between them: the <strong>parser</strong>. We&rsquo;re going to use <a href=https://www.cs.nott.ac.uk/~pszgmh/monparsing.pdf>Monadic Parser Combinators</a> to perform this task, since they are simple and allow our parser to be similar to the grammar presented above. If the word <em>Monad</em> scares you, don&rsquo;t worry, it also scares me, and I&rsquo;m not going to try to explain category theory to you.</p>
+<p>Knowing both the input and the output, the only missing piece (arguably the most important) is the tool that performs the translation between them: the <strong>parser</strong>. We&rsquo;re going to use <a href=https://www.cs.nott.ac.uk/~pszgmh/monparsing.pdf>Monadic Parser Combinators</a> to perform this task, since they are simple and allow our parser to be similar to the grammar presented above. If the word <em>Monad</em> scares you, don&rsquo;t worry, it also scares me, and I&rsquo;m not going to try to explain category theory to you (at least, not today).</p>
 <p>Let&rsquo;s start by building 6 elementary parsers (for <code>+</code>, <code>-</code>, <code>&lt;</code>, <code>></code>, <code>.</code> and <code>,</code>)</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#75715e>-- All of them have the same type</span>
 <span style=color:#a6e22e>pPlus</span>, pMinus, pRight, pLeft, pInp, pOut <span style=color:#f92672>::</span> <span style=color:#66d9ef>Parser</span> <span style=color:#66d9ef>Op</span>
@@ -108,7 +119,7 @@
 <span style=color:#75715e>--    and on success return a</span>
 <span style=color:#a6e22e>pInp</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>Inp</span> <span style=color:#f92672>&lt;$</span> char <span style=color:#e6db74>&#39;,&#39;</span>
 <span style=color:#a6e22e>pOut</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>Out</span> <span style=color:#f92672>&lt;$</span> char <span style=color:#e6db74>&#39;.&#39;</span>
-</code></pre></div><p>The parsers for Loop and a for full program can also be implemented in the following way:</p>
+</code></pre></div><p>The parsers for a loop and a full program can also be implemented in the following way:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#75715e>-- map a match of [ pExpr ] into Loop</span>
 <span style=color:#a6e22e>pLoop</span> <span style=color:#f92672>::</span> <span style=color:#66d9ef>Parser</span> <span style=color:#66d9ef>Op</span>
 <span style=color:#a6e22e>pLoop</span> <span style=color:#f92672>=</span> fmap <span style=color:#66d9ef>Loop</span> (between (char <span style=color:#e6db74>&#39;[&#39;</span>) (char <span style=color:#e6db74>&#39;]&#39;</span>) pExpr)

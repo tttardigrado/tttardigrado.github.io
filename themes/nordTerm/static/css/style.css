@@ -59,6 +59,7 @@ h1, h2, h3, h4, h5, h6,
 h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {
     color: var(--primary) !important;
     text-transform: capitalize;
+    text-align: start;
 }
 
 h1::before { content: "# "; }
@@ -78,13 +79,12 @@ img {
 blockquote, pre {
     background-color: var(--bg-light) !important ;
     padding: 1rem !important;
-    margin: 2.5rem auto !important;
     border-left: 0.5rem solid var(--primary);
+    overflow: auto;
 }
 
 pre code {
     font-weight: bold ;
-    font-size: 1.2em !important;
     text-shadow: 1px 2px 2px rgb(0, 0, 0, 0.1) !important;
     border-radius: none !important;
 }

@@ -1,7 +1,8 @@
 ---
 title: "Build you a brainfuck compiler for the greater good"
-date: 2023-01-14T00:35:08Z
+date: 2023-01-19T00:35:08Z
 summary: "How I built an optimizing `brainfuck` to `C` compiler using Haskell, and you could too."
+tags: ["haskell", "esolangs", "compilers"]
 ---
 
 I `love` brainfuck. Most of my friends probably hate it because, sometimes, I talk wayyyyyy too much about it... but I love brainfuck.
@@ -23,15 +24,15 @@ The full code is available at this [repo](https://github.com/tttardigrado/hsfuck
 
 brainfuck was created in 1993 by Urban Müller. Inspired by FALSE's 1024-byte compiler, his intention was to create a smaller one. The language consists of a `tape` (an array of byte-sized cells), a `head` (a pointer to the current cell) and the following instructions that manipulate the tape:
 
-| Instruction | Meaning                            |
-|-------------|------------------------------------|
-| +           | increment the current cell         |
-| -           | decrement the current cell         |
-| <           | move the head left                 |
-| >           | move the head right                |
-| .           | print the current cell's as ASCII  |
-| ,           | set the current cell to user input |
-| [ ]         | while loop                         |
+| Instruction | C equivalent      | Meaning                            |
+|-------------|-------------------|------------------------------------|
+| +           | `*ptr += 1;`      | increment the current cell         |
+| -           | `*ptr -= 1;`      | decrement the current cell         |
+| <           | `ptr += 1;`       | move the head left                 |
+| >           | `ptr -= 1;`       | move the head right                |
+| .           | `putchar(*ptr);`  | print the current cell's as ASCII  |
+| ,           | `*ptr=getchar();` | set the current cell to user input |
+| [ ]         | `while (*ptr) {}` | while loop                         |
 
 
 Althought simple, brainfuck was proved to be [turing complete](http://www.iwriteiam.nl/Ha_bf_Turing.html), proving, one more time, that complexity can emerge from simplicity.
@@ -62,7 +63,7 @@ Now that we comprehend the output, we must understand the input. Brainfuck's syn
 
 This representation is called [Backus-Naur-Form (BNF)](https://matt.might.net/articles/grammars-bnf-ebnf/). If you don't know how to interpret *BNF*, it essentially says that a valid program is one that can be obtained by successively expanding `<bf>` into one of that patterns. This means that `+++[>]` is valid, while `+++[` is not.
 
-Knowing both the input and the output, the only missing piece (arguably the most important) is the tool that performs the translation between them: the **parser**. We're going to use [Monadic Parser Combinators](https://www.cs.nott.ac.uk/~pszgmh/monparsing.pdf) to perform this task, since they are simple and allow our parser to be similar to the grammar presented above. If the word *Monad* scares you, don't worry, it also scares me, and I'm not going to try to explain category theory to you.
+Knowing both the input and the output, the only missing piece (arguably the most important) is the tool that performs the translation between them: the **parser**. We're going to use [Monadic Parser Combinators](https://www.cs.nott.ac.uk/~pszgmh/monparsing.pdf) to perform this task, since they are simple and allow our parser to be similar to the grammar presented above. If the word *Monad* scares you, don't worry, it also scares me, and I'm not going to try to explain category theory to you (at least, not today).
 
 Let's start by building 6 elementary parsers (for `+`, `-`, `<`, `>`, `.` and `,`)
 
@@ -85,7 +86,7 @@ pInp = Inp <$ char ','
 pOut = Out <$ char '.'
 ```
 
-The parsers for Loop and a for full program can also be implemented in the following way:
+The parsers for a loop and a full program can also be implemented in the following way:
 
 ```haskell
 -- map a match of [ pExpr ] into Loop
