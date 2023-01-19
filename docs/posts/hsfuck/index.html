@@ -1,0 +1,248 @@
+<!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=stylesheet type=text/css href=/css/style.css>
+<link rel=stylesheet type=text/css href=/css/helper.css>
+<link rel=stylesheet type=text/css href=/css/prism.css>
+<link rel=stylesheet type=text/css href=https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css integrity=sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0 crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js integrity=sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4 crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous onload=renderMathInElement(document.body)></script>
+<title>🪐 Tardigrado | Build you a brainfuck compiler for the greater good</title>
+<style>:root{--bg-dark:#2e3440;--bg-light:#3b4252;--text:#d8dee9;--error:#bf616a;--alert:#ebcb8b;--success:#a3be8c;--primary:#a3be8c;--secondary:#b48ead}</style>
+</head><body><nav class="flex-center-between bg-light">
+<a href=/ class="p-2 fw-bold fg-text">Tardigrado</a>
+<div class="p-2 flex-center-between">
+<div class="nav-btn bg-alert"></div>
+<div class="nav-btn bg-success"></div>
+<div class="nav-btn bg-error"></div>
+</div>
+</nav><main id=content>
+<h1>Build you a brainfuck compiler for the greater good</h1>
+<i class="bi bi-calendar-event-fill me-1"></i>
+<time datetime=14-01-2023>Jan 14, 2023</time>
+<hr>
+<p>I <code>love</code> brainfuck. Most of my friends probably hate it because, sometimes, I talk wayyyyyy too much about it&mldr; but I love brainfuck.</p>
+<p>It&rsquo;s an exercise on simplicity, design, and, honestly, quite fun. Since I learned about brainfuck, I&rsquo;ve implemented interpreters in several languages, written small programs, and designed <a href=https://tttardigrado.github.io/posts/mixtape/>languages inspired by it</a>, but there was something that I had not yet crossed out of my todo list: a brainfuck compiler.</p>
+<p>That changes today, and I&rsquo;m building it using haskell (because I can and I need to practice haskell for my functional programming course next semester)</p>
+<p>The full code is available at this <a href=https://github.com/tttardigrado/hsfuck>repo</a>.</p>
+<h2 id=index>Index</h2>
+<ol>
+<li><a href=#what-is-brainfuck>What is brainfuck?</a></li>
+<li><a href=#parsing>Parsing</a></li>
+<li><a href=#optimization>Optimization</a></li>
+<li><a href=#code-generation>Code Generation</a></li>
+<li><a href=#conclusion>Conclusion</a></li>
+</ol>
+<h2 id=what-is-brainfuck>What is brainfuck?</h2>
+<p>brainfuck was created in 1993 by Urban Müller. Inspired by FALSE&rsquo;s 1024-byte compiler, his intention was to create a smaller one. The language consists of a <code>tape</code> (an array of byte-sized cells), a <code>head</code> (a pointer to the current cell) and the following instructions that manipulate the tape:</p>
+<table>
+<thead>
+<tr>
+<th>Instruction</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td>increment the current cell</td>
+</tr>
+<tr>
+<td>-</td>
+<td>decrement the current cell</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>move the head left</td>
+</tr>
+<tr>
+<td>></td>
+<td>move the head right</td>
+</tr>
+<tr>
+<td>.</td>
+<td>print the current cell&rsquo;s as ASCII</td>
+</tr>
+<tr>
+<td>,</td>
+<td>set the current cell to user input</td>
+</tr>
+<tr>
+<td>[ ]</td>
+<td>while loop</td>
+</tr>
+</tbody>
+</table>
+<p>Althought simple, brainfuck was proved to be <a href=http://www.iwriteiam.nl/Ha_bf_Turing.html>turing complete</a>, proving, one more time, that complexity can emerge from simplicity.</p>
+<p>If you want to dig deeper into this rabbithole, <a href=https://en.wikipedia.org/wiki/Brainfuck>Wikipedia&rsquo;s</a> and <a href=https://esolangs.org/wiki/Brainfuck>Esolangs'</a> articles are good places to start.</p>
+<h2 id=parsing>Parsing</h2>
+<p>We can&rsquo;t process something we don&rsquo;t know. This means that, before parsing, we should understand what we are parsing and into what we are parsing it. We&rsquo;ll parse brainfuck into the <code>BF</code> type:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#66d9ef>data</span> <span style=color:#66d9ef>Op</span>
+  <span style=color:#f92672>=</span> <span style=color:#66d9ef>Inc</span> <span style=color:#66d9ef>Int</span> <span style=color:#75715e>-- + -</span>
+  <span style=color:#f92672>|</span> <span style=color:#66d9ef>Mov</span> <span style=color:#66d9ef>Int</span> <span style=color:#75715e>-- &lt; &gt;</span>
+  <span style=color:#f92672>|</span> <span style=color:#66d9ef>Out</span>     <span style=color:#75715e>-- .</span>
+  <span style=color:#f92672>|</span> <span style=color:#66d9ef>Inp</span>     <span style=color:#75715e>-- ,</span>
+  <span style=color:#f92672>|</span> <span style=color:#66d9ef>Loop</span> <span style=color:#66d9ef>BF</span> <span style=color:#75715e>-- [ ]</span>
+  <span style=color:#66d9ef>deriving</span> (<span style=color:#66d9ef>Show</span>, <span style=color:#66d9ef>Eq</span>)
+
+<span style=color:#66d9ef>type</span> <span style=color:#66d9ef>BF</span> <span style=color:#f92672>=</span> [<span style=color:#66d9ef>Op</span>]
+</code></pre></div><p>Now that we comprehend the output, we must understand the input. Brainfuck&rsquo;s syntax is simple and is described by the following (equally simple) grammar:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&lt;bf&gt; ::<span style=color:#f92672>=</span> + | - | &lt; | &gt; | . | , | <span style=color:#f92672>[</span>&lt;bf&gt;<span style=color:#f92672>]</span> | &lt;bf&gt;&lt;bf&gt;
+</code></pre></div><p>This representation is called <a href=https://matt.might.net/articles/grammars-bnf-ebnf/>Backus-Naur-Form (BNF)</a>. If you don&rsquo;t know how to interpret <em>BNF</em>, it essentially says that a valid program is one that can be obtained by successively expanding <code>&lt;bf></code> into one of that patterns. This means that <code>+++[>]</code> is valid, while <code>+++[</code> is not.</p>
+<p>Knowing both the input and the output, the only missing piece (arguably the most important) is the tool that performs the translation between them: the <strong>parser</strong>. We&rsquo;re going to use <a href=https://www.cs.nott.ac.uk/~pszgmh/monparsing.pdf>Monadic Parser Combinators</a> to perform this task, since they are simple and allow our parser to be similar to the grammar presented above. If the word <em>Monad</em> scares you, don&rsquo;t worry, it also scares me, and I&rsquo;m not going to try to explain category theory to you.</p>
+<p>Let&rsquo;s start by building 6 elementary parsers (for <code>+</code>, <code>-</code>, <code>&lt;</code>, <code>></code>, <code>.</code> and <code>,</code>)</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#75715e>-- All of them have the same type</span>
+<span style=color:#a6e22e>pPlus</span>, pMinus, pRight, pLeft, pInp, pOut <span style=color:#f92672>::</span> <span style=color:#66d9ef>Parser</span> <span style=color:#66d9ef>Op</span>
+
+<span style=color:#75715e>-- (fmap f p) means that we will parse using the Parser p</span>
+<span style=color:#75715e>--    and apply the function f to it&#39;s content</span>
+<span style=color:#75715e>--    ex: pPlus parses at least one + and returns</span>
+<span style=color:#75715e>--        the number of parsed characters wrapped in Inc</span>
+<span style=color:#a6e22e>pPlus</span>  <span style=color:#f92672>=</span> fmap (<span style=color:#66d9ef>Inc</span> <span style=color:#f92672>.</span> length)          (many1 <span style=color:#f92672>$</span> char <span style=color:#e6db74>&#39;+&#39;</span>)
+<span style=color:#a6e22e>pMinus</span> <span style=color:#f92672>=</span> fmap (<span style=color:#66d9ef>Inc</span> <span style=color:#f92672>.</span> negate <span style=color:#f92672>.</span> length) (many1 <span style=color:#f92672>$</span> char <span style=color:#e6db74>&#39;-&#39;</span>)
+<span style=color:#a6e22e>pRight</span> <span style=color:#f92672>=</span> fmap (<span style=color:#66d9ef>Mov</span> <span style=color:#f92672>.</span> length)          (many1 <span style=color:#f92672>$</span> char <span style=color:#e6db74>&#39;&gt;&#39;</span>)
+<span style=color:#a6e22e>pLeft</span>  <span style=color:#f92672>=</span> fmap (<span style=color:#66d9ef>Mov</span> <span style=color:#f92672>.</span> negate <span style=color:#f92672>.</span> length) (many1 <span style=color:#f92672>$</span> char <span style=color:#e6db74>&#39;&lt;&#39;</span>)
+
+<span style=color:#75715e>-- (a &lt;$ p) means that we will parse using the Parser p</span>
+<span style=color:#75715e>--    and on success return a</span>
+<span style=color:#a6e22e>pInp</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>Inp</span> <span style=color:#f92672>&lt;$</span> char <span style=color:#e6db74>&#39;,&#39;</span>
+<span style=color:#a6e22e>pOut</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>Out</span> <span style=color:#f92672>&lt;$</span> char <span style=color:#e6db74>&#39;.&#39;</span>
+</code></pre></div><p>The parsers for Loop and a for full program can also be implemented in the following way:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#75715e>-- map a match of [ pExpr ] into Loop</span>
+<span style=color:#a6e22e>pLoop</span> <span style=color:#f92672>::</span> <span style=color:#66d9ef>Parser</span> <span style=color:#66d9ef>Op</span>
+<span style=color:#a6e22e>pLoop</span> <span style=color:#f92672>=</span> fmap <span style=color:#66d9ef>Loop</span> (between (char <span style=color:#e6db74>&#39;[&#39;</span>) (char <span style=color:#e6db74>&#39;]&#39;</span>) pExpr)
+
+<span style=color:#75715e>-- &lt;|&gt; means option, similar to | in the grammar</span>
+<span style=color:#a6e22e>pExpr</span> <span style=color:#f92672>::</span> <span style=color:#66d9ef>Parser</span> <span style=color:#66d9ef>BF</span>
+<span style=color:#a6e22e>pExpr</span> <span style=color:#f92672>::</span> many1 (pPlus <span style=color:#f92672>&lt;|&gt;</span> pMinus <span style=color:#f92672>&lt;|&gt;</span> pRight <span style=color:#f92672>&lt;|&gt;</span> pLeft <span style=color:#f92672>&lt;|&gt;</span> pInp <span style=color:#f92672>&lt;|&gt;</span> pOut <span style=color:#f92672>&lt;|&gt;</span> pLoop)
+</code></pre></div><p>Now, we just need to create a function that ignores non-brainfuck characters (since they are treated as comments) and uses <code>pExpr</code> to parse programs. Voila, we have a working parser.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#75715e>-- return only valid bf characters</span>
+<span style=color:#a6e22e>ignoreComments</span> <span style=color:#f92672>::</span> <span style=color:#66d9ef>String</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>String</span>
+<span style=color:#a6e22e>ignoreComments</span> <span style=color:#f92672>=</span> filter (`elem` <span style=color:#e6db74>&#34;+-&lt;&gt;.,[]&#34;</span>)
+
+<span style=color:#75715e>-- ignore comments and try to parse the program</span>
+<span style=color:#a6e22e>parseBF</span> <span style=color:#f92672>::</span> <span style=color:#66d9ef>String</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>Either</span> <span style=color:#66d9ef>ParseError</span> <span style=color:#66d9ef>BF</span>
+<span style=color:#a6e22e>parseBF</span> <span style=color:#f92672>=</span> parse pExpr <span style=color:#e6db74>&#34;Parser&#34;</span> <span style=color:#f92672>.</span> ignoreComments
+</code></pre></div><h2 id=optimization>Optimization</h2>
+<p>The next part of the compilation process is the optimization phase. It consists of the manipulation of the data returned by the parser to make the program better. There are numerous ways to optimize brainfuck programs, and I&rsquo;m not trying to cover them all neither in this post nor on the project.</p>
+<p>We&rsquo;ll look at 3 kinds of optimizations: dead code elimination, combining instructions and abstracting common patterns.</p>
+<h3 id=dead-code-elimination>Dead Code Elimination</h3>
+<p>Sometimes (actually, a lot of times) we write code that will never run. It could be code after a return statement, an if statement whose condition is always false, etc&mldr; brainfuck also has that problem, mostly when talking about loops.</p>
+<p>Loops only run if the cell has a <code>non-zero</code> value, and only exit when the cell has a <code>zero</code> value. This means that if we have multiple loops in a row, only the first one will be executed (when the program exits that loop, the cell is set to zero, so no other loop will run).</p>
+<pre tabindex=0><code>[+++&gt;][.-][+&lt;+&gt;]     &lt;=&gt;     [+++&gt;]
+</code></pre><p>Because of this property, we can remove this loops, reducing the amount of code that gets generated.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#a6e22e>deadLoop</span> <span style=color:#f92672>::</span> <span style=color:#66d9ef>BF</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>BF</span>
+<span style=color:#a6e22e>deadLoop</span> ops <span style=color:#f92672>=</span> <span style=color:#66d9ef>case</span> ops <span style=color:#66d9ef>of</span>
+  <span style=color:#66d9ef>[]</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>[]</span>
+  <span style=color:#75715e>-- remove multiple loops, keep the first</span>
+  <span style=color:#66d9ef>Loop</span> x <span style=color:#66d9ef>:</span> <span style=color:#66d9ef>Loop</span> <span style=color:#66d9ef>_</span> <span style=color:#66d9ef>:</span> xs <span style=color:#f92672>-&gt;</span> deadLoop (<span style=color:#66d9ef>Loop</span> x <span style=color:#66d9ef>:</span> xs)
+  <span style=color:#75715e>-- also look for this pattern inside nested loops</span>
+  <span style=color:#66d9ef>Loop</span> x <span style=color:#66d9ef>:</span> xs          <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>Loop</span> (deadLoop x) <span style=color:#66d9ef>:</span> xs
+  x      <span style=color:#66d9ef>:</span> xs          <span style=color:#f92672>-&gt;</span> x <span style=color:#66d9ef>:</span> deadLoop xs                    
+</code></pre></div><h3 id=combining-instructions>Combining Instructions</h3>
+<p>Some instructions can be optimized by doing a lot in less steps. Two obvious examples are <code>Inc</code> and <code>Mov</code> instructions. Ex: incrementing by <code>10</code> and then decrementing by <code>4</code> is the same as just incrementing by <code>6</code>.</p>
+<p>Some of the work has already been done by the parser, when it combines a sequence of instructions into a single one, i.e. <code>>>>></code> into <code>Mov 4</code>, but this is not enought. <code>+++--</code> is still parsed into <code>[Inc 3, Inc (-2)</code>, but it could be optimized into <code>[Inc 1]</code>.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell>[<span style=color:#66d9ef>Inc</span> <span style=color:#ae81ff>3</span>, <span style=color:#66d9ef>Inc</span> (<span style=color:#f92672>-</span><span style=color:#ae81ff>2</span>)]  <span style=color:#f92672>==&gt;</span>  [<span style=color:#66d9ef>Inc</span> (<span style=color:#ae81ff>3</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>2</span>)]  <span style=color:#f92672>==&gt;</span>  [<span style=color:#66d9ef>Inc</span> <span style=color:#ae81ff>1</span>]
+</code></pre></div><p>This can be achieved by joining successive <code>Inc</code> and <code>Mov</code> instructions as an optimization pass.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#a6e22e>join</span> <span style=color:#f92672>::</span> <span style=color:#66d9ef>BF</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>BF</span>
+<span style=color:#a6e22e>join</span> ops <span style=color:#f92672>=</span> <span style=color:#66d9ef>case</span> ops <span style=color:#66d9ef>of</span>
+  <span style=color:#66d9ef>[]</span>                  <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>[]</span>
+  <span style=color:#75715e>-- join multiple Inc instructions</span>
+  <span style=color:#66d9ef>Inc</span> x  <span style=color:#66d9ef>:</span> <span style=color:#66d9ef>Inc</span> y <span style=color:#66d9ef>:</span> xs <span style=color:#f92672>-&gt;</span> join (<span style=color:#66d9ef>Inc</span> (x<span style=color:#f92672>+</span>y) <span style=color:#66d9ef>:</span> xs)
+  <span style=color:#75715e>-- join mltiple Mov instructions</span>
+  <span style=color:#66d9ef>Mov</span> x  <span style=color:#66d9ef>:</span> <span style=color:#66d9ef>Mov</span> y <span style=color:#66d9ef>:</span> xs <span style=color:#f92672>-&gt;</span> join (<span style=color:#66d9ef>Mov</span> (x<span style=color:#f92672>+</span>y) <span style=color:#66d9ef>:</span> xs)
+  <span style=color:#75715e>-- also look for this pattern inside nested loops</span>
+  <span style=color:#66d9ef>Loop</span> x <span style=color:#66d9ef>:</span> xs          <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>Loop</span> (join x) <span style=color:#66d9ef>:</span> xs
+  x      <span style=color:#66d9ef>:</span> xs          <span style=color:#f92672>-&gt;</span> x <span style=color:#66d9ef>:</span> join xs
+</code></pre></div><h3 id=abstracting-patterns>Abstracting Patterns</h3>
+<p>Brainfuck&rsquo;s simplicity makes it necessary to use multiple operation to perform some simple things. Over the years, some patterns that execute those operations have been found, but they are usually very ineficient. Some examples are:</p>
+<ul>
+<li><code>[-]</code> and <code>[+]</code> to set a cell to 0</li>
+<li><code>[->+&lt;]</code> to move a value from the current cell to the next</li>
+<li><code>[->++&lt;]</code> to move a value from the current cell to the next and duplicate it</li>
+<li><code>[->+>+&lt;&lt;]</code> to move a value from the current cell to the next two</li>
+<li>&mldr;</li>
+</ul>
+<p>This optimization method is based on identifying this patterns and abstracting them into a new <code>pseudo-operation</code>. We are going to exemplify this with the <code>[-]</code> pattern.</p>
+<p>The first step is to extend our <code>Op</code> type with a new constructor, called <code>Clear</code>, that represents this pattern.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#66d9ef>data</span> <span style=color:#66d9ef>Op</span>
+  <span style=color:#f92672>...</span>
+  <span style=color:#f92672>|</span> <span style=color:#66d9ef>Clear</span>
+  <span style=color:#66d9ef>deriving</span> (<span style=color:#66d9ef>Show</span>, <span style=color:#66d9ef>Eq</span>)
+</code></pre></div><p>Now we just need a simple function that looks for this pattern. If it finds it, abstract it. If not, just move on:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#a6e22e>clear</span> <span style=color:#f92672>::</span> <span style=color:#66d9ef>BF</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>BF</span>
+<span style=color:#a6e22e>clear</span> ops <span style=color:#f92672>=</span> <span style=color:#66d9ef>case</span> ops <span style=color:#66d9ef>of</span>
+  <span style=color:#66d9ef>[]</span>                   <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>[]</span>
+  <span style=color:#66d9ef>Loop</span> [<span style=color:#66d9ef>Inc</span> (<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>)] <span style=color:#66d9ef>:</span> xs <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>Clear</span> <span style=color:#66d9ef>:</span> clear xs <span style=color:#75715e>-- [-]</span>
+  <span style=color:#66d9ef>Loop</span> [<span style=color:#66d9ef>Inc</span>   <span style=color:#ae81ff>1</span> ] <span style=color:#66d9ef>:</span> xs <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>Clear</span> <span style=color:#66d9ef>:</span> clear xs <span style=color:#75715e>-- [+]</span>
+  <span style=color:#75715e>-- also look for clear patterns inside nested loops</span>
+  <span style=color:#66d9ef>Loop</span> x <span style=color:#66d9ef>:</span> xs          <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>Loop</span> (clear x) <span style=color:#66d9ef>:</span> xs <span style=color:#75715e>-- [...[-]...]</span>
+  x               <span style=color:#66d9ef>:</span> xs <span style=color:#f92672>-&gt;</span> x <span style=color:#66d9ef>:</span> clear xs
+</code></pre></div><h3 id=the-final-optimization>The final optimization</h3>
+<p>The last thing we need is a single <code>optimize</code> function that runs these individual optimization passes in a coherent order (which is, sometimes, very difficult to figure out).</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#a6e22e>optimize</span> <span style=color:#f92672>::</span> <span style=color:#66d9ef>BF</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>BF</span>
+<span style=color:#a6e22e>optimize</span> <span style=color:#f92672>=</span> clear <span style=color:#f92672>.</span> join <span style=color:#f92672>.</span> deadLoop
+</code></pre></div><h2 id=code-generation>Code Generation</h2>
+<p>Until now, we have been talking about parsing and optimization, but all of that is kinda useless if we can&rsquo;t run our code. To make it runnable, we&rsquo;re going to compile brainfuck down to C. (I chose C to simplify the process, but a good exercise would be to compile it down to some assembly language, python bytecode or java bytecode)</p>
+<p>brainfuck&rsquo;s semantics are identical to <em>C</em>&rsquo;s, making the translation process between them straightforward. Before the translation, we need a working <em>C</em> program with some auxiliary structures: the <strong>Tape</strong> and the <strong>Pointer</strong> (as explained above)</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdio.h&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>(<span style=color:#66d9ef>void</span>) {
+    <span style=color:#75715e>// create the tape with 30000 cells and the pointer
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>char</span> tape[<span style=color:#ae81ff>30000</span>] <span style=color:#f92672>=</span> {<span style=color:#ae81ff>0</span>};
+    <span style=color:#66d9ef>char</span> <span style=color:#f92672>*</span>ptr <span style=color:#f92672>=</span> tape;
+
+    <span style=color:#75715e>// generated brainfuck code
+</span><span style=color:#75715e></span>}
+</code></pre></div><p>With the structure of the <em>C</em> program out of the way, we can start to define our code generator. We&rsquo;ll start with a function that converts brainfuck commands into their equivalent <em>C</em> statement (with a given indentation, <code>n</code>, for pretty printing purposes).</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#75715e>-- generate a string of n tabs for indentation purposes</span>
+<span style=color:#a6e22e>tabs</span> <span style=color:#f92672>::</span> <span style=color:#66d9ef>Int</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>String</span>
+<span style=color:#a6e22e>tabs</span> n <span style=color:#f92672>=</span> replicate n <span style=color:#e6db74>&#39;</span><span style=color:#ae81ff>\t</span><span style=color:#e6db74>&#39;</span>
+
+<span style=color:#a6e22e>opToC</span> <span style=color:#f92672>::</span> <span style=color:#66d9ef>Int</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>Op</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>String</span>
+<span style=color:#a6e22e>opToC</span> n op <span style=color:#f92672>=</span> <span style=color:#66d9ef>case</span> op <span style=color:#66d9ef>of</span>
+  <span style=color:#66d9ef>Inc</span> x <span style=color:#f92672>-&gt;</span> concat [tabs n, <span style=color:#e6db74>&#34;*ptr += &#34;</span>, show x, <span style=color:#e6db74>&#34;;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>] <span style=color:#75715e>-- *ptr += x;</span>
+  <span style=color:#66d9ef>Mov</span> x <span style=color:#f92672>-&gt;</span> concat [tabs n,  <span style=color:#e6db74>&#34;ptr += &#34;</span>, show x, <span style=color:#e6db74>&#34;;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>] <span style=color:#75715e>-- ptr += x;</span>
+  <span style=color:#66d9ef>Out</span>   <span style=color:#f92672>-&gt;</span> tabs n <span style=color:#f92672>++</span> <span style=color:#e6db74>&#34;putchar(*ptr);</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>               <span style=color:#75715e>-- output</span>
+  <span style=color:#66d9ef>Inp</span>   <span style=color:#f92672>-&gt;</span> tabs n <span style=color:#f92672>++</span> <span style=color:#e6db74>&#34;*ptr = getchar();</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>            <span style=color:#75715e>-- set to input</span>
+  <span style=color:#66d9ef>Clear</span> <span style=color:#f92672>-&gt;</span> tabs n <span style=color:#f92672>++</span> <span style=color:#e6db74>&#34;*ptr = 0;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>]                   <span style=color:#75715e>-- set to zero</span>
+</code></pre></div><p>There is a little issue: <code>opToC</code> only translates a single <code>Op</code>, but both our loops and our programs are lists of <code>Op</code>. To solve this, we need a new function that maps every <code>Op</code> to its translation and concatenates the results. (While we&rsquo;re at it, let&rsquo;s use it to implement loops)</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#a6e22e>opToC</span> <span style=color:#f92672>::</span> <span style=color:#66d9ef>Int</span> <span style=color:#f92672>-&gt;</span> [<span style=color:#66d9ef>Op</span>] <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>String</span>
+<span style=color:#a6e22e>opToC</span> n op <span style=color:#f92672>=</span> <span style=color:#66d9ef>case</span> op <span style=color:#66d9ef>of</span>
+  <span style=color:#f92672>...</span>
+  <span style=color:#66d9ef>Loop</span> xs <span style=color:#f92672>-&gt;</span> concat
+    [ tabs n, <span style=color:#e6db74>&#34;while (*ptr) {</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>
+    <span style=color:#75715e>-- map the inner ops with incremented identation</span>
+    , bfToC (n<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>) xs
+    , tabs n, <span style=color:#e6db74>&#34;}</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>
+    ]
+
+<span style=color:#75715e>-- map every op (with identation n) and concatenate the result</span>
+<span style=color:#a6e22e>bfToC</span> <span style=color:#f92672>::</span> <span style=color:#66d9ef>Int</span> <span style=color:#f92672>-&gt;</span> [<span style=color:#66d9ef>Op</span>] <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>String</span>
+<span style=color:#a6e22e>bfToC</span> n ops <span style=color:#f92672>=</span> concatMap (opToC n) ops
+</code></pre></div><p>The last thing needed for fully functioning code generator is a <code>generateC</code> function that generates the C program we saw previously.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#a6e22e>generateC</span> <span style=color:#f92672>::</span> [<span style=color:#66d9ef>Op</span>] <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>String</span>
+<span style=color:#a6e22e>generateC</span> bf <span style=color:#f92672>=</span> concat
+  [ <span style=color:#e6db74>&#34;#include &lt;stdio.h&gt;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>
+  , <span style=color:#e6db74>&#34;int main(void) {</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>
+  , <span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\t</span><span style=color:#e6db74>char tape[30000] = {0};</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>
+  , <span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\t</span><span style=color:#e6db74>char *ptr = array;</span><span style=color:#ae81ff>\n\n</span><span style=color:#e6db74>&#34;</span>
+  , bfToC <span style=color:#ae81ff>1</span> bf
+  , <span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>}&#34;</span>
+  ]
+</code></pre></div><h2 id=conclusion>Conclusion</h2>
+<p>brainfuck is the perfect language to write a compiler for.</p>
+<p>It&rsquo;s simple to parse, easy to find basic optimizations, and has an almost one-to-one translation to C making it easy to generate code. What I&rsquo;ve shown here is only a fragment of what a brainfuck compiler could become. I hope this article interested you in the art of writing brainfuck compilers and that it inspires you to try to implement your own, with higher-level language constructs, new and cleverer optimizations, and more target languages such as web assembly, x86, or the JVM.</p>
+<hr>
+<p><code>Notes for Hasklers</code>:</p>
+<ol>
+<li>
+<p>I know I&rsquo;m using way too many parentesis when I should just use <code>$</code>, but I&rsquo;m trying to make the code readable for people who are new to haskell.</p>
+</li>
+<li>
+<p>There&rsquo;s probably some obscure Monad or functional programming technique that would have simplified the code. Please check the git repo and make a pull request or raise an issue. You can also just message me on Instagram or Twitter, I&rsquo;d love to talk about haskell and functional programming.</p>
+</li>
+</ol>
+</main><script src=/js/prism.js></script></body>
+</html>

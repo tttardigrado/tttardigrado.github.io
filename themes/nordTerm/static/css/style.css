@@ -21,6 +21,7 @@ main {
     margin: auto;
     padding-top: 1.5rem;
     padding-bottom: 20vh;
+    text-align: justify;
 }
 
 
@@ -108,4 +109,19 @@ li::marker {
 
 .tag, time {
     margin-right: 1rem;
+}
+
+table, th, td{
+    border: 2.5px solid var(--primary);
+    background-color: var(--bg-light);
+    border-collapse: collapse;
+}
+
+table {
+    width: 100%;
+}
+
+td, th {
+    padding: 1rem;
+    text-align: start; 
 }
