@@ -7,9 +7,9 @@ tags: ["haskell", "esolangs", "compilers"]
 
 I `love` brainfuck. Most of my friends probably hate it because, sometimes, I talk wayyyyyy too much about it... but I love brainfuck.
 
-It's an exercise on simplicity, design, and, honestly, quite fun. Since I learned about brainfuck, I've implemented interpreters in several languages, written small programs, and designed [languages inspired by it](https://tttardigrado.github.io/posts/mixtape/), but there was something that I had not yet crossed out of my todo list: a brainfuck compiler.
+It's an exercise on simplicity, design, and, honestly, quite fun. Since I learned about brainfuck, I've implemented interpreters in several languages, written small programs, and designed [languages inspired by it](https://tttardigrado.github.io/posts/mixtape/), but there was something that I had not yet crossed out of my to-do list: a brainfuck compiler.
 
-That changes today, and I'm building it using haskell (because I can and I need to practice haskell for my functional programming course next semester)
+That changes today, and I'm building it using Haskell (because I can and I need to practice Haskell for my functional programming course next semester)
 
 The full code is available at this [repo](https://github.com/tttardigrado/hsfuck).
 
@@ -22,7 +22,7 @@ The full code is available at this [repo](https://github.com/tttardigrado/hsfuck
 
 ## What is brainfuck?
 
-brainfuck was created in 1993 by Urban Müller. Inspired by FALSE's 1024-byte compiler, his intention was to create a smaller one. The language consists of a `tape` (an array of byte-sized cells), a `head` (a pointer to the current cell) and instructions that manipulate them:
+brainfuck was created in 1993 by Urban Müller. Inspired by FALSE's 1024-byte compiler, Müller wanted to create a smaller one. The language consists of a `tape` (an array of byte-sized cells), a `head` (a pointer to the current cell) and instructions that manipulate them:
 
 | Instruction | C equivalent      | Meaning                            |
 |-------------|-------------------|------------------------------------|
@@ -34,16 +34,16 @@ brainfuck was created in 1993 by Urban Müller. Inspired by FALSE's 1024-byte co
 | ,           | `*ptr=getchar();` | set the current cell to user input |
 | [ ]         | `while (*ptr) {}` | while loop                         |
 
-The `tape` is represented as an array with length of `30000` and the `head` is a pointer to it. In C:
+The `tape` is represented as an array with a length of `30000` and the `head` is a pointer to it. In C:
 
 ```c
-char array[30000] = {0};
-char *ptr = array;
+char tape[30000] = {0};
+char *ptr = tape;
 ```
 
-Althought simple, brainfuck was proved to be [turing complete](http://www.iwriteiam.nl/Ha_bf_Turing.html), proving, one more time, that complexity can emerge from simplicity.
+Even if brainfuck is simple, it was proved to be [Turing-Complete](http://www.iwriteiam.nl/Ha_bf_Turing.html), proving, one more time, that complexity can emerge from simplicity.
 
-If you want to dig deeper into this rabbithole, [Wikipedia's](https://en.wikipedia.org/wiki/Brainfuck) and [Esolangs'](https://esolangs.org/wiki/Brainfuck) articles are good places to start.
+If you want to dig deeper into this rabbit hole, [Wikipedia](https://en.wikipedia.org/wiki/Brainfuck)'s](https://en.wikipedia.org/wiki/Brainfuck) and [Esolangs'](https://esolangs.org/wiki/Brainfuck) articles are good places to start.
 
 ## Parsing
 
@@ -117,7 +117,7 @@ parseBF = parse pExpr "Parser" . ignoreComments
 
 ## Optimization
 
-The next part of the compilation process is the optimization phase. It consists of the manipulation of the data returned by the parser to make the program better. There are numerous ways to optimize brainfuck programs, and I'm not trying to cover them all neither in this post nor on the project.
+The next part of the compilation process is the optimization phase. It consists of the manipulation of the data returned by the parser to make the program better. There are numerous ways to optimize brainfuck programs, and I'm not trying to cover them all in this post.
 
 We'll look at 3 kinds of optimizations: dead code elimination, combining instructions and abstracting common patterns.
 
@@ -125,13 +125,13 @@ We'll look at 3 kinds of optimizations: dead code elimination, combining instruc
 
 Sometimes (actually, a lot of times) we write code that will never run. It could be code after a return statement, an if statement whose condition is always false, etc... brainfuck also has that problem, mostly when talking about loops.
 
-Loops only run if the cell has a `non-zero` value, and only exit when the cell has a `zero` value. This means that if we have multiple loops in a row, only the first one will be executed (when the program exits that loop, the cell is set to zero, so no other loop will run).
+Loops only run if the cell has a `non-zero` value and only exit when the cell has a `zero` value. This means that if we have multiple loops in a row, only the first one will be executed (when the program exits that loop, the cell is set to zero, so no other loop will run).
 
 ```
 [+++>][.-][+<+>]     <=>     [+++>]
 ```
 
-Because of this property, we can remove this loops, reducing the amount of code that gets generated.
+Because of this property, we can remove these loops, reducing the amount of code that gets generated.
 
 ```haskell
 deadLoop :: BF -> BF
@@ -146,9 +146,9 @@ deadLoop ops = case ops of
 
 ### Combining Instructions
 
-Some instructions can be optimized by doing a lot in less steps. Two obvious examples are `Inc` and `Mov` instructions. Ex: incrementing by `10` and then decrementing by `4` is the same as just incrementing by `6`.
+Some instructions can be optimized by doing a lot in fewer steps. Two obvious examples are `Inc` and `Mov` instructions. Ex: incrementing by `10` and then decrementing by `4` is the same as just incrementing by `6`.
 
-Some of the work has already been done by the parser, when it combines a sequence of instructions into a single one, i.e. `>>>>` into `Mov 4`, but this is not enought. `+++--` is still parsed into `[Inc 3, Inc (-2)`, but it could be optimized into `[Inc 1]`.
+Some of the work has already been done by the parser, when it combines a sequence of instructions into a single one, i.e. `>>>>` into `Mov 4`, but this is not enough. `+++--` is still parsed into `[Inc 3, Inc (-2)`, but it could be optimized into `[Inc 1]`.
 
 ```haskell
 [Inc 3, Inc (-2)]  ==>  [Inc (3 - 2)]  ==>  [Inc 1]
@@ -171,7 +171,7 @@ join ops = case ops of
 
 ### Abstracting Patterns
 
-Brainfuck's simplicity makes it necessary to use multiple operation to perform some simple things. Over the years, some patterns that execute those operations have been found, but they are usually very ineficient. Some examples are:
+Brainfuck's simplicity makes it necessary to use multiple operations to perform some simple things. Over the years, some patterns that execute those operations have been found, but they are usually very inefficient. Some examples are:
 
 * `[-]` and `[+]` to set a cell to 0
 * `[->+<]` to move a value from the current cell to the next
@@ -179,7 +179,7 @@ Brainfuck's simplicity makes it necessary to use multiple operation to perform s
 * `[->+>+<<]` to move a value from the current cell to the next two
 * ...
 
-This optimization method is based on identifying this patterns and abstracting them into a new `pseudo-operation`. We are going to exemplify this with the `[-]` pattern.
+This optimization method is based on identifying these patterns and abstracting them into a new `pseudo-operation`. We are going to exemplify this with the `[-]` pattern.
 
 The first step is to extend our `Op` type with a new constructor, called `Clear`, that represents this pattern.
 
@@ -264,7 +264,7 @@ bfToC :: Int -> [Op] -> String
 bfToC n ops = concatMap (opToC n) ops
 ```
 
-The last thing needed for fully functioning code generator is a `generateC` function that generates the C program we saw previously.
+The last thing needed for a fully functioning code generator is a `generateC` function that generates the C program we saw previously.
 
 ```haskell
 generateC :: [Op] -> String
@@ -289,6 +289,6 @@ It's simple to parse, easy to find basic optimizations, and has an almost one-to
 
 `Notes for Hasklers`:
 
-1. I know I'm using way too many parentesis when I should just use `$`, but I'm trying to make the code readable for people who are new to haskell.
+1. I know I'm using way too many parentheses when I should just use `$`, but I'm trying to make the code readable for people who are new to Haskell.
 
-2. There's probably some obscure Monad or functional programming technique that would have simplified the code. Please check the git repo and make a pull request or raise an issue. You can also just message me on Instagram or Twitter, I'd love to talk about haskell and functional programming.
+2. There's probably some obscure Monad or functional programming technique that would have simplified the code. Please check the git repo and make a pull request or raise an issue. You can also just message me on Instagram or Twitter, I'd love to talk about Haskell and functional programming.
