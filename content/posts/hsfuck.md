@@ -22,7 +22,7 @@ The full code is available at this [repo](https://github.com/tttardigrado/hsfuck
 
 ## What is brainfuck?
 
-brainfuck was created in 1993 by Urban Müller. Inspired by FALSE's 1024-byte compiler, his intention was to create a smaller one. The language consists of a `tape` (an array of byte-sized cells), a `head` (a pointer to the current cell) and the following instructions that manipulate the tape:
+brainfuck was created in 1993 by Urban Müller. Inspired by FALSE's 1024-byte compiler, his intention was to create a smaller one. The language consists of a `tape` (an array of byte-sized cells), a `head` (a pointer to the current cell) and instructions that manipulate them:
 
 | Instruction | C equivalent      | Meaning                            |
 |-------------|-------------------|------------------------------------|
@@ -34,6 +34,12 @@ brainfuck was created in 1993 by Urban Müller. Inspired by FALSE's 1024-byte co
 | ,           | `*ptr=getchar();` | set the current cell to user input |
 | [ ]         | `while (*ptr) {}` | while loop                         |
 
+The `tape` is represented as an array with length of `30000` and the `head` is a pointer to it. In C:
+
+```c
+char array[30000] = {0};
+char *ptr = array;
+```
 
 Althought simple, brainfuck was proved to be [turing complete](http://www.iwriteiam.nl/Ha_bf_Turing.html), proving, one more time, that complexity can emerge from simplicity.
 
