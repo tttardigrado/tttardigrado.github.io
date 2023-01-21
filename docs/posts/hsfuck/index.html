@@ -81,7 +81,7 @@
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#66d9ef>char</span> tape[<span style=color:#ae81ff>30000</span>] <span style=color:#f92672>=</span> {<span style=color:#ae81ff>0</span>};
 <span style=color:#66d9ef>char</span> <span style=color:#f92672>*</span>ptr <span style=color:#f92672>=</span> tape;
 </code></pre></div><p>Even if brainfuck is simple, it was proved to be <a href=http://www.iwriteiam.nl/Ha_bf_Turing.html>Turing-Complete</a>, proving, one more time, that complexity can emerge from simplicity.</p>
-<p>If you want to dig deeper into this rabbit hole, <a href=https://en.wikipedia.org/wiki/Brainfuck>Wikipedia</a>&rsquo;s](<a href=https://en.wikipedia.org/wiki/Brainfuck>https://en.wikipedia.org/wiki/Brainfuck</a>) and <a href=https://esolangs.org/wiki/Brainfuck>Esolangs'</a> articles are good places to start.</p>
+<p>If you want to dig deeper into this rabbit hole, <a href=https://en.wikipedia.org/wiki/Brainfuck>Wikipedia&rsquo;s</a> and <a href=https://esolangs.org/wiki/Brainfuck>Esolangs'</a> articles are good places to start.</p>
 <h2 id=parsing>Parsing</h2>
 <p>We can&rsquo;t process something we don&rsquo;t know. This means that, before parsing, we should understand what we are parsing and into what we are parsing it. We&rsquo;ll parse brainfuck into the <code>BF</code> type:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#66d9ef>data</span> <span style=color:#66d9ef>Op</span>
