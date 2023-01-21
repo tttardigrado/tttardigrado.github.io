@@ -3,7 +3,7 @@ title: "Build you a brainfuck compiler for the greater good"
 date: 2023-01-21T00:35:08Z
 summary: "How I built an optimizing `brainfuck` to `C` compiler using Haskell, and you could too."
 tags: ["haskell", "esolangs", "compilers"]
-images: ["./images/hsfuck.png"]
+images: ["posts/images/hsfuck.png"]
 ---
 
 I `love` brainfuck. Most of my friends probably hate it because, sometimes, I talk wayyyyyy too much about it... but I love brainfuck.
