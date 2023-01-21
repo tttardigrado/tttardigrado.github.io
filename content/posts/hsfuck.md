@@ -8,7 +8,7 @@ images: ["posts/images/hsfuck.png"]
 
 I `love` brainfuck. Most of my friends probably hate it because, sometimes, I talk wayyyyyy too much about it... but I love brainfuck.
 
-It's an exercise on simplicity, design, and, honestly, quite fun. Since I learned about brainfuck, I've implemented interpreters in several languages, written small programs, and designed [languages inspired by it](https://tttardigrado.github.io/posts/mixtape/), but there was something that I had not yet crossed out of my to-do list: a brainfuck compiler.
+It's an exercise on simplicity, design, and, honestly, quite fun. Since I learned about it, I've implemented interpreters in several languages, written small programs, and designed [languages inspired by it](https://tttardigrado.github.io/posts/mixtape/), but there was something that I had not yet crossed out of my to-do list: a brainfuck compiler.
 
 That changes today, and I'm building it using Haskell (because I can and I need to practice Haskell for my functional programming course next semester)
 
@@ -42,7 +42,7 @@ char tape[30000] = {0};
 char *ptr = tape;
 ```
 
-Even if brainfuck is simple, it was proved to be [Turing-Complete](http://www.iwriteiam.nl/Ha_bf_Turing.html), proving, one more time, that complexity can emerge from simplicity.
+Dispite it's simplicity, it was proved to be [Turing-Complete](http://www.iwriteiam.nl/Ha_bf_Turing.html), proving, one more time, that complexity can emerge from simplicity.
 
 If you want to dig deeper into this rabbit hole, [Wikipedia's](https://en.wikipedia.org/wiki/Brainfuck) and [Esolangs'](https://esolangs.org/wiki/Brainfuck) articles are good places to start.
 
@@ -149,7 +149,7 @@ deadLoop ops = case ops of
 
 Some instructions can be optimized by doing a lot in fewer steps. Two obvious examples are `Inc` and `Mov` instructions. Ex: incrementing by `10` and then decrementing by `4` is the same as just incrementing by `6`.
 
-Some of the work has already been done by the parser, when it combines a sequence of instructions into a single one, i.e. `>>>>` into `Mov 4`, but this is not enough. `+++--` is still parsed into `[Inc 3, Inc (-2)`, but it could be optimized into `[Inc 1]`.
+Some of the work has already been done by the parser, when it combines a sequence of instructions into a single one, i.e. `>>>>` into `Mov 4`, but this is not enough. `+++--` is still parsed into `[Inc 3, Inc (-2)]`, but it could be optimized into `[Inc 1]`.
 
 ```haskell
 [Inc 3, Inc (-2)]  ==>  [Inc (3 - 2)]  ==>  [Inc 1]
@@ -166,8 +166,8 @@ join ops = case ops of
   -- join mltiple Mov instructions
   Mov x  : Mov y : xs -> join (Mov (x+y) : xs)
   -- also look for this pattern inside nested loops
-  Loop x : xs          -> Loop (join x) : xs
-  x      : xs          -> x : join xs
+  Loop x : xs         -> Loop (join x) : xs
+  x      : xs         -> x : join xs
 ```
 
 ### Abstracting Patterns
@@ -215,7 +215,7 @@ optimize = clear . join . deadLoop
 
 ## Code Generation
 
-Until now, we have been talking about parsing and optimization, but all of that is kinda useless if we can't run our code. To make it runnable, we're going to compile brainfuck down to C. (I chose C to simplify the process, but a good exercise would be to compile it down to some assembly language, python bytecode or java bytecode)
+Until now, we have been talking about parsing and optimization, but all of that is kinda useless if we can't run our code. To make it runnable, we're going to compile brainfuck down to C. (I chose C to simplify the process, but a good exercise would be to compile it down to some assembly or bytecode language)
 
 | Op      | C equivalent          |
 |---------|-----------------------|

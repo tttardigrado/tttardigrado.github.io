@@ -30,7 +30,7 @@
 <a href=https://tttardigrado.github.io/tags/compilers class=tag><i class="bi bi-tags-fill me-1"></i> compilers</a>
 <hr>
 <p>I <code>love</code> brainfuck. Most of my friends probably hate it because, sometimes, I talk wayyyyyy too much about it&mldr; but I love brainfuck.</p>
-<p>It&rsquo;s an exercise on simplicity, design, and, honestly, quite fun. Since I learned about brainfuck, I&rsquo;ve implemented interpreters in several languages, written small programs, and designed <a href=https://tttardigrado.github.io/posts/mixtape/>languages inspired by it</a>, but there was something that I had not yet crossed out of my to-do list: a brainfuck compiler.</p>
+<p>It&rsquo;s an exercise on simplicity, design, and, honestly, quite fun. Since I learned about it, I&rsquo;ve implemented interpreters in several languages, written small programs, and designed <a href=https://tttardigrado.github.io/posts/mixtape/>languages inspired by it</a>, but there was something that I had not yet crossed out of my to-do list: a brainfuck compiler.</p>
 <p>That changes today, and I&rsquo;m building it using Haskell (because I can and I need to practice Haskell for my functional programming course next semester)</p>
 <p>The full code is available at this <a href=https://github.com/tttardigrado/hsfuck>repo</a>.</p>
 <h2 id=index>Index</h2>
@@ -84,7 +84,7 @@
 <p>The <code>tape</code> is represented as an array with a length of <code>30000</code> and the <code>head</code> is a pointer to it. In C:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#66d9ef>char</span> tape[<span style=color:#ae81ff>30000</span>] <span style=color:#f92672>=</span> {<span style=color:#ae81ff>0</span>};
 <span style=color:#66d9ef>char</span> <span style=color:#f92672>*</span>ptr <span style=color:#f92672>=</span> tape;
-</code></pre></div><p>Even if brainfuck is simple, it was proved to be <a href=http://www.iwriteiam.nl/Ha_bf_Turing.html>Turing-Complete</a>, proving, one more time, that complexity can emerge from simplicity.</p>
+</code></pre></div><p>Dispite it&rsquo;s simplicity, it was proved to be <a href=http://www.iwriteiam.nl/Ha_bf_Turing.html>Turing-Complete</a>, proving, one more time, that complexity can emerge from simplicity.</p>
 <p>If you want to dig deeper into this rabbit hole, <a href=https://en.wikipedia.org/wiki/Brainfuck>Wikipedia&rsquo;s</a> and <a href=https://esolangs.org/wiki/Brainfuck>Esolangs'</a> articles are good places to start.</p>
 <h2 id=parsing>Parsing</h2>
 <p>We can&rsquo;t process something we don&rsquo;t know. This means that, before parsing, we should understand what we are parsing and into what we are parsing it. We&rsquo;ll parse brainfuck into the <code>BF</code> type:</p>
@@ -152,7 +152,7 @@
   x      <span style=color:#66d9ef>:</span> xs          <span style=color:#f92672>-&gt;</span> x <span style=color:#66d9ef>:</span> deadLoop xs                    
 </code></pre></div><h3 id=combining-instructions>Combining Instructions</h3>
 <p>Some instructions can be optimized by doing a lot in fewer steps. Two obvious examples are <code>Inc</code> and <code>Mov</code> instructions. Ex: incrementing by <code>10</code> and then decrementing by <code>4</code> is the same as just incrementing by <code>6</code>.</p>
-<p>Some of the work has already been done by the parser, when it combines a sequence of instructions into a single one, i.e. <code>>>>></code> into <code>Mov 4</code>, but this is not enough. <code>+++--</code> is still parsed into <code>[Inc 3, Inc (-2)</code>, but it could be optimized into <code>[Inc 1]</code>.</p>
+<p>Some of the work has already been done by the parser, when it combines a sequence of instructions into a single one, i.e. <code>>>>></code> into <code>Mov 4</code>, but this is not enough. <code>+++--</code> is still parsed into <code>[Inc 3, Inc (-2)]</code>, but it could be optimized into <code>[Inc 1]</code>.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell>[<span style=color:#66d9ef>Inc</span> <span style=color:#ae81ff>3</span>, <span style=color:#66d9ef>Inc</span> (<span style=color:#f92672>-</span><span style=color:#ae81ff>2</span>)]  <span style=color:#f92672>==&gt;</span>  [<span style=color:#66d9ef>Inc</span> (<span style=color:#ae81ff>3</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>2</span>)]  <span style=color:#f92672>==&gt;</span>  [<span style=color:#66d9ef>Inc</span> <span style=color:#ae81ff>1</span>]
 </code></pre></div><p>This can be achieved by joining successive <code>Inc</code> and <code>Mov</code> instructions as an optimization pass.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#a6e22e>join</span> <span style=color:#f92672>::</span> <span style=color:#66d9ef>BF</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>BF</span>
@@ -163,8 +163,8 @@
   <span style=color:#75715e>-- join mltiple Mov instructions</span>
   <span style=color:#66d9ef>Mov</span> x  <span style=color:#66d9ef>:</span> <span style=color:#66d9ef>Mov</span> y <span style=color:#66d9ef>:</span> xs <span style=color:#f92672>-&gt;</span> join (<span style=color:#66d9ef>Mov</span> (x<span style=color:#f92672>+</span>y) <span style=color:#66d9ef>:</span> xs)
   <span style=color:#75715e>-- also look for this pattern inside nested loops</span>
-  <span style=color:#66d9ef>Loop</span> x <span style=color:#66d9ef>:</span> xs          <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>Loop</span> (join x) <span style=color:#66d9ef>:</span> xs
-  x      <span style=color:#66d9ef>:</span> xs          <span style=color:#f92672>-&gt;</span> x <span style=color:#66d9ef>:</span> join xs
+  <span style=color:#66d9ef>Loop</span> x <span style=color:#66d9ef>:</span> xs         <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>Loop</span> (join x) <span style=color:#66d9ef>:</span> xs
+  x      <span style=color:#66d9ef>:</span> xs         <span style=color:#f92672>-&gt;</span> x <span style=color:#66d9ef>:</span> join xs
 </code></pre></div><h3 id=abstracting-patterns>Abstracting Patterns</h3>
 <p>Brainfuck&rsquo;s simplicity makes it necessary to use multiple operations to perform some simple things. Over the years, some patterns that execute those operations have been found, but they are usually very inefficient. Some examples are:</p>
 <ul>
@@ -194,7 +194,7 @@
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#a6e22e>optimize</span> <span style=color:#f92672>::</span> <span style=color:#66d9ef>BF</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>BF</span>
 <span style=color:#a6e22e>optimize</span> <span style=color:#f92672>=</span> clear <span style=color:#f92672>.</span> join <span style=color:#f92672>.</span> deadLoop
 </code></pre></div><h2 id=code-generation>Code Generation</h2>
-<p>Until now, we have been talking about parsing and optimization, but all of that is kinda useless if we can&rsquo;t run our code. To make it runnable, we&rsquo;re going to compile brainfuck down to C. (I chose C to simplify the process, but a good exercise would be to compile it down to some assembly language, python bytecode or java bytecode)</p>
+<p>Until now, we have been talking about parsing and optimization, but all of that is kinda useless if we can&rsquo;t run our code. To make it runnable, we&rsquo;re going to compile brainfuck down to C. (I chose C to simplify the process, but a good exercise would be to compile it down to some assembly or bytecode language)</p>
 <table>
 <thead>
 <tr>
