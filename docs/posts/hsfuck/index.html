@@ -43,44 +43,36 @@
 <thead>
 <tr>
 <th>Instruction</th>
-<th>C equivalent</th>
 <th>Meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>+</td>
-<td><code>*ptr += 1;</code></td>
 <td>increment the current cell</td>
 </tr>
 <tr>
 <td>-</td>
-<td><code>*ptr -= 1;</code></td>
 <td>decrement the current cell</td>
 </tr>
 <tr>
 <td>&lt;</td>
-<td><code>ptr += 1;</code></td>
 <td>move the head left</td>
 </tr>
 <tr>
 <td>></td>
-<td><code>ptr -= 1;</code></td>
 <td>move the head right</td>
 </tr>
 <tr>
 <td>.</td>
-<td><code>putchar(*ptr);</code></td>
 <td>print the current cell&rsquo;s as ASCII</td>
 </tr>
 <tr>
 <td>,</td>
-<td><code>*ptr=getchar();</code></td>
 <td>set the current cell to user input</td>
 </tr>
 <tr>
 <td>[ ]</td>
-<td><code>while (*ptr) {}</code></td>
 <td>while loop</td>
 </tr>
 </tbody>
@@ -199,7 +191,41 @@
 <span style=color:#a6e22e>optimize</span> <span style=color:#f92672>=</span> clear <span style=color:#f92672>.</span> join <span style=color:#f92672>.</span> deadLoop
 </code></pre></div><h2 id=code-generation>Code Generation</h2>
 <p>Until now, we have been talking about parsing and optimization, but all of that is kinda useless if we can&rsquo;t run our code. To make it runnable, we&rsquo;re going to compile brainfuck down to C. (I chose C to simplify the process, but a good exercise would be to compile it down to some assembly language, python bytecode or java bytecode)</p>
-<p>brainfuck&rsquo;s semantics are identical to <em>C</em>&rsquo;s, making the translation process between them straightforward. Before the translation, we need a working <em>C</em> program with some auxiliary structures: the <strong>Tape</strong> and the <strong>Pointer</strong> (as explained above)</p>
+<table>
+<thead>
+<tr>
+<th>Op</th>
+<th>C equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inc n</td>
+<td><code>*ptr += n;</code></td>
+</tr>
+<tr>
+<td>Mov n</td>
+<td><code>ptr += n;</code></td>
+</tr>
+<tr>
+<td>Out</td>
+<td><code>putchar(*ptr);</code></td>
+</tr>
+<tr>
+<td>Inp</td>
+<td><code>*ptr = getchar();</code></td>
+</tr>
+<tr>
+<td>Clear</td>
+<td><code>*ptr = 0;</code></td>
+</tr>
+<tr>
+<td>Loop xs</td>
+<td><code>while (*ptr) { xs }</code></td>
+</tr>
+</tbody>
+</table>
+<p>brainfuck&rsquo;s semantics are identical to <em>C</em>&rsquo;s, making the translation process between them straightforward. Before the translation, we need a working <em>C</em> program with some auxiliary structures: the <strong>Tape</strong> and the <strong>Pointer</strong> (as shown above)</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdio.h&gt;</span><span style=color:#75715e>
 </span><span style=color:#75715e></span>
 <span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>(<span style=color:#66d9ef>void</span>) {
