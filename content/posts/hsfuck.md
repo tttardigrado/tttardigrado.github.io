@@ -1,8 +1,9 @@
 ---
 title: "Build you a brainfuck compiler for the greater good"
-date: 2023-01-19T00:35:08Z
+date: 2023-01-21T00:35:08Z
 summary: "How I built an optimizing `brainfuck` to `C` compiler using Haskell, and you could too."
 tags: ["haskell", "esolangs", "compilers"]
+images: ["./images/hsfuck.png"]
 ---
 
 I `love` brainfuck. Most of my friends probably hate it because, sometimes, I talk wayyyyyy too much about it... but I love brainfuck.
@@ -43,7 +44,7 @@ char *ptr = tape;
 
 Even if brainfuck is simple, it was proved to be [Turing-Complete](http://www.iwriteiam.nl/Ha_bf_Turing.html), proving, one more time, that complexity can emerge from simplicity.
 
-If you want to dig deeper into this rabbit hole, [Wikipedia](https://en.wikipedia.org/wiki/Brainfuck)'s](https://en.wikipedia.org/wiki/Brainfuck) and [Esolangs'](https://esolangs.org/wiki/Brainfuck) articles are good places to start.
+If you want to dig deeper into this rabbit hole, [Wikipedia's](https://en.wikipedia.org/wiki/Brainfuck) and [Esolangs'](https://esolangs.org/wiki/Brainfuck) articles are good places to start.
 
 ## Parsing
 
