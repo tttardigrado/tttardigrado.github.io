@@ -2,7 +2,7 @@
 title: "PF - Ficha 1"
 date: 2023-01-17T14:29:01Z
 tags: ["lcc", "funcional"]
-summary: "My solutions for the functional programming course's worksheet #1"
+summary: "My solutions for the functional programming course's worksheet #1 (PT)"
 ---
 
 ## 1.1
@@ -18,13 +18,13 @@ Simplifique as expressões seguintes o máximo possível efectuando reduções p
 
 ```haskell
 incr (triplo 3)
-  => incr (3 * 3)
-  => incr 9
-  => 9 + 1
-  => 10
+  = incr (3 * 3)
+  = incr 9
+  = 9 + 1
+  = 10
 
 triplo (incr 3)
-  => triplo (3 + 1) 
+  => triplo (3 + 1)
   => triplo 4
   => 3 * 4
   => 12
@@ -59,7 +59,7 @@ resultado deve ser um valor boleano (`True` ou `False`).
 
 ```haskell
 testaTriangulo :: Float -> Float -> Float -> Bool
-testaTriangulo a b c = a < b + c && b < a + c && c < a + b
+testaTriangulo a b c = and [a < b+c, b < a+c, c < a+b]
 ```
 
 ## 1.3
@@ -72,7 +72,7 @@ para calcular esta área.
 
 ```haskell
 areaTriangulo :: Float -> Float -> Float -> Float
-areaTriangulo a b c = srt $ s * (s - a) * (s - b) * (s - c)
+areaTriangulo a b c = sqrt $ s * (s - a) * (s - b) * (s - c)
   where s = (a + b + c) / 2
 ```
 

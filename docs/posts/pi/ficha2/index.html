@@ -1,0 +1,145 @@
+<!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="PI - Ficha2">
+<meta name=twitter:description content="My solutions for the imperative programming course&rsquo;s worksheet #2">
+<link rel=stylesheet type=text/css href=/css/style.css>
+<link rel=stylesheet type=text/css href=/css/helper.css>
+<link rel=stylesheet type=text/css href=/css/prism.css>
+<link rel=stylesheet type=text/css href=https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css integrity=sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0 crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js integrity=sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4 crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous onload=renderMathInElement(document.body)></script>
+<title>🪐 Tardigrado | PI - Ficha2</title>
+<style>:root{--bg-dark:#2e3440;--bg-light:#3b4252;--text:#d8dee9;--error:#bf616a;--alert:#ebcb8b;--success:#a3be8c;--primary:#a3be8c;--secondary:#b48ead}</style>
+</head><body><nav class="flex-center-between bg-light">
+<a href=/ class="p-2 fw-bold fg-text">Tardigrado</a>
+<div class="p-2 flex-center-between">
+<div class="nav-btn bg-alert"></div>
+<div class="nav-btn bg-success"></div>
+<div class="nav-btn bg-error"></div>
+</div>
+</nav><main id=content>
+<h1>PI - Ficha2</h1>
+<i class="bi bi-calendar-event-fill me-1"></i>
+<time datetime=01-03-2023>Mar 1, 2023</time>
+<a href=https://tttardigrado.github.io/tags/lcc class=tag><i class="bi bi-tags-fill me-1"></i> lcc</a>
+<a href=https://tttardigrado.github.io/tags/imperativa class=tag><i class="bi bi-tags-fill me-1"></i> imperativa</a>
+<hr>
+<h2 id=23>2.3</h2>
+<p>Escreva um programa <strong>maior.c</strong> que lê três valores inteiros da entrada padrão e
+imprime o maior destes valores.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdio.h&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>max</span>(<span style=color:#66d9ef>int</span> a, <span style=color:#66d9ef>int</span> b) {
+	<span style=color:#66d9ef>return</span> (a <span style=color:#f92672>&gt;=</span> b) <span style=color:#f92672>?</span> a : b;
+}
+
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>max3</span>(<span style=color:#66d9ef>int</span> a, <span style=color:#66d9ef>int</span> b, <span style=color:#66d9ef>int</span> c) {
+	<span style=color:#66d9ef>return</span> max(a, max(b, c));
+}
+
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>() {
+	<span style=color:#66d9ef>int</span> a, b, c;
+	scanf(<span style=color:#e6db74>&#34;%d %d %d&#34;</span>, <span style=color:#f92672>&amp;</span>a, <span style=color:#f92672>&amp;</span>b, <span style=color:#f92672>&amp;</span>c);
+
+	printf(<span style=color:#e6db74>&#34;%d</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, max3(a, b, c));
+
+	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+}
+</code></pre></div><h2 id=24>2.4</h2>
+<p>Escreva um programa que lê uma quantia inteira de euros e mostra como pagar essa quantia em notas de 20, 10, 5 e notas de 1</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdio.h&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>() {
+	<span style=color:#75715e>// ler valor
+</span><span style=color:#75715e></span>	<span style=color:#66d9ef>int</span> val;
+	printf(<span style=color:#e6db74>&#34;Quantia em EUR? &#34;</span>); scanf(<span style=color:#e6db74>&#34;%d&#34;</span>, <span style=color:#f92672>&amp;</span>val);
+
+	<span style=color:#75715e>// notas 20, 10, 5
+</span><span style=color:#75715e></span>	<span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> <span style=color:#ae81ff>20</span>; i <span style=color:#f92672>&gt;=</span> <span style=color:#ae81ff>5</span>; i <span style=color:#f92672>/=</span> <span style=color:#ae81ff>2</span>) {
+		printf(<span style=color:#e6db74>&#34;notas EUR %d: %d&#34;</span>, i, val<span style=color:#f92672>/</span>i);
+		val <span style=color:#f92672>%=</span> i;
+	}
+
+	<span style=color:#75715e>// moedas 1
+</span><span style=color:#75715e></span>	printf(<span style=color:#e6db74>&#34;moedas EUR 1: %d&#34;</span>, val);
+
+	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+}
+</code></pre></div><h2 id=25>2.5</h2>
+<p>Escreva uma função que calcula a mediana de 3 inteiros, isto é, o valor do meio quando os colocamos por ordem crescente.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>mediana</span>(<span style=color:#66d9ef>int</span> a, <span style=color:#66d9ef>int</span> b, <span style=color:#66d9ef>int</span> c) {
+	<span style=color:#66d9ef>if</span> ((b <span style=color:#f92672>&lt;=</span> a <span style=color:#f92672>&amp;&amp;</span> a <span style=color:#f92672>&lt;=</span> c) <span style=color:#f92672>||</span> (c <span style=color:#f92672>&lt;=</span> a <span style=color:#f92672>&amp;&amp;</span> a <span style=color:#f92672>&lt;=</span> b)) <span style=color:#66d9ef>return</span> a;
+	<span style=color:#66d9ef>if</span> ((a <span style=color:#f92672>&lt;=</span> b <span style=color:#f92672>&amp;&amp;</span> b <span style=color:#f92672>&lt;=</span> c) <span style=color:#f92672>||</span> (c <span style=color:#f92672>&lt;=</span> b <span style=color:#f92672>&amp;&amp;</span> b <span style=color:#f92672>&lt;=</span> a)) <span style=color:#66d9ef>return</span> b;
+	<span style=color:#66d9ef>return</span> c;
+}
+</code></pre></div><h2 id=27>2.7</h2>
+<p>A lingugem C não tem um operador para potências, mas podemos calcular por multiplicações sucessivas (para expoentes naturais). Implemente essa função.</p>
+<pre tabindex=0><code>int potencia(int x, int n) {
+	int res = 1; // inicialize a resul variable
+
+	for (int i = 0; i &lt; n; i++)
+		res *= x; // multiply it n times by x
+
+	return res;
+}
+</code></pre><h2 id=28>2.8</h2>
+<p>Escreve um programa que lê uma sequência de inteiros terminada pelo valor 0, e imprime a sua média aritmética.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdio.h&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>() {
+	<span style=color:#66d9ef>int</span> val <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; <span style=color:#75715e>// store the last value read
+</span><span style=color:#75715e></span>	<span style=color:#66d9ef>int</span> sum <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; <span style=color:#75715e>// store the current sum of values
+</span><span style=color:#75715e></span>	<span style=color:#66d9ef>int</span> num <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; <span style=color:#75715e>// store the number of values
+</span><span style=color:#75715e></span>
+	<span style=color:#66d9ef>do</span> {
+		scanf(<span style=color:#e6db74>&#34;%d&#34;</span>, <span style=color:#f92672>&amp;</span>val); <span style=color:#75715e>// read new value
+</span><span style=color:#75715e></span>		sum <span style=color:#f92672>+=</span> val;       <span style=color:#75715e>// update sum
+</span><span style=color:#75715e></span>		num<span style=color:#f92672>++</span>;           <span style=color:#75715e>// increment counter
+</span><span style=color:#75715e></span>	} <span style=color:#66d9ef>while</span> (val <span style=color:#f92672>!=</span> <span style=color:#ae81ff>0</span>); <span style=color:#75715e>// until 0 is read
+</span><span style=color:#75715e></span>	num<span style=color:#f92672>--</span>;             <span style=color:#75715e>// zero was read but should not increment the coun
+</span><span style=color:#75715e></span>
+	printf(<span style=color:#e6db74>&#34;%f</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, (<span style=color:#66d9ef>float</span>)sum <span style=color:#f92672>/</span> num); <span style=color:#75715e>// print the result
+</span><span style=color:#75715e></span>	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+}
+</code></pre></div><h2 id=29>2.9</h2>
+<p>Escreve um programa que lê um inteiro maior que 1 e imprime a lista de fatores primos</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdio.h&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>() {
+	<span style=color:#66d9ef>int</span> val; <span style=color:#75715e>// read value
+</span><span style=color:#75715e></span>	printf(<span style=color:#e6db74>&#34;Número: &#34;</span>); scanf(<span style=color:#e6db74>&#34;%d&#34;</span>, <span style=color:#f92672>&amp;</span>val);
+
+	printf(<span style=color:#e6db74>&#34;%d:&#34;</span>, val);
+
+	<span style=color:#66d9ef>int</span> n <span style=color:#f92672>=</span> <span style=color:#ae81ff>2</span>;
+	<span style=color:#66d9ef>while</span> (val <span style=color:#f92672>!=</span> <span style=color:#ae81ff>1</span>) {
+		<span style=color:#66d9ef>while</span> (val <span style=color:#f92672>%</span> n <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>) {
+			val <span style=color:#f92672>/=</span> n;
+			printf(<span style=color:#e6db74>&#34; %d&#34;</span>, n);
+		}
+		n<span style=color:#f92672>++</span>;
+	}
+
+	printf(<span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
+
+	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+}
+</code></pre></div><h2 id=210>2.10</h2>
+<p>Um ano é bissexto se for divisível por 4, exceto se for também divisível por 100 e não por 400.
+Defina uma função que verifica esta condição.</p>
+<pre tabindex=0><code>int bissexto(int n) {
+	if (n % 4 != 0) return 0;
+	if (n % 100 == 0 &amp;&amp; n % 400 != 0) return 0;
+	return 1;
+}
+</code></pre><h2 id=211>2.11</h2>
+<p>Escreva uma função que calcula o próximo ano bissexto a partir de um ano dado; se o ano for bissexto deve retornar o ano dado.</p>
+<pre tabindex=0><code>int prox_bissexto(int n) {
+	for (int i = 0;; i++)
+		if (bissexto(n+i)) return n+i;
+}
+</code></pre>
+</main><script src=/js/prism.js></script></body>
+</html>

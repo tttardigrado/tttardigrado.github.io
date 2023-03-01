@@ -2,7 +2,7 @@
 title: "PF - Ficha 2"
 date: 2023-01-17T15:40:58Z
 tags: ["lcc", "funcional"]
-summary: "My solutions for the functional programming course's worksheet #2"
+summary: "My solutions for the functional programming course's worksheet #2 (PT)"
 ---
 
 ## 2.1
@@ -19,8 +19,8 @@ classificação qualitativa a uma nota de 0 a 20:
 
 ```haskell
 classifica :: Int -> String
-classifica n = 
-  if n <= 9 then "reprovado"
+classifica n =
+  if      n <= 9  then "reprovado"
   else if n <= 12 then "suficiente"
   else if n <= 15 then "bom"
   else if n <= 18 then "muito bom"
@@ -50,18 +50,13 @@ Classificamos o resultado nos seguinte intervalos:
 Escreva uma definição da função `classifica :: Float -> Float -> String` que determina a classificação acima; os dois argumentos da função são, respectivamente, o peso em quilogramas e a altura em metros.
 
 ```haskell
-imc :: Float -> Float -> Float
-imc peso alt = peso / (alt * alt)
-
-classifica' :: Float -> String
-classifica' n
-  | n < 18.5  = "baixo peso"
-  | n < 25    = "peso normal"
-  | n < 30    = "excesso de peso"
-  | otherwise = "obesidade"
-
 classifica :: Float -> Float -> String
-classifica x y = classifica' $ imc x y
+classifica peso alt
+  | imc < 18.5 = "baixo peso"
+  | imc < 25   = "peso normal"
+  | imc < 30   = "excesso de peso"
+  | otherwise  = "obesidade"
+  where imc = peso / (alt * alt)
 ```
 
 ## 2.3
@@ -75,12 +70,12 @@ Considere duas possíveis definições das funções max e min do prelúdio-padr
 Escreva defnições deste género para duas funções `max3` e `min3` para calcular, respectivamente, o máximo e o mínimo de três números.
 ```haskell
 max3 :: Ord a => a -> a -> a -> a
-max3 x y z = if x >= y 
+max3 x y z = if x >= y
     then if x >= z then x else z
     else if y >= z then y else z
 
 min3 :: Ord a => a -> a -> a -> a
-min3 x y z = if x <= y 
+min3 x y z = if x <= y
     then if x <= z then x else z
     else if y <= z then y else z
 ```
@@ -109,23 +104,21 @@ Pretende-se implementar uma função `safetail :: [a] -> [a]` que extende a fun�
 
 ```haskell
 safetail :: [a] -> [a]
-safetail xs = if length xs == 0
-              then []
-              else tail xs
+safetail xs = if null xs then [] else tail xs
 ```
 
 ```haskell
 safetail :: [a] -> [a]
 safetail xs
-  | length xs == 0 = []
-  | otherwise      = tail xs
+  | null xs   = []
+  | otherwise = tail xs
 ```
 
 
 ```haskell
 safetail :: [a] -> [a]
-safetail [] = []
-safetail xs = tail xs
+safetail []     = []
+safetail (x:xs) = xs
 ```
 
 ## 2.6
@@ -139,10 +132,10 @@ curta xs = length xs <= 2
 
 ```haskell
 curta :: [a] -> Bool
-curta []     = True
-curta [_]    = True
-curta [_, _] = True
-curta _      = False
+curta []    = True
+curta [_]   = True
+curta [_,_] = True
+curta _     = False
 ```
 
 ## 2.7
@@ -167,7 +160,7 @@ Em vez de definir a mediana diretamente usando comparações, pode usar o seguin
 
 ```haskell
 mediana :: Ord a => a -> a -> a -> a
-mediana x y z = x + y + z - (max3 x y z) - (min x y z)
+mediana x y z = x + y + z - (max3 x y z) - (min3 x y z)
 ```
 
 ## 2.8

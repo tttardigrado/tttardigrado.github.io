@@ -3,7 +3,7 @@
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="PF - Ficha 2">
-<meta name=twitter:description content="My solutions for the functional programming course&rsquo;s worksheet #2">
+<meta name=twitter:description content="My solutions for the functional programming course&rsquo;s worksheet #2 (PT)">
 <link rel=stylesheet type=text/css href=/css/style.css>
 <link rel=stylesheet type=text/css href=/css/helper.css>
 <link rel=stylesheet type=text/css href=/css/prism.css>
@@ -39,8 +39,8 @@ classificação qualitativa a uma nota de 0 a 20:</p>
 <li>19-20 &ldquo;muito bom com distinção&rdquo;</li>
 </ul>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#a6e22e>classifica</span> <span style=color:#f92672>::</span> <span style=color:#66d9ef>Int</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>String</span>
-<span style=color:#a6e22e>classifica</span> n <span style=color:#f92672>=</span> 
-  <span style=color:#66d9ef>if</span> n <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>9</span> <span style=color:#66d9ef>then</span> <span style=color:#e6db74>&#34;reprovado&#34;</span>
+<span style=color:#a6e22e>classifica</span> n <span style=color:#f92672>=</span>
+  <span style=color:#66d9ef>if</span>      n <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>9</span>  <span style=color:#66d9ef>then</span> <span style=color:#e6db74>&#34;reprovado&#34;</span>
   <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> n <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>12</span> <span style=color:#66d9ef>then</span> <span style=color:#e6db74>&#34;suficiente&#34;</span>
   <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> n <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>15</span> <span style=color:#66d9ef>then</span> <span style=color:#e6db74>&#34;bom&#34;</span>
   <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> n <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>18</span> <span style=color:#66d9ef>then</span> <span style=color:#e6db74>&#34;muito bom&#34;</span>
@@ -63,18 +63,13 @@ Classificamos o resultado nos seguinte intervalos:</p>
 <li>30 ≤ IMC &ldquo;obesidade&rdquo;</li>
 </ul>
 <p>Escreva uma definição da função <code>classifica :: Float -> Float -> String</code> que determina a classificação acima; os dois argumentos da função são, respectivamente, o peso em quilogramas e a altura em metros.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#a6e22e>imc</span> <span style=color:#f92672>::</span> <span style=color:#66d9ef>Float</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>Float</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>Float</span>
-<span style=color:#a6e22e>imc</span> peso alt <span style=color:#f92672>=</span> peso <span style=color:#f92672>/</span> (alt <span style=color:#f92672>*</span> alt)
-
-<span style=color:#a6e22e>classifica&#39;</span> <span style=color:#f92672>::</span> <span style=color:#66d9ef>Float</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>String</span>
-<span style=color:#a6e22e>classifica&#39;</span> n
-  <span style=color:#f92672>|</span> n <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>18.5</span>  <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;baixo peso&#34;</span>
-  <span style=color:#f92672>|</span> n <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>25</span>    <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;peso normal&#34;</span>
-  <span style=color:#f92672>|</span> n <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>30</span>    <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;excesso de peso&#34;</span>
-  <span style=color:#f92672>|</span> otherwise <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;obesidade&#34;</span>
-
-<span style=color:#a6e22e>classifica</span> <span style=color:#f92672>::</span> <span style=color:#66d9ef>Float</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>Float</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>String</span>
-<span style=color:#a6e22e>classifica</span> x y <span style=color:#f92672>=</span> classifica&#39; <span style=color:#f92672>$</span> imc x y
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#a6e22e>classifica</span> <span style=color:#f92672>::</span> <span style=color:#66d9ef>Float</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>Float</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>String</span>
+<span style=color:#a6e22e>classifica</span> peso alt
+  <span style=color:#f92672>|</span> imc <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>18.5</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;baixo peso&#34;</span>
+  <span style=color:#f92672>|</span> imc <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>25</span>   <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;peso normal&#34;</span>
+  <span style=color:#f92672>|</span> imc <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>30</span>   <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;excesso de peso&#34;</span>
+  <span style=color:#f92672>|</span> otherwise  <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;obesidade&#34;</span>
+  <span style=color:#66d9ef>where</span> imc <span style=color:#f92672>=</span> peso <span style=color:#f92672>/</span> (alt <span style=color:#f92672>*</span> alt)
 </code></pre></div><h2 id=23>2.3</h2>
 <p>Considere duas possíveis definições das funções max e min do prelúdio-padrão que calculam, respectivamente, o máximo e o mínimo de dois valores:</p>
 <p><code>max x y = if x>=y then x else y</code></p>
@@ -82,12 +77,12 @@ Classificamos o resultado nos seguinte intervalos:</p>
 <h3 id=231>2.3.1</h3>
 <p>Escreva defnições deste género para duas funções <code>max3</code> e <code>min3</code> para calcular, respectivamente, o máximo e o mínimo de três números.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#a6e22e>max3</span> <span style=color:#f92672>::</span> <span style=color:#66d9ef>Ord</span> a <span style=color:#f92672>=&gt;</span> a <span style=color:#f92672>-&gt;</span> a <span style=color:#f92672>-&gt;</span> a <span style=color:#f92672>-&gt;</span> a
-<span style=color:#a6e22e>max3</span> x y z <span style=color:#f92672>=</span> <span style=color:#66d9ef>if</span> x <span style=color:#f92672>&gt;=</span> y 
+<span style=color:#a6e22e>max3</span> x y z <span style=color:#f92672>=</span> <span style=color:#66d9ef>if</span> x <span style=color:#f92672>&gt;=</span> y
     <span style=color:#66d9ef>then</span> <span style=color:#66d9ef>if</span> x <span style=color:#f92672>&gt;=</span> z <span style=color:#66d9ef>then</span> x <span style=color:#66d9ef>else</span> z
     <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> y <span style=color:#f92672>&gt;=</span> z <span style=color:#66d9ef>then</span> y <span style=color:#66d9ef>else</span> z
 
 <span style=color:#a6e22e>min3</span> <span style=color:#f92672>::</span> <span style=color:#66d9ef>Ord</span> a <span style=color:#f92672>=&gt;</span> a <span style=color:#f92672>-&gt;</span> a <span style=color:#f92672>-&gt;</span> a <span style=color:#f92672>-&gt;</span> a
-<span style=color:#a6e22e>min3</span> x y z <span style=color:#f92672>=</span> <span style=color:#66d9ef>if</span> x <span style=color:#f92672>&lt;=</span> y 
+<span style=color:#a6e22e>min3</span> x y z <span style=color:#f92672>=</span> <span style=color:#66d9ef>if</span> x <span style=color:#f92672>&lt;=</span> y
     <span style=color:#66d9ef>then</span> <span style=color:#66d9ef>if</span> x <span style=color:#f92672>&lt;=</span> z <span style=color:#66d9ef>then</span> x <span style=color:#66d9ef>else</span> z
     <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> y <span style=color:#f92672>&lt;=</span> z <span style=color:#66d9ef>then</span> y <span style=color:#66d9ef>else</span> z
 </code></pre></div><h3 id=232>2.3.2</h3>
@@ -106,25 +101,23 @@ Classificamos o resultado nos seguinte intervalos:</p>
 </code></pre></div><h2 id=25>2.5</h2>
 <p>Pretende-se implementar uma função <code>safetail :: [a] -> [a]</code> que extende a função tail do prelúdio de forma a dar a lista vazia quando o argumento é a lista vazia (em vez de um erro). Escreva três defnições diferentes usando condicionais, equações com guardas e padrões.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#a6e22e>safetail</span> <span style=color:#f92672>::</span> [a] <span style=color:#f92672>-&gt;</span> [a]
-<span style=color:#a6e22e>safetail</span> xs <span style=color:#f92672>=</span> <span style=color:#66d9ef>if</span> length xs <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>
-              <span style=color:#66d9ef>then</span> <span style=color:#66d9ef>[]</span>
-              <span style=color:#66d9ef>else</span> tail xs
+<span style=color:#a6e22e>safetail</span> xs <span style=color:#f92672>=</span> <span style=color:#66d9ef>if</span> null xs <span style=color:#66d9ef>then</span> <span style=color:#66d9ef>[]</span> <span style=color:#66d9ef>else</span> tail xs
 </code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#a6e22e>safetail</span> <span style=color:#f92672>::</span> [a] <span style=color:#f92672>-&gt;</span> [a]
 <span style=color:#a6e22e>safetail</span> xs
-  <span style=color:#f92672>|</span> length xs <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>[]</span>
-  <span style=color:#f92672>|</span> otherwise      <span style=color:#f92672>=</span> tail xs
+  <span style=color:#f92672>|</span> null xs   <span style=color:#f92672>=</span> <span style=color:#66d9ef>[]</span>
+  <span style=color:#f92672>|</span> otherwise <span style=color:#f92672>=</span> tail xs
 </code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#a6e22e>safetail</span> <span style=color:#f92672>::</span> [a] <span style=color:#f92672>-&gt;</span> [a]
-<span style=color:#a6e22e>safetail</span> <span style=color:#66d9ef>[]</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>[]</span>
-<span style=color:#a6e22e>safetail</span> xs <span style=color:#f92672>=</span> tail xs
+<span style=color:#a6e22e>safetail</span> <span style=color:#66d9ef>[]</span>     <span style=color:#f92672>=</span> <span style=color:#66d9ef>[]</span>
+<span style=color:#a6e22e>safetail</span> (x<span style=color:#66d9ef>:</span>xs) <span style=color:#f92672>=</span> xs
 </code></pre></div><h2 id=26>2.6</h2>
 <p>Escreva duas defnições da função <code>curta :: [a] -> Bool</code> para testar se uma lista tem zero, um ou dois elementos, usando a função <code>length</code> e padrões.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#a6e22e>curta</span> <span style=color:#f92672>::</span> [a] <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>Bool</span>
 <span style=color:#a6e22e>curta</span> xs <span style=color:#f92672>=</span> length xs <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>2</span>
 </code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#a6e22e>curta</span> <span style=color:#f92672>::</span> [a] <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>Bool</span>
-<span style=color:#a6e22e>curta</span> <span style=color:#66d9ef>[]</span>     <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span>
-<span style=color:#a6e22e>curta</span> [<span style=color:#66d9ef>_</span>]    <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span>
-<span style=color:#a6e22e>curta</span> [<span style=color:#66d9ef>_</span>, <span style=color:#66d9ef>_</span>] <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span>
-<span style=color:#a6e22e>curta</span> <span style=color:#66d9ef>_</span>      <span style=color:#f92672>=</span> <span style=color:#66d9ef>False</span>
+<span style=color:#a6e22e>curta</span> <span style=color:#66d9ef>[]</span>    <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span>
+<span style=color:#a6e22e>curta</span> [<span style=color:#66d9ef>_</span>]   <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span>
+<span style=color:#a6e22e>curta</span> [<span style=color:#66d9ef>_</span>,<span style=color:#66d9ef>_</span>] <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span>
+<span style=color:#a6e22e>curta</span> <span style=color:#66d9ef>_</span>     <span style=color:#f92672>=</span> <span style=color:#66d9ef>False</span>
 </code></pre></div><h2 id=27>2.7</h2>
 <p>A mediana de três valores é o valor &ldquo;no meio&rdquo; quando os colocamos por
 ordem crescente. Por exemplo: mediana 2 3 (-1) == 2</p>
@@ -139,7 +132,7 @@ ordem crescente. Por exemplo: mediana 2 3 (-1) == 2</p>
 </code></pre></div><h3 id=272>2.7.2</h3>
 <p>Em vez de definir a mediana diretamente usando comparações, pode usar o seguinte método: somamos os 3 valores e subtraimos o maior e o menor. Re-defina a função mediana desta forma.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#a6e22e>mediana</span> <span style=color:#f92672>::</span> <span style=color:#66d9ef>Ord</span> a <span style=color:#f92672>=&gt;</span> a <span style=color:#f92672>-&gt;</span> a <span style=color:#f92672>-&gt;</span> a <span style=color:#f92672>-&gt;</span> a
-<span style=color:#a6e22e>mediana</span> x y z <span style=color:#f92672>=</span> x <span style=color:#f92672>+</span> y <span style=color:#f92672>+</span> z <span style=color:#f92672>-</span> (max3 x y z) <span style=color:#f92672>-</span> (min x y z)
+<span style=color:#a6e22e>mediana</span> x y z <span style=color:#f92672>=</span> x <span style=color:#f92672>+</span> y <span style=color:#f92672>+</span> z <span style=color:#f92672>-</span> (max3 x y z) <span style=color:#f92672>-</span> (min3 x y z)
 </code></pre></div><h2 id=28>2.8</h2>
 <p>Defina uma função <code>converte :: Int -> String</code> para converter um inteiro positivo inferior a 1000 para texto em português.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#a6e22e>sub20</span> <span style=color:#f92672>::</span> <span style=color:#66d9ef>Int</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>String</span>
