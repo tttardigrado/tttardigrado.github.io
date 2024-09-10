@@ -7,5 +7,5 @@ paginate     = 10
   lang = ["pt", "en"]
   socials = [ 
     { url = "https://www.instagram.com/ttttardigrado/", name = "insta" }
-  , { url = "https://github.com/tttardigrado", name = "git" }
+  , { url = "https://github.com/tttardigrado", name = "github" }
   ]
