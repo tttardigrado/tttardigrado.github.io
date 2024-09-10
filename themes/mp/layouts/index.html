@@ -1,0 +1,31 @@
+{{ define "main" }}
+
+<div class="title">Name</div>
+<p class="content">{{ .Site.Title | strings.ToLower }} - {{ .Site.Params.short | strings.ToLower }}</p>
+
+<div class="title">Synopsis</div>
+{{ range .Site.Params.synopsis }}
+  <p class="content"><strong>tttardigrade</strong> <a href="{{ .url }}">{{ .name }}</a> [OPTIONS]... [FILE]...</p>
+{{ end }}
+
+<div class="title">Description</div>
+<p class="content">{{ .Site.Params.Desc }}</p>
+
+<div class="title">Options</div>
+{{ range .Site.Params.options }}
+  <p class="content"><strong><a href="{{.url}}">-{{ .short }}, --{{ .long }}</a></strong></p>
+  <p class="desc">{{ .desc }}</p>
+{{ end }}
+
+
+<div class="title">See Also</div>
+<p class="content">
+  {{ range .Site.Params.social }}
+    <a href="{{ .url }}">{{ .name }}(1)</a>,
+  {{ end }}
+</p>
+{{ end }}
+
+
+
+  

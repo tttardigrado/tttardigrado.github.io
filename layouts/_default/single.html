@@ -1,0 +1,13 @@
+{{ define "main" }}
+
+<p>
+  $ title: {{.Title}}
+  <br>
+  $ date: {{ .Date | time.Format "02-01-2006" }}
+  <br>
+  $ cat ./posts/{{ .Params.file }}.md
+</p>
+
+{{.Content}}
+
+{{ end }}

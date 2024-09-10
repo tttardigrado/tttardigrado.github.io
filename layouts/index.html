@@ -1,0 +1,33 @@
+{{ define "main" }}
+<p>
+  NAME
+  <br>&emsp;&emsp;&emsp;&emsp;
+  {{.Site.Title}}
+  <br><br>
+  
+  SYNOPSIS
+  <br>&emsp;&emsp;&emsp;&emsp;
+  $ cat <a href="/cv">./cv.md</a>
+  <br>&emsp;&emsp;&emsp;&emsp;
+  $ ls &emsp;<a href="/posts">./posts</a>
+  <br><br>
+  
+  DESCRIPTION
+  <br>&emsp;&emsp;&emsp;&emsp;
+  {{.Site.Params.desc}}
+  <br><br>
+   
+  LANG
+  <br>&emsp;&emsp;&emsp;&emsp;
+  {{range .Site.Params.lang }} {{ . }} {{ end }}
+  <br><br>  
+  
+  SEE ALSO
+  <br>&emsp;&emsp;&emsp;&emsp;
+  {{ range .Site.Params.socials }}
+    <a href="{{ .url }}">{{ .name }}</a>(1)
+  {{ end }}
+</p>
+
+{{ end }}
+

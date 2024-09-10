@@ -1,0 +1,12 @@
+title        = "tttardigrade"
+languageCode = "pt-pt"
+paginate     = 10
+
+[params]
+  desc = "computer science, hip-hop, debate e esquerdalhices variadas"
+  lang = ["pt", "en"]
+  socials = [ 
+    { url = "", name = "instagram" }
+  , { url = "", name = "github" }
+  , { url = "", name = "rss" }
+  ]

@@ -1,0 +1,79 @@
+body {
+	background-color: black;
+	background-image: radial-gradient(rgba(0, 150, 0, 0.75), black 120%);
+	height: 100vh;
+	margin: 0;
+	padding: 2rem;
+	color: white;
+	font: 1.3rem Inconsolata, monospace;
+	text-shadow: 0 0 5px #C8C8C8;
+  background-attachment: fixed
+}
+
+body::after {
+	content: "";
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 99vw;
+	height: 100vh;
+	background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15) 1px, transparent 1px, transparent 2px);
+	pointer-events: none;
+  background-attachment: fixed;
+}
+
+::selection {
+	background: #0080FF;
+	text-shadow: none;
+}
+
+.container {
+  width: 100%;
+	margin: auto;
+}
+
+nav {
+  text-align: center;
+}
+
+a {
+	color: inherit;
+}
+
+ul li {
+  list-style: none;
+}
+
+ul li::before {
+  content: "> "
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px !important;
+  }
+}
+
+pre {
+  background: rgba(0,0,0,0.5);
+  overflow: auto;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+img {
+  width: 100%;
+  border-radius: 1rem;
+}

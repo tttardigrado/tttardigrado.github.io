@@ -1,0 +1,9 @@
+{{ define "main" }}
+  <p>$ ls ./{{ .Title | strings.ToLower }}</p>
+  <ul>
+    {{ range .Pages }}
+      <li><a href="{{.RelPermalink}}">{{.Title | strings.ToLower}}</a></li>
+    {{end}}
+  </ul>
+{{ end }}
+

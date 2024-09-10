@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hip-hop on tttardigrade</title>
+    <link>localhost/tags/hip-hop/</link>
+    <description>Recent content in hip-hop on tttardigrade</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-pt</language>
+    <lastBuildDate>Sun, 02 Apr 2023 08:18:02 +0100</lastBuildDate><atom:link href="localhost/tags/hip-hop/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nada se perde, tudo se sampla</title>
+      <link>localhost/posts/nsptss/</link>
+      <pubDate>Sun, 02 Apr 2023 08:18:02 +0100</pubDate>
+      
+      <guid>localhost/posts/nsptss/</guid>
+      <description>Notas: Este texto foi escrito há algum tempo para a ADAUM. Se o voltasse a escrever provavelmente escreveria algo bastante diferente (nomeadamente com algumas citações de Roland Barthes e Mark Fisher e algo sobre plunderphonics e vapor wave), mas aquilo que está escrito está escrito e fica aqui para a história.
+ Hegel observa algures que todos os grandes factos e personagens da história universal aparecem, por assim dizer, pelo menos duas vezes.</description>
+    </item>
+    
+  </channel>
+</rss>
