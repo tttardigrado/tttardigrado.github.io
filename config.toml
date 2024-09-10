@@ -6,7 +6,6 @@ paginate     = 10
   desc = "computer science, hip-hop, debate e esquerdalhices variadas"
   lang = ["pt", "en"]
   socials = [ 
-    { url = "www.instagram.com/ttttardigrado/", name = "insta" }
+    { url = "https://www.instagram.com/ttttardigrado/", name = "insta" }
   , { url = "https://github.com/tttardigrado", name = "git" }
-  , { url = "", name = "rss" }
   ]
