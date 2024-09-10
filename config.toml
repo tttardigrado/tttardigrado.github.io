@@ -1,4 +1,4 @@
-title        = "tttardigrade"
+title        = "tttardigrado"
 languageCode = "pt-pt"
 paginate     = 10
 
@@ -6,7 +6,7 @@ paginate     = 10
   desc = "computer science, hip-hop, debate e esquerdalhices variadas"
   lang = ["pt", "en"]
   socials = [ 
-    { url = "", name = "instagram" }
-  , { url = "", name = "github" }
+    { url = "www.instagram.com/ttttardigrado/", name = "insta" }
+  , { url = "https://github.com/tttardigrado", name = "git" }
   , { url = "", name = "rss" }
   ]
