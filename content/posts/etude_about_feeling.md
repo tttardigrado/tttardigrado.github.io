@@ -4,7 +4,7 @@ date: 2021-12-14
 file: "eaf"
 ---
 
-Como qualquer pessoa, às vezes tenho insónias e doi por mim a pensar qual será a forma mais bonita de preencher um círculo. Esta foi a minha resposta a essa pergunta.
+Como qualquer pessoa, às vezes tenho insónias e dou por mim a pensar qual será a forma mais bonita de preencher um círculo. Esta foi a minha resposta a essa pergunta.
 
 ## Linhas
 A primeira tentativa foi escolher dois pontos aleatórios na circunferência e unir os mesmos através de uma linha reta. Os pontos são selecionados através dos ângulos, tal que *a ∈ [0,2π]*, ou seja, o ângulo está em radianos, e as coordenadas finais serão obtidas através da utilização de coordenadas polares.
