@@ -1,9 +1,11 @@
 {{ define "main" }}
   <p>$ ls ./{{ .Title | strings.ToLower }}</p>
-  <ul>
+  <p>
     {{ range .Pages }}
-      <li><a href="{{.RelPermalink}}">{{.Title | strings.ToLower}}</a></li>
+      {{ .Date | time.Format "02-01-2006" }}
+      <a href="{{.RelPermalink}}">{{.Title | strings.ToLower}}</a>
+      <br>
     {{end}}
-  </ul>
+  </p>
 {{ end }}
 
