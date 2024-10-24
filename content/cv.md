@@ -74,10 +74,10 @@ draft: false
 
 ### Formações Ministradas
 
-* *Introdução ao BP* : SdDUP (2023), Secundária da Maia (2024)
-* *Primeiras Casas* : SdDUP (2022), SdDCP (2022), Torneio António Cândido (2023)
+* *Introdução ao BP* : SdDUP (2023), Secundária da Maia (2024), AECCB (2024)
+* *BP - Primeiras Casas* : SdDUP (2022), SdDCP (2022), Torneio António Cândido (2023)
 * *Public Speaking* : AEFFUP (2023), AEFPCEUP (2023)
-* *Pitch* : EBEC (2024)
+* *Pitch* : EBEC (2024), Sci-Tech (2024)
 * *Adjudicação* : ENDC (2024)
 * *Pensamento Crítico & Argumentação* : Colégio Universal (2024)
 
