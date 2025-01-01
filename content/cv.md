@@ -60,6 +60,7 @@ draft: false
 ### Breaks de Adjudicação
 
 * *European University Debate Championship 2024*: Wing Partial Octofinals
+* *International Debate Camp - Porto 2024*: Wing da Final
 * *Open do Minho 2024*: CA Team, Chair da Final Geral, Chair da Semifinal
 * *Distrital do Porto 2022* : CA Team, Wing da Final Geral
 * *Open do Tejo 2023* : CA Team, Chair da Final Geral, Chair da Final de Iniciados
@@ -74,17 +75,16 @@ draft: false
 
 ### Formações Ministradas
 
-* *Introdução ao BP* : SdDUP (2023), Secundária da Maia (2024), AECCB (2024)
+* *Introdução ao BP* : SdDUP (2023), Secundária da Maia (2024), Secundária de Valongo (2024)
 * *BP - Primeiras Casas* : SdDUP (2022), SdDCP (2022), Torneio António Cândido (2023)
-* *Public Speaking* : AEFFUP (2023), AEFPCEUP (2023)
-* *Pitch* : EBEC (2024), Sci-Tech (2024)
+* *Argumentação e Retórica* : AEFFUP (2023), AEFPCEUP (2023), Colégio Universal (2024), Secundária Camilo Castelo Branco (2024), ANEM (2024), Secundária de Valongo (2024) 
+* *Pitch* : EBEC (2024), Sci-Tech (2024), I-Days (2024)
 * *Adjudicação* : ENDC (2024)
-* *Pensamento Crítico & Argumentação* : Colégio Universal (2024)
-
 
 ### Outros
 
 * *Internacional Debate Camp 2024* : Co-Convenor
-* *Interno de Inverno do Minho 2023* : Tab Master
-
+* *Interno de Inverno do Minho 2023* : Tab
+* *Distrital do Porto 2024* : Convenor
+* *Dutch EUDC 2026* : Regional Advisor for Portugal
 

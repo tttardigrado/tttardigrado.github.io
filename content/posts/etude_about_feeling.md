@@ -1,6 +1,7 @@
 ---
 title: "étude about feeling"
 date: 2021-12-14
+draft: true
 file: "eaf"
 ---
 
