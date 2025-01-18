@@ -1,7 +1,7 @@
 ---
 title: Discurso de Tomada de Posse
 date: 2024-07-14
-draft: false
+draft: true
 file: "tp"
 ---
 

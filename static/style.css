@@ -40,11 +40,11 @@ a {
 	color: inherit;
 }
 
-ul li {
+li {
   list-style: none;
 }
 
-ul li::before {
+li::before {
   content: "> "
 }
 

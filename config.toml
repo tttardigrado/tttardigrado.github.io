@@ -3,8 +3,8 @@ languageCode = "pt-pt"
 paginate     = 10
 
 [params]
-  desc = "computer science, hip-hop, debate e esquerdalhices variadas"
-  lang = ["pt", "en"]
+  desc = "às vezes escrevo umas cenas"
+  lang = [".pt", ".en", ".hs"]
   socials = [ 
     { url = "https://www.instagram.com/ttttardigrado/", name = "insta" }
   , { url = "https://github.com/tttardigrado", name = "github" }

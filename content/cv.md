@@ -26,7 +26,7 @@ draft: false
 ## Certificados e Prémios
 
 * *12.2023* : Winter Crash Course - América Latina, [CECRI]()
-* 01.2023 : Diploma de Mérito - Melhor aluno, [AECCB](https://www.aeccb.pt/)
+* *01.2023* : Diploma de Mérito - Melhor aluno, [AECCB](https://www.aeccb.pt/)
 * *06.2021* : After School - Astrofísica, [TreeTree2](https://www.treetree2.org/)
 * *12.2020* : Escola de Inverno de Astrofísica, [NFIST](https://www.nfist.pt/)
 
@@ -37,7 +37,7 @@ draft: false
 ### Conquistas
 
 * *Torneio Nacional de Debate Universitário 2024* : Vencedor da Final Geral
-* Interno de Verão do Minho 2024 : Finalista
+* *Interno de Verão do Minho 2024* : Finalista
 * *Open da Católica 2024* : Finalista
 * *Regional de Lisboa 2024* : Finalista
 * *Torneio António Cândido* : Finalista
@@ -48,7 +48,7 @@ draft: false
 
 ### Top 10 Oradores
 
-* Interno de Verão do Minho 2024: Melhor Orador
+* *Interno de Verão do Minho 2024* : Melhor Orador
 * *Open da Católica 2024* : Melhor Orador
 * *Torneio Nacional de Debate Universitário 2024* : Melhor Orador
 * *Regional de Lisboa 2024* : Melhor Orador
@@ -62,7 +62,7 @@ draft: false
 * *European University Debate Championship 2024*: Wing Partial Octofinals
 * *International Debate Camp - Porto 2024*: Wing da Final
 * *Open do Minho 2024*: CA Team, Chair da Final Geral, Chair da Semifinal
-* *Distrital do Porto 2022* : CA Team, Wing da Final Geral
+* *Distrital do Porto 2023* : CA Team, Wing da Final Geral
 * *Open do Tejo 2023* : CA Team, Chair da Final Geral, Chair da Final de Iniciados
 * *Open de Verão 2023* : CA Team
 * *Open da Católica 2023* : Chair da Final de Iniciados
@@ -79,7 +79,7 @@ draft: false
 * *BP - Primeiras Casas* : SdDUP (2022), SdDCP (2022), Torneio António Cândido (2023)
 * *Argumentação e Retórica* : AEFFUP (2023), AEFPCEUP (2023), Colégio Universal (2024), Secundária Camilo Castelo Branco (2024), ANEM (2024), Secundária de Valongo (2024) 
 * *Pitch* : EBEC (2024), Sci-Tech (2024), I-Days (2024)
-* *Adjudicação* : ENDC (2024)
+* *Adjudicação* : ENDC (2024), SdDUP (2024)
 
 ### Outros
 
