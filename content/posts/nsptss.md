@@ -23,9 +23,6 @@ Foi através do sampling que encontrei a “trajectória de outros craques de ou
 
 Espero que da próxima vez que ouçam uma música que vos pareça familiar se lembrem deste ciclo de inspiração e inovação, e que se lembrem que apesar da máxima de que quem esquece a história está condenado a repeti-la, no caso da música, é exatamente para não a esquecermos que a repetimos.
 
-
-$ cat ./biblio.bib
-
 1. Chic, “Good times.” [Song], 1979.
 2. Sugar Hill Gang, “Rapper’s delight.” [Song], 1979.
 3. Abba, “Mamma mia.” [Song], 1975.

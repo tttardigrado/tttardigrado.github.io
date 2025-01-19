@@ -1,28 +1,18 @@
 {{ define "main" }}
 <div>
-  NAME
-  <div style="padding-left: 2rem;">{{.Site.Title}} </div>
+  <span style="color: var(--aurora-g)">{{.Site.Title}}@site</span>:
+  <span style="color: var(--frost-3)">~</span>$ cat profile.txt
   <br>
-  
-  DESCRIPTION 
-  <div style="padding-left: 2rem;"> {{.Site.Params.desc}} </div>
-  <br>
-  
-   
-  LANG
-  <div style="padding-left: 2rem;"> 
-    {{range .Site.Params.lang }} {{ . }} {{ end }}
-  </div>
-  <br>
+  {{.Site.Params.desc}}
+  <br><br>
 
-  POSTS 
-  <div style="padding-left:2rem">
-    {{ range where site.RegularPages "Section" "posts" }}
-    <li><a href="{{.RelPermalink}}">{{.Title | strings.ToLower}}</a></li>
-    {{ end }}
-  </div>
-
+  <span style="color: var(--aurora-g)">{{.Site.Title}}@site</span>:
+  <span style="color: var(--frost-3)">~</span>$ ls <a href="/posts">./posts</a>
   <br>
+  {{ range where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+    => <a href = "{{.RelPermalink}}">{{ .Title | strings.ToLower }}</a><br>
+  {{ end }}
+
 </div>
 
 {{ end }}

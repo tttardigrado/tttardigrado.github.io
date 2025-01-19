@@ -1,11 +1,13 @@
 {{ define "main" }}
-  <p>$ ls ./{{ .Title | strings.ToLower }}</p>
-  <p>
-    {{ range .Pages }}
-      {{ .Date | time.Format "02-01-2006" }}
-      <a href="{{.RelPermalink}}">{{.Title | strings.ToLower}}</a>
-      <br>
-    {{end}}
-  </p>
+<div>
+  <a href="/"><span style="color: var(--aurora-g)">{{.Site.Title}}@site</span></a>:
+  <span style="color: var(--frost-3)">~/{{ .Title | strings.ToLower }}</span>$ ls .
+  <br> 
+  {{ range .Pages }}
+    => {{ .Date | time.Format "02-01-06" }}
+    <a href="{{.RelPermalink}}">{{.Title | strings.ToLower}}</a>
+    <br>
+  {{end}}
+</div>
 {{ end }}
 

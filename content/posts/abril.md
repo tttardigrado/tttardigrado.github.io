@@ -14,8 +14,6 @@ Celebrar abril é perceber que ainda há muito por fazer. É garantir que o “r
 
 {{< bandcamp 3311120083 >}}
 
-$ cat ./biblio.bib
-
 1. Sophia de Mello Breyner Anderson (1974). "25 de abril".
 2. Odete Santos (2007). "Até amanhã, camaradas"
 3. Sérgio Godinho (1974). "Liberdade".

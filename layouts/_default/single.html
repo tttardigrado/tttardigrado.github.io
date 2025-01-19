@@ -1,13 +1,15 @@
 {{ define "main" }}
 
 <p>
-  $ title: {{.Title}}
-  <br>
-  $ date: {{ .Date | time.Format "02-01-2006" }}
-  <br>
-  $ cat ./posts/{{ .Params.file }}.md
+  <a href="/"><span style="color: var(--aurora-g)">{{.Site.Title}}@site</span></a>:
+  <span style="color: var(--frost-3)">~/posts</span>$ cat ./{{.Params.file}}.md
 </p>
 
+<p>---
+<br>title: {{.Title}}
+<br>date: {{.Date | time.Format "02-01-2006"}}
+<br>---</p>
+  
 {{.Content}}
 
 {{ end }}
