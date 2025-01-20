@@ -26,7 +26,7 @@ body {
 	margin: 0;
 	padding: 2rem;
 	color: var(--snow-1);
-	font: 1.3rem Inconsolata, monospace;
+	font: 1rem Inconsolata, monospace;
 }
 
 body::after {
