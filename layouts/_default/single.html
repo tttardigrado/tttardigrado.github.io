@@ -1,9 +1,6 @@
 {{ define "main" }}
 
-<p>
-  <a href="/"><span style="color: var(--aurora-g)">{{.Site.Title}}@site</span></a>:
-  <span style="color: var(--frost-3)">~/posts</span>$ cat ./{{.Params.file}}.md
-</p>
+{{ partial "prompt" (dict "dir" "~/posts" "cmd" "vi post.md" )}}
 
 <p>---
 <br>title: {{.Title}}

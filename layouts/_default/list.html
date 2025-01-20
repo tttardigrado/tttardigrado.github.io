@@ -1,8 +1,8 @@
 {{ define "main" }}
 <div>
-  <a href="/"><span style="color: var(--aurora-g)">{{.Site.Title}}@site</span></a>:
-  <span style="color: var(--frost-3)">~/{{ .Title | strings.ToLower }}</span>$ ls .
-  <br> 
+  {{partial "prompt" (dict "dir" "~/posts" "cmd" "ls .") }}
+  <br>
+   
   {{ range .Pages }}
     => {{ .Date | time.Format "02-01-06" }}
     <a href="{{.RelPermalink}}">{{.Title | strings.ToLower}}</a>

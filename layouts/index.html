@@ -1,17 +1,17 @@
 {{ define "main" }}
 <div>
-  <span style="color: var(--aurora-g)">{{.Site.Title}}@site</span>:
-  <span style="color: var(--frost-3)">~</span>$ cat profile.txt
-  <br>
+
+  {{ partial "prompt" (dict "dir" "~" "cmd" "cat ./about.txt") }}
+  <br> 
   {{.Site.Params.desc}}
   <br><br>
-
-  <span style="color: var(--aurora-g)">{{.Site.Title}}@site</span>:
-  <span style="color: var(--frost-3)">~</span>$ ls <a href="/posts">./posts</a>
-  <br>
+ 
+  {{ partial "prompt" (dict "dir" "~" "cmd" "ls") }}
+  <a href="./posts">./posts</a><br>
   {{ range where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
     => <a href = "{{.RelPermalink}}">{{ .Title | strings.ToLower }}</a><br>
   {{ end }}
+  <br>
 
 </div>
 

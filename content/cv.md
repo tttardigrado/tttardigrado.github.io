@@ -79,7 +79,9 @@ draft: false
 * *BP - Primeiras Casas* : SdDUP (2022), SdDCP (2022), Torneio António Cândido (2023)
 * *Argumentação e Retórica* : AEFFUP (2023), AEFPCEUP (2023), Colégio Universal (2024), Secundária Camilo Castelo Branco (2024), ANEM (2024), Secundária de Valongo (2024) 
 * *Pitch* : EBEC (2024), Sci-Tech (2024), I-Days (2024)
-* *Adjudicação* : ENDC (2024), SdDUP (2024)
+* *Adjudicação* : ENDC (2024), SdDUP (2025)
+* *Impactos* : Distrital do Porto (2024)
+* *Debater o Futuro* : ADAUM (2025)
 
 ### Outros
 
