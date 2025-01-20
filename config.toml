@@ -1,10 +1,5 @@
-title        = "tttardigrado"
+title        = "tardi"
 languageCode = "pt-pt"
 
 [params]
-  desc = "Às vezes escrevo umas cenas sobre hip-hop, computer science e esquerdalhices variadas"
-  lang = [".pt", ".en", ".hs"]
-  socials = [ 
-    { url = "https://www.instagram.com/ttttardigrado/", name = "insta" }
-  , { url = "https://github.com/tttardigrado", name = "github" }
-  ]
+  desc = "Às vezes escrevo umas cenas sobre hip-hop, computer science e esquerdalhices variadas" 
