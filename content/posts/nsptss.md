@@ -23,29 +23,50 @@ Foi através do sampling que encontrei a “trajectória de outros craques de ou
 
 Espero que da próxima vez que ouçam uma música que vos pareça familiar se lembrem deste ciclo de inspiração e inovação, e que se lembrem que apesar da máxima de que quem esquece a história está condenado a repeti-la, no caso da música, é exatamente para não a esquecermos que a repetimos.
 
-1. Chic, “Good times.” [Song], 1979.
-2. Sugar Hill Gang, “Rapper’s delight.” [Song], 1979.
-3. Abba, “Mamma mia.” [Song], 1975.
-4. Sam The Kid & GQ, “Poetas de karaoke.” [Song], 2006.
-5. James Brown, “Funky drummer.” [Song], 1970.
-6. Public Enemy, “Fight the power.” [Song], 1989.
-7. Slick Rick & Doug E Fresh, “La di da di.” [Song], 1985.
-8. Chris Parkin, “The winstons, james brown and public enemy are among the
+[1] Chic, “Good times.” [Song], 1979.
+
+[2] Sugar Hill Gang, “Rapper’s delight.” [Song], 1979.
+
+[3] Abba, “Mamma mia.” [Song], 1975.
+
+[4] Sam The Kid & GQ, “Poetas de karaoke.” [Song], 2006.
+
+[5] James Brown, “Funky drummer.” [Song], 1970.
+
+[6] Public Enemy, “Fight the power.” [Song], 1989.
+
+[7] Slick Rick & Doug E Fresh, “La di da di.” [Song], 1985.
+
+[8] Chris Parkin, “The winstons, james brown and public enemy are among the
 most sampled artists in music – and this is who has sampled them,” Red Bull.
 2Red Bull, 2022.
-9. Bootstrap, “The most sampled song in hip-hop.” [Video], 2020.
-10. Karl Marx, The eighteenth brumaire of louis bonaparte. 1852.
-11. Sam The Kid, “À procura da perfeita repetição.” [Song], 2006.
-12. Jean de Reydellet, “Pierre schaeffer, 1910-1995: The founder of "musique
+
+[9] Bootstrap, “The most sampled song in hip-hop.” [Video], 2020.
+
+[10] Karl Marx, The eighteenth brumaire of louis bonaparte. 1852.
+
+[11] Sam The Kid, “À procura da perfeita repetição.” [Song], 2006.
+
+[12] Jean de Reydellet, “Pierre schaeffer, 1910-1995: The founder of "musique
 concrète",” Computer Music Journal, vol. 20, no. 2, pp. 10–11, 1996.
-13. Simon Reynolds, “Tapeheads: The history and legacy of musique concrète,”
+
+[13] Simon Reynolds, “Tapeheads: The history and legacy of musique concrète,”
 Tidal Magazine. May 2021.
-14. Elias Chavez, “The evolution of sampling in hip-hop, from the sugarhill
+
+[14] Elias Chavez, “The evolution of sampling in hip-hop, from the sugarhill
 gang to a tribe called quest,” Insider. Insider, 2023.
-15. Nas, “No idea’s original.” [Song], 2002.
-16. Uno, “Nada de novo.” [Song], 2019.
-17. Karl Marx and Frederick Engels, Manifesto of the communist party. 1848.
-18. Sam The Kid, “Sendo assim.” [Song], 2018.
-19. Valete, “Samuel mira.” [Song], 2018.
-20. Phoenix RDC, “A história.” [Song], 2018.
-21. Slow J, “Comida.” [Song], 2015.
+
+[15] Nas, “No idea’s original.” [Song], 2002.
+
+[16] Uno, “Nada de novo.” [Song], 2019.
+
+[17] Karl Marx and Frederick Engels, Manifesto of the communist party. 1848.
+
+[18] Sam The Kid, “Sendo assim.” [Song], 2018.
+
+[19] Valete, “Samuel mira.” [Song], 2018.
+
+[20] Phoenix RDC, “A história.” [Song], 2018.
+
+[21] Slow J, “Comida.” [Song], 2015.
+

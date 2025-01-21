@@ -5,12 +5,19 @@
   <br> 
   {{.Site.Params.desc}}
   <br><br>
- 
-  {{ partial "prompt" (dict "dir" "~" "cmd" "ls") }}
-  <a href="./posts">./posts</a><br>
-  {{ range where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+
+  {{ partial "prompt" (dict "dir" "~" "cmd" "ls ./music") }}
+  <br>
+  {{ range where .Pages "Section" "music"  }} {{ range .Pages }}
     => <a href = "{{.RelPermalink}}">{{ .Title | strings.ToLower }}</a><br>
-  {{ end }}
+  {{ end }}{{ end }}
+  <br>
+  
+  {{ partial "prompt" (dict "dir" "~" "cmd" "ls ./posts") }}
+  <br>
+  {{ range where .Pages "Section" "posts" }} {{ range .Pages }}
+    => <a href = "{{.RelPermalink}}">{{ .Title | strings.ToLower }}</a><br>
+  {{ end }}{{end}}
   <br>
 
 </div>
