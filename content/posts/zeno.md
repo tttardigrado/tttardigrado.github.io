@@ -1,6 +1,6 @@
 ---
 title: "E, No Entanto, Ela Move-se"
-subtitle: "Os Paradoxos De Zenão Sobre O Movimento"
+subtitle: ": Os Paradoxos De Zenão Sobre O Movimento"
 date: 2024-07-02T15:17:06+01:00
 draft: false
 authors: Gonçalo Teixeira, Alex Soto
