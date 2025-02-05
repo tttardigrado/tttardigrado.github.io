@@ -4,19 +4,13 @@
   {{ partial "prompt" (dict "dir" "~" "cmd" "cat ./me.txt") }}
   <br> 
   {{.Site.Params.desc}}
-  <br><br>
+  <br><br> 
 
-  {{ partial "prompt" (dict "dir" "~" "cmd" "ls ./music") }}
-  <br>
-  {{ range where .Pages "Section" "music"  }} {{ range .Pages }}
-    => <a href = "{{.RelPermalink}}">{{ .Title | strings.ToLower }}</a><br>
-  {{ end }}{{ end }}
-  <br>
-  
+    
   {{ partial "prompt" (dict "dir" "~" "cmd" "ls ./posts") }}
   <br>
   {{ range where .Pages "Section" "posts" }} {{ range .Pages }}
-    => <a href = "{{.RelPermalink}}">{{ .Title | strings.ToLower }}</a><br>
+  - <a href = "{{.RelPermalink}}">{{ .Title | strings.ToLower }}</a><br>
   {{ end }}{{end}}
   <br>
 

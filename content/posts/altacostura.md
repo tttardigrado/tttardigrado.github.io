@@ -1,5 +1,6 @@
 ---
-title: "Alta Costura: a revolução foi samplada"
+title: "Alta Costura"
+subtitle: ": a revolução foi samplada"
 date: 2025-01-18T11:27:02+01:00
 draft: false
 file: "altacostura"
