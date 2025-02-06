@@ -4,7 +4,7 @@
 
 <hgroup>
   <h1 style="margin-bottom: 0.5rem;">{{.Title}}{{.Params.subtitle}}</h1>
-  <small>{{.Date | time.Format "02 January 2006"}}</small>
+  <small>{{if .Date }}{{.Date | time.Format "02 January 2006"}}{{end}}</small>
 </hgroup>
 
 

@@ -116,3 +116,8 @@ td, th {
     max-width: 960px !important;
   }
 }
+
+hr {
+  border: 1px solid var(--aurora-g);
+  margin: 2rem 0;
+}
