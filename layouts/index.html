@@ -6,6 +6,9 @@
   {{.Site.Params.desc}}
   <br><br> 
 
+  {{ partial "prompt" (dict "dir" "~" "cmd" "cat ") }}
+  <a href="/micro">./micro.txt</a>
+  <br><br> 
     
   {{ partial "prompt" (dict "dir" "~" "cmd" "ls ./posts") }}
   <br>
