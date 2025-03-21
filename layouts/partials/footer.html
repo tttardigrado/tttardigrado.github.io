@@ -1,3 +1,5 @@
 <footer>
-  
+    {{ range .Site.Params.footer }}
+      <a href="{{.url}}"><i class="bi {{.icon}}"></i> {{.name}}</a> 
+    {{ end }}
 </footer>

@@ -1,12 +1,16 @@
 {{ define "main" }}
 
-{{ partial "prompt" (dict "dir" "~" "cmd" "")}}
-
-<hgroup>
-  <h1 style="margin-bottom: 0.5rem;">{{.Title}}{{.Params.subtitle}}</h1>
-  <small>{{if .Date }}{{.Date | time.Format "02 January 2006"}}{{end}}</small>
-</hgroup>
-
+<h1 style="margin-bottom: 0.5rem;">{{.Title}}{{.Params.subtitle}}</h1> 
+<p>
+    {{if .Date }}
+        [ {{.Date | time.Format "02-01-2006"}} ]
+    {{end}}
+    {{ if .Params.tags }}
+        [ {{ range .Params.tags}}
+          <a href="/tags/{{.}}/">#{{.}}</a>
+        {{end}} ]
+    {{ end }}
+</p>
 
 {{.Content}}
 

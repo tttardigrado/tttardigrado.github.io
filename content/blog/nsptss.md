@@ -2,7 +2,7 @@
 title: "Nada se perde, tudo se sampla"
 date: 2023-04-02T08:18:02+01:00
 draft: false
-file: "nsptsp"
+tags: ["music"]
 ---
 
 

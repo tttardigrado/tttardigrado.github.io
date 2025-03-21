@@ -1,9 +1,8 @@
 ---
-title: "Alta Costura"
-subtitle: ": a revolução foi samplada"
+title: "Alta Costura: a revolução foi samplada"
 date: 2025-01-18T11:27:02+01:00
 draft: false
-file: "altacostura"
+tags: ["music"]
 ---
 
 Lenin abre "O Estado e a Revolução" com uma constatação amarga: "Enquanto vivos, as classes opressoras recompensam os grandes revolucionários com incessantes perseguções; acolhem as suas doutrinas com o ódio mais selvagem, com as mais furibundas campanhas de mentiras e de calúnias. Depois de mortos, procuram canonizá-los, cercando o seu nome com uma certa auréola com o fim de consolar as classes oprimidas e de as mistificar; para isto esvazia-se a sua doutrina revolucionária do respectivo conteúdo, aviltando-a e embotando-lhe o gume revolucionários." Se ainda restassem dúvidas de que a afirmação de Lenin continua válida mais de um século depois, o último álbum de Van Zee serve como uma prova inequívoca disso.

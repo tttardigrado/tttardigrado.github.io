@@ -1,0 +1,23 @@
+baseURL: 'http://tttardigrado.github.com/'
+languageCode: 'en-us'
+title: 'tttardigrado'
+
+params:
+  desc: "If Deleuze was right in saying that \"a concept is a brick\", then I told Virgil to write \"concept\" on it"
+
+  nav:
+    - name: tttardigrade
+      url: "/"
+    - name: blog
+      url: "/blog/"
+ 
+  footer:
+    - name: git
+      url: "https://github.com/tttardigrado"
+      icon: "bi-git"
+    - name: rss
+      url: ""
+      icon: "bi-rss-fill"
+    - name: e-mail
+      url: "mailto:tttardigrado@proton.me"
+      icon: "bi-envelope-fill"

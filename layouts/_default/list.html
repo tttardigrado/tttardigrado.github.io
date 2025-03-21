@@ -1,13 +1,11 @@
 {{ define "main" }}
-<div>
-  {{partial "prompt" (dict "dir" "~/posts" "cmd" "ls .") }}
-  <br>
-   
+<ul class="blog-posts">   
   {{ range .Pages }}
-    => {{ .Date | time.Format "02-01-06" }}
-    <a href="{{.RelPermalink}}">{{.Title | strings.ToLower}}</a>
-    <br>
+    <li>
+    <span>- [{{ .Date | time.Format "02-01-2006" }}]</span> &nbsp;
+      <a href="{{.RelPermalink}}">{{.Title}}</a>
+    </li>
   {{end}}
-</div>
+</ul>
 {{ end }}
 

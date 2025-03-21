@@ -2,6 +2,7 @@
 title: "ABRIL"
 date: 2024-04-25
 file: "abril"
+tags: ["music", "politics"]
 ---
 
 Foi há 50 anos que através da luta do povo, da música, das armas e dos cravos “emergimos da noite e do silêncio” [1].

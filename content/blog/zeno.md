@@ -1,9 +1,9 @@
 ---
 title: "E, No Entanto, Ela Move-se"
-subtitle: ": Os Paradoxos De Zenão Sobre O Movimento"
 date: 2024-07-02T15:17:06+01:00
 draft: false
 authors: Gonçalo Teixeira, Alex Soto
+tags: ["math", "philosophy"]
 ---
 
 > **Abstract:** Desde a sua origem, os paradoxos de Zenão têm desafiado e fascinado pensadores de diversas áreas do conhecimento, exercendo uma profunda influência sobre a compreensão matemática e filosófica do infinito. Este artigo propõe-se a analisar não apenas os quatro paradoxos do movimento, mas também as várias soluções propostas ao longo da história, desde as tentativas iniciais de Aristóteles até as abordagens modernas baseadas em teorias rigorosas como o cálculo infinitesimal. Com isso, pretende-se demonstrar que, independentemente de Zenão estar correto ou não, a relevância dos seus paradoxos permanece imune à mudança.

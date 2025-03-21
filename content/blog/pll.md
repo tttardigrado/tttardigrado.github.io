@@ -3,6 +3,7 @@ title: A formal esolang
 date: 2024-11-23
 draft: false
 file: "pll"
+tags: ["cs"]
 ---
 
 It's almost impossible to discuss esoteric programming languages without someone bringing up [brainfuck](https://esolangs.org/wiki/Brainfuck). The thing that most people don't know is that brainfuck has a formal cousin called P''. 
