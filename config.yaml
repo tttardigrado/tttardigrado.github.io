@@ -16,7 +16,7 @@ params:
       url: "https://github.com/tttardigrado"
       icon: "bi-git"
     - name: rss
-      url: ""
+      url: "index.xml"
       icon: "bi-rss-fill"
     - name: e-mail
       url: "mailto:tttardigrado@proton.me"
