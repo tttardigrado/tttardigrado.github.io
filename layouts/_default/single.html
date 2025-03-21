@@ -2,14 +2,16 @@
 
 <h1 style="margin-bottom: 0.5rem;">{{.Title}}{{.Params.subtitle}}</h1> 
 <p>
+  <small>
     {{if .Date }}
-        [ {{.Date | time.Format "02-01-2006"}} ]
+      [ {{.Date | time.Format "02-01-2006"}} ]
     {{end}}
     {{ if .Params.tags }}
-        [ {{ range .Params.tags}}
-          <a href="/tags/{{.}}/">#{{.}}</a>
-        {{end}} ]
+      [ {{ range .Params.tags}}
+        <a href="/tags/{{.}}/">#{{.}}</a>
+      {{end}} ]
     {{ end }}
+  </small>
 </p>
 
 {{.Content}}
