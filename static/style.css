@@ -30,18 +30,6 @@ body {
     color: var(--text-color);
 }
 
-body::after {
-	  content: "";
-	  position: fixed;
-	  top: 0;
-	  left: 0;
-	  width: 99vw;
-	  height: 100vh;
-	  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15) 1px, transparent 1px, transparent 2px);
-	  pointer-events: none;
-    background-attachment: fixed;
-}
-
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-main);
     color: var(--heading-color);
@@ -179,18 +167,11 @@ ul.blog-posts {
 }
 
 ul.blog-posts li {
-    display: block;
     margin-bottom: 1rem;
 }
 
-
-
 ul.blog-posts li time {
     font-style: normal;
-}
-
-ul.blog-posts li span {
-    flex: 0 0 130px;
 }
 
 ul.blog-posts li a:visited {
@@ -212,5 +193,13 @@ td {
     main {
         margin-top: 30px;
         margin-bottom: 10px;
+    }
+
+    ul.blog-posts li span {
+        display: block;
+    }
+
+    ul.blog-posts li a {
+        margin-left: 1rem;
     }
 }
