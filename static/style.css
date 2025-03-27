@@ -162,8 +162,8 @@ footer a {
 
 /* blog post list */
 ul.blog-posts {
-    list-style-type: none;
-    padding: unset;
+    list-style-type: "❯ ";
+    padding-left: 1rem;
 }
 
 ul.blog-posts li {
@@ -197,9 +197,5 @@ td {
 
     ul.blog-posts li span {
         display: block;
-    }
-
-    ul.blog-posts li a {
-        margin-left: 1rem;
     }
 }
