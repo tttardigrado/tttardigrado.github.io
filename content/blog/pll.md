@@ -6,7 +6,8 @@ file: "pll"
 tags: ["cs"]
 ---
 
-It's almost impossible to discuss esoteric programming languages without someone bringing up [brainfuck](https://esolangs.org/wiki/Brainfuck). The thing that most people don't know is that brainfuck has a formal cousin called P''. 
+It's almost impossible to discuss esoteric programming languages without someone bringing up [brainfuck](https://esolangs.org/wiki/Brainfuck).
+The thing that most people don't know is that brainfuck has a formal cousin called P''.
 
 Invented in 1964 by Corrado Böhm¹ to describe a family of Turing Machines, P'' is, in some way, the "imperative analog" to [λ-calculus](https://plato.stanford.edu/archives/sum2022/entries/lambda-calculus/): a simple and Turing complete language that beautifully captures the essence of its paradigm. I'll illustrate that beauty by building an interpreter for P'' using just a few lines of Haskell. The complete source code is available on [here](https://gist.github.com/tttardigrado/4f6a2d5a4cdf1ca4287d8a8195d16d23)
 
@@ -82,4 +83,5 @@ And that's it! Obviously, we could try to be a bit more clever and use Monads an
 
 1. Böhm, C. (1964). On a family of Turing machines and the related programming language.
 2. Since we are only dealing with infinite lists, we do not need to consider the scenarios where the left or right tapes are empty.
+
 

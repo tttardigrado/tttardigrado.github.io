@@ -59,6 +59,7 @@ draft: false
 
 ### Breaks de Adjudicação
 
+* *Regional de Lisboa 2025* : CA Team, Chair da Final 
 * *European University Debate Championship 2024*: Wing Partial Octofinals
 * *International Debate Camp - Porto 2024*: Wing da Final
 * *Open do Minho 2024*: CA Team, Chair da Final Geral, Chair da Semifinal
