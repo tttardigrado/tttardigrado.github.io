@@ -2,6 +2,7 @@
 title: "AI: licence to kill"
 date: 2025-02-05
 tags: ["politics", "cs"]
+lang: "en"
 ---
 
 So google just [dropped their pledge](https://www.bbc.com/news/articles/cy081nqx2zjo) to not use AI for weapons or surveillance...

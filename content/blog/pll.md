@@ -4,6 +4,7 @@ date: 2024-11-23
 draft: false
 file: "pll"
 tags: ["cs"]
+lang: "en"
 ---
 
 It's almost impossible to discuss esoteric programming languages without someone bringing up [brainfuck](https://esolangs.org/wiki/Brainfuck).

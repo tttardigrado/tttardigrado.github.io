@@ -3,13 +3,15 @@ languageCode: 'en-us'
 title: 'tttardigrado'
 
 params:
-  desc: "If Deleuze was right in saying that \"a concept is a brick\", then I told Virgil to write \"concept\" on it"
+  pagination: 4
 
   nav:
     - name: tttardigrade
       url: "/"
     - name: blog
       url: "/blog/"
+    - name: cv
+      url: "/cv"
  
   footer:
     - name: git

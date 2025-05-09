@@ -2,6 +2,7 @@
 title: "The Debater Paradox"
 date: 2025-02-05T15:17:06+01:00
 tags: ["debate", "philosophy"]
+lang: "en"
 ---
 
 Dear Debater,

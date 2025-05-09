@@ -2,6 +2,7 @@
 title: "Dói, a propina dói"
 date: 2024-09-02
 tags: ["politics"]
+lang: "pt"
 ---
 
 No meio de tantas histórias de estudantes que são obrigades a disistir do ensino superior
