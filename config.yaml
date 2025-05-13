@@ -11,7 +11,7 @@ params:
     - name: blog
       url: "/blog/"
     - name: cv
-      url: "/cv"
+      url: "/cv.pdf"
  
   footer:
     - name: git
