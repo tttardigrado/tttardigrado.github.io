@@ -10,6 +10,8 @@ params:
       url: "/"
     - name: blog
       url: "/blog/"
+    - name: talks
+      url: "/talks"
     - name: cv
       url: "/cv.pdf"
  
