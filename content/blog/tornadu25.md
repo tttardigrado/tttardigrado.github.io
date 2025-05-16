@@ -3,6 +3,7 @@ title: "TorNaDU 25"
 date: 2025-02-23
 tags: ["debate"]
 lang: "pt"
+draft: true
 ---
 
 Não vou mentir e dizer que não foi bom fazer aquilo que fiz, mas não é fácil sentir que nunca é o suficiente....

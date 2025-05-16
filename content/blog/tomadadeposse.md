@@ -3,6 +3,7 @@ title: Discurso de Tomada de Posse
 date: 2024-07-14
 file: "tp"
 lang: "pt"
+draft: true
 ---
 
 Se há três anos me dissessem que um dia seria presidente da SdDUP eu ia atrás dessa pessoa para lhe bater porque mentir é feio e está mal mentido. Mas a vida tem as suas surpresas, o tempo passou, e, hoje, eu e a minha, ou melhor, a nossa direção estamos aqui para tomar posse e prestes a iniciar um novo mandato.
