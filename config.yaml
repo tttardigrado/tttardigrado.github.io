@@ -6,7 +6,7 @@ params:
   pagination: 4
 
   nav:
-    - name: tttardigrade
+    - name: home
       url: "/"
     - name: blog
       url: "/blog/"
