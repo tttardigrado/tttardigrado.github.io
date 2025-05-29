@@ -5,3 +5,5 @@ My name is Gonçalo :: ☕ -> λ.
 I'm a Computer Science student at [Faculty of Sciences](https://www.up.pt/fcup/en/), University of Porto. My interests lie in Automata Theory, Programming Language Theory, and the intersection between CS and Philosophy.
 
 Outside of academia, I'm particularly interested in Science Fiction, Hip Hop and Competitive Debating.
+
+You can see what I'm reading at [books](/books)

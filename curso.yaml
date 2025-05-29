@@ -1,0 +1,41 @@
+lectures:
+  - topic: "Formato BP"
+    date: "dd/mm"
+    bibliography: []
+
+  - topic: "Análise de Moções"
+    date: "dd/mm"
+    bibliography: []
+
+  - topic: "Argumentação 1 - Estrutura"
+    date: "dd/mm"
+    bibliography: []
+
+  - topic: "Argumentação 2 - Análise"
+    date: "dd/mm"
+    bibliography: []
+
+  - topic: "Argumentação 3 - Impactos"
+    date: "dd/mm"
+    bibliography: []
+
+  - topic: "Refutação"
+    date: "dd/mm"
+    bibliography: []
+  
+  - topic: "Caracterização - Análise de Atores"
+    date: "dd/mm"
+    bibliography: []
+
+  - topic: "Modelos"
+    date: "dd/mm"
+    bibliography: []
+
+  - topic: "Adjudicação"
+    date: "dd/mm"
+    bibliography: []
+
+  - topic: "POI"
+    date: "dd/mm"
+    bibliography: []
+
