@@ -6,4 +6,4 @@ I'm a Computer Science student at [Faculty of Sciences](https://www.up.pt/fcup/e
 
 Outside of academia, I'm particularly interested in Science Fiction, Hip Hop and Competitive Debating.
 
-You can see what I'm reading at [books](/books)
+
