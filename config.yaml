@@ -17,11 +17,11 @@ params:
  
   footer:
     - name: git
-      url: "https://github.com/tttardigrado"
+      url:  "https://codeberg.org/tttardigrado"
       icon: "bi-git"
     - name: rss
-      url: "index.xml"
+      url:  "index.xml"
       icon: "bi-rss-fill"
     - name: e-mail
-      url: "mailto:tttardigrado@proton.me"
+      url:  "mailto:tttardigrado@proton.me"
       icon: "bi-envelope-fill"

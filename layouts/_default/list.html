@@ -3,7 +3,7 @@
 <ul class="blog-posts">   
   {{ range .Pages }}
     <li>
-    <span>[{{ .Date | time.Format "02-01-06" }}] [{{ .Params.lang }}]</span>
+      <span>[{{ .Date | time.Format "02-01-06" }}] </span>
       <a href="{{.RelPermalink}}">{{.Title}}</a>
     </li>
   {{end}}
