@@ -40,12 +40,40 @@ O que estrutura. Flagging. Um argumento é... Um discurso é... Tiering de anál
 ## Argumentação 2 -- Geração Argumentativa (16/10):
 
 Argumento Vs Caso. O que deviam fazer. O que vão fazer. [[slides]](/geracao.pdf)
+
 **Exercícios**: Resolve os seguintes exercícios de argumentação da CA do EUDC 2025
 * [Argumentação 1](https://docs.google.com/document/d/1IaKIHqP8rJ-1EYhquWi6J_2HFsoizzdaeppluWxnhlM/edit?tab=t.0)
 * [Argumentação 2](https://docs.google.com/document/d/1-GslIwW_Q2Wk_34odIkOS9N6gMEtbqFqQXvhMzcfzyw/edit?tab=t.0)
 
 **Referências**:
-* Dolan, N. (2015) Argument Construction and Rebuttal. [url](https://www.facebook.com/download/633151224893007/Matter%20Generation%20Workshop.pdf?av=100012276528141&eav=AfasrQYw_cAVEfG1gYgd-nYcEhcgaaMlyXDHyYW0-n5lEeiLv-WJImstsjhRhxKmsrY&paipv=0&ext=1761142593&hash=Acvdbe-b-cwNOevxRMI&__cft__[0]=AZWDAocnU1z1-s4fNISK9OaxpyG6cLe21aPLIGyc6-o5Y_sM_jCMLnW2qGEpqHeP9Dks2VXL1kfF8KhWtMeqEiU0HRnAB10M26BPxd2pFXYsIHyba2KOpvmw4EVTUTDBhmAWFBRjUCTFgQj7tJvhx5JMkX8ogX4NZ2j-a16hbXosYA&__tn__=H-R)
+* Dolan, N. (2015). Argument Construction and Rebuttal. [url](https://www.facebook.com/download/633151224893007/Matter%20Generation%20Workshop.pdf?av=100012276528141&eav=AfasrQYw_cAVEfG1gYgd-nYcEhcgaaMlyXDHyYW0-n5lEeiLv-WJImstsjhRhxKmsrY&paipv=0&ext=1761142593&hash=Acvdbe-b-cwNOevxRMI&__cft__[0]=AZWDAocnU1z1-s4fNISK9OaxpyG6cLe21aPLIGyc6-o5Y_sM_jCMLnW2qGEpqHeP9Dks2VXL1kfF8KhWtMeqEiU0HRnAB10M26BPxd2pFXYsIHyba2KOpvmw4EVTUTDBhmAWFBRjUCTFgQj7tJvhx5JMkX8ogX4NZ2j-a16hbXosYA&__tn__=H-R)
 * Buildacase (2023). Lesson 1-2 How to generate an argument. [url](https://buildacase.ca/2022/12/28/lesson-1-2-how-to-generate-an-argument/)
 * Lafferty, R. (2024). Argument Generation. [url](https://docs.google.com/document/d/1p6pXNk92uEV4nqkzo8XnISYk6w5B-5lAefrRnapnsVI/edit?tab=t.0)
-* Marinov, R. (2024) Argumentation Module. [url 1](https://www.youtube.com/watch?v=FcmDmkSwoss) [url 2](https://www.youtube.com/watch?v=L_fCWNvNWdw)
+* Marinov, R. (2024). Argumentation Module. [url 1](https://www.youtube.com/watch?v=FcmDmkSwoss) [url 2](https://www.youtube.com/watch?v=L_fCWNvNWdw)
+
+## Argumentação 3 -- Impactos (27/10):
+
+O que são Impactos. Pesar. [[slides]](/impactos.pdf)
+
+**Exercícios**: Resolve os seguintes exercícios de argumentação da CA Team dos Europeus de
+Copenhaga
+* Argumentação 11 [url](https://docs.google.com/document/d/1u3dhaFA5Z5an5iEOQ9pfwKnl-zevY-K1gwnKfl7HTe0/edit?tab=t.0)
+* Argumentação 12 [url](https://docs.google.com/document/d/1W0t1-8pRn4pihH8vKRvgbq_0vbN8C-L5aoZEpxOeWcY/edit?tab=t.0)
+
+**Referências**:
+* Marinov, R. (2024). Argumentation Module. [url](https://www.youtube.com/watch?v=m9md41nSju8&list=PLdk7ZVs2HpVxMGIax2WffkxGpQO6q5wWL&index=7)
+* Goldberg, H. (2023). Impacting Soft Cases. [url](https://youtu.be/NuM8rTIKTt0?si=zUct8ywmpgVUZk42)
+* Buildacase. (2023). Lesson 3-1: How to Weigh. [url](https://buildacase.ca/2022/12/24/lesson-3-1-how-to-weigh/)
+
+---
+
+## Temática: Movimentos Sociais
+
+Movimentos Sociais. Stock Cases. [[slides]]()
+
+**Referências**:
+* Debatable. (2019). Social Movements Part 1. [url](https://open.spotify.com/episode/0GktlUGeCpzvnE9wD5Lvyk?si=55e4369325e14167)
+* Debatable. (2019). Social Movements Part 2. [url](https://open.spotify.com/episode/4APL4of3XReZeD04N7GTRR?si=a606824ff2d544b6)
+* Lafferty, R. (2024). Backlash Responses. [url](https://docs.google.com/document/d/1i4DqtFoXBTgpN9dRKSuRDZuDMOQ2tIOumOJesDq0OhY/edit?tab=t.0)
+* Lafferty, R. (2024). Stock Social Justice Arguments. [url](https://docs.google.com/document/d/1pZd0JSGiozBxWyDcGg-ETGpbLm1fsgcvRWr2pEEuXOk/edit?tab=t.0)
+
