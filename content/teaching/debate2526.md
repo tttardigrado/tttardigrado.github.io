@@ -65,6 +65,16 @@ Copenhaga
 * Goldberg, H. (2023). Impacting Soft Cases. [url](https://youtu.be/NuM8rTIKTt0?si=zUct8ywmpgVUZk42)
 * Buildacase. (2023). Lesson 3-1: How to Weigh. [url](https://buildacase.ca/2022/12/24/lesson-3-1-how-to-weigh/)
 
+## Refutação (3/11):
+
+Refutação. Como Estruturar. Os 3 tipos de refutação. [[slides]](/rebuttal.pdf)
+
+**Exercícios**: Faz um prep time curto (10min) para este [debate](https://www.youtube.com/watch?v=hmY8Ryau6yQ). Assiste ao discurso da Primeira Ministra. De seguida, faz um discurso refutativo de 5min. 
+
+**Referências**:
+* Mariniv, R. (2024). Rebuttal. [url](https://www.youtube.com/watch?v=YFeEXhliOR8&list=PLdk7ZVs2HpVxMGIax2WffkxGpQO6q5wWL)
+* Buildacase. (2023). Lesson 2-2: Identifying and Structuring Rebuttal. [url](https://buildacase.ca/2022/12/26/lesson-2-2-identifying-and-structuring-rebuttal/)
+
 ---
 
 ## Temática: Movimentos Sociais
