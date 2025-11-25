@@ -72,8 +72,31 @@ Refutação. Como Estruturar. Os 3 tipos de refutação. [[slides]](/rebuttal.pd
 **Exercícios**: Faz um prep time curto (10min) para este [debate](https://www.youtube.com/watch?v=hmY8Ryau6yQ). Assiste ao discurso da Primeira Ministra. De seguida, faz um discurso refutativo de 5min. 
 
 **Referências**:
-* Mariniv, R. (2024). Rebuttal. [url](https://www.youtube.com/watch?v=YFeEXhliOR8&list=PLdk7ZVs2HpVxMGIax2WffkxGpQO6q5wWL)
+* Marinov, R. (2024). Rebuttal. [url](https://www.youtube.com/watch?v=YFeEXhliOR8&list=PLdk7ZVs2HpVxMGIax2WffkxGpQO6q5wWL)
 * Buildacase. (2023). Lesson 2-2: Identifying and Structuring Rebuttal. [url](https://buildacase.ca/2022/12/26/lesson-2-2-identifying-and-structuring-rebuttal/)
+
+## Comparativas e Pesar (10/11)
+
+Comparativas. Pesar. [[slides]](/comparatives.pdf)
+
+**Exercícios**: Escolhe uma moção do debatedata.io e aplica a tabela de análise comparativa
+
+**Referências**:
+* Goldberg, H. (2020). Being Comparative in Debating. [url](https://www.youtube.com/watch?v=6WsmUiLM5lM)
+* Goldberg, H. (2023). Comparative Analysis. [url](https://www.youtube.com/watch?v=f7FUtQfJb6E)
+* Buildacase. (2023). Lesson 2-3: Comparative refutation. [url](https://buildacase.ca/2022/12/25/lesson-2-3-comparative-refutation/)
+* Buildacase. (2023). Lesson 3-1: How to weigh. [url](https://buildacase.ca/2022/12/24/lesson-3-1-how-to-weigh/)
+
+## Caracterização (24/10)
+
+[[slides]](/caracterizacao.pdf)
+
+**Exercícios**: Escolhe uma moção do debatedata.io, identifica 3 agentes/stakeholders e caracteriza-os
+
+**Referências**:
+* Puljic, T. (2021). Framing and Characterization. [url](https://www.youtube.com/watch?v=IRR0-iQuy7U)
+* Marinov, R. (2024). Realistic Characterization in Debating. [url](https://www.youtube.com/watch?v=VOBCl8uXn8E)
+* Slamova, L. (2020). Characterisations & Framing. [url](https://www.youtube.com/watch?v=hFl3v8dcYoA)
 
 ---
 
