@@ -2,23 +2,59 @@
 title: "Talks"
 draft: false
 ---
+ 
+Montenegro, M., Teixeira, G., Videira, D., Gírio, F.
+(2025). [Debate Português Lá Fora](). Gala do CNADU,
+Catholic University of Porto.
 
-❯ [25] *Debater o Desconhecido: como deixar de dizer "mas eu não percebo nada disto"* at Open da Católica, Catholic University of Porto [[slides]()]
+Teixeira, G., Montenegro, M. (2025). 
+[What is to be done? Burning Questions of Prep Time]().
+Distrital do Porto 25, ICBAS.
 
-❯ [25] *Estrutura Argumentativa* at Open Estou Além, Online [[video]](https://www.youtube.com/watch?v=XVgqn-RNBlg)
+Teixeira, G. (2025).
+[Debater o Desconhecido]().
+Open da Católica, Catholic University of Porto.
 
-❯ [25] *Debater o Futuro* at U.Porto Argumenta, University of Porto   
+Teixeira, G. (2025).
+[Estrutura Argumentativa]().
+Open Estou Além, Online.
+[[video]](https://www.youtube.com/watch?v=XVgqn-RNBlg)
 
-❯ [25] *Debater o Futuro* at ADAUM, University of Minho  
+Teixeira, G. (2025).
+[Debater o Futuro]().
+U.Porto Argumenta, University of Porto.
 
-❯ [25] *Adjudicação* at SdDUP, Online
+Teixeira, G. (2025).
+[Debater o Futuro]().
+ADAUM, University of Minho.
 
-❯ [24] *Adjudicação* at Encontro Nacional de Debate Competitivo, Lousã
+Teixeira, G. (2025).
+[Adjudicação]().
+SdDUP, Online.
 
-❯ [24] *Impactos* at Distrital do Porto, University of Porto
+Teixeira, G. (2024).
+[Adjudicação]().
+Encontro Nacional de Debate Competitivo 24, Lousã.
 
-❯ [23] *Introdução ao Debate* at U.Porto Argumenta, University of Porto [[video]](https://youtu.be/7N00EsBnxu8?si=4JtQ8BZLC199bQrN)
+Teixeira, G. (2024)
+[Impactos]().
+Distrital do Porto 24, ICBAS.
 
-❯ [23] *Debater em Primeiras Casas* at Jornadas António Cândido de Debate, Online  
+Teixeira, G. (2023).
+[Introdução ao Debate]().
+U.Porto Argumenta, University of Porto.
+[[video]](https://youtu.be/7N00EsBnxu8?si=4JtQ8BZLC199bQrN)
 
-❯ [23] *Debater em Primeiras Casas* at SdDUP, Online
+Teixeira, G. (2023).
+[Debater em Primeiras Casas]().
+Jornadas de Debate António Cândido, Online.  
+
+Teixeira, G. (2023).
+[Debater em Primeiras Casas]().
+SdDCP, Online.  
+
+Teixeira, G. (2023).
+[Debater em Primeiras Casas]().
+SdDUP, Online.
+
+

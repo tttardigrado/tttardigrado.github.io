@@ -16,4 +16,13 @@
 
 {{.Content}}
 
+{{ if .Params.bib }}
+  <details>
+    <summary>cite</summary>
+    <pre>
+    {{.Params.bib}}
+    </pre>
+  </details>
+{{ end }}
+
 {{ end }}

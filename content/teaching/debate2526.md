@@ -4,7 +4,7 @@ title: "D.R.E.A.M. 2025"
 
 ## Formato BP (25/9):
 
-História do BP. O Modelo BP. Papeis dos discursos. POIs. [[slides]](/dream_1_bp.pdf)  
+[[slides]](/dream_1_bp.pdf)  
 
 **Exercícios**: Assiste ao seguinte [debate](https://www.youtube.com/watch?v=FuzIargAnFE) e, para cada casa, resume o caso num tweet (280 caracteres).  
 
@@ -14,7 +14,7 @@ História do BP. O Modelo BP. Papeis dos discursos. POIs. [[slides]](/dream_1_bp
 
 ## Análise de Moções (29/9):
 
-O que é uma moção. Tipos de moções. [[slides]](/analise.pdf)
+[[slides]](/analise.pdf)
 
 **Exercícios**: Acede ao [debatedata.io](https://debatedata.io) e seleciona 5 moções de tipos diferentes. Para cada moção,
 sublinha as palavras que consideras importantes e explica porquê (identifica o tipo de
@@ -25,9 +25,9 @@ moção, agentes, modificadores ...)
 * Lafferty, R. (2024). Policy Motions. [url](https://docs.google.com/document/d/1TjnZPiamsf_1v9yudjcMg__PvsRVnzFflVekrVP0nzw/edit?tab=t.0)
 * Lafferty, R. (2024) Narrative Motions. [url](https://docs.google.com/document/d/1tTqKwkO5qndhWVroaUMlW34m52qariLwJPeIyvsWO2I/edit?tab=t.0)
 
-## Argumentação 1 -- Estrutura (6/10):
+## Estrutura (6/10):
 
-O que estrutura. Flagging. Um argumento é... Um discurso é... Tiering de análise. [[slides]](/estrutura.pdf)
+[[slides]](/estrutura.pdf)
 
 **Exercícios**: Acede ao [debatedata.io](https://debatedata.io) e seleciona 1 moção. Escreve um argumento em linear flow.
 (Tenta usar tiering)
@@ -37,9 +37,9 @@ O que estrutura. Flagging. Um argumento é... Um discurso é... Tiering de anál
 * Kwan, J. (2020). Structuring Arguments. Manchester Advanced Training Workshops. [url](https://www.youtube.com/watch?v=quBspwMlgUw)
 * Marinov, R. (2024). Structure and Clarity in your speech. [url](https://www.youtube.com/watch?v=xwCxkAvJfvg&list=PLdk7ZVs2HpVxMGIax2WffkxGpQO6q5wWL&index=18)
 
-## Argumentação 2 -- Geração Argumentativa (16/10):
+## Geração Argumentativa (16/10):
 
-Argumento Vs Caso. O que deviam fazer. O que vão fazer. [[slides]](/geracao.pdf)
+[[slides]](/geracao.pdf)
 
 **Exercícios**: Resolve os seguintes exercícios de argumentação da CA do EUDC 2025
 * [Argumentação 1](https://docs.google.com/document/d/1IaKIHqP8rJ-1EYhquWi6J_2HFsoizzdaeppluWxnhlM/edit?tab=t.0)
@@ -51,9 +51,9 @@ Argumento Vs Caso. O que deviam fazer. O que vão fazer. [[slides]](/geracao.pdf
 * Lafferty, R. (2024). Argument Generation. [url](https://docs.google.com/document/d/1p6pXNk92uEV4nqkzo8XnISYk6w5B-5lAefrRnapnsVI/edit?tab=t.0)
 * Marinov, R. (2024). Argumentation Module. [url 1](https://www.youtube.com/watch?v=FcmDmkSwoss) [url 2](https://www.youtube.com/watch?v=L_fCWNvNWdw)
 
-## Argumentação 3 -- Impactos (27/10):
+## Impactos (27/10):
 
-O que são Impactos. Pesar. [[slides]](/impactos.pdf)
+[[slides]](/impactos.pdf)
 
 **Exercícios**: Resolve os seguintes exercícios de argumentação da CA Team dos Europeus de
 Copenhaga
@@ -67,7 +67,7 @@ Copenhaga
 
 ## Refutação (3/11):
 
-Refutação. Como Estruturar. Os 3 tipos de refutação. [[slides]](/rebuttal.pdf)
+[[slides]](/rebuttal.pdf)
 
 **Exercícios**: Faz um prep time curto (10min) para este [debate](https://www.youtube.com/watch?v=hmY8Ryau6yQ). Assiste ao discurso da Primeira Ministra. De seguida, faz um discurso refutativo de 5min. 
 
@@ -77,7 +77,7 @@ Refutação. Como Estruturar. Os 3 tipos de refutação. [[slides]](/rebuttal.pd
 
 ## Comparativas e Pesar (10/11)
 
-Comparativas. Pesar. [[slides]](/comparatives.pdf)
+[[slides]](/comparatives.pdf)
 
 **Exercícios**: Escolhe uma moção do debatedata.io e aplica a tabela de análise comparativa
 
@@ -87,7 +87,7 @@ Comparativas. Pesar. [[slides]](/comparatives.pdf)
 * Buildacase. (2023). Lesson 2-3: Comparative refutation. [url](https://buildacase.ca/2022/12/25/lesson-2-3-comparative-refutation/)
 * Buildacase. (2023). Lesson 3-1: How to weigh. [url](https://buildacase.ca/2022/12/24/lesson-3-1-how-to-weigh/)
 
-## Caracterização (24/10)
+## Caracterização (24/11)
 
 [[slides]](/caracterizacao.pdf)
 
@@ -98,15 +98,37 @@ Comparativas. Pesar. [[slides]](/comparatives.pdf)
 * Marinov, R. (2024). Realistic Characterization in Debating. [url](https://www.youtube.com/watch?v=VOBCl8uXn8E)
 * Slamova, L. (2020). Characterisations & Framing. [url](https://www.youtube.com/watch?v=hFl3v8dcYoA)
 
+## Modelos e Contra-Propostas (15/12)
+
+[[slides]](/models.pdf)
+
+**Exercícios**: Escolhe uma moção de policy do debatedate.io. Desenvolve um modelo e uma contra proposta 
+
+**Referências**:
+* Sonnreich, T. (2010). Training Guide for University Debating. Chapter 1-3. [url](https://static1.squarespace.com/static/5ba9b2a8b2cf798f4a5edf02/t/5f16f3ac6bdbee7fc7968b64/1595339701044/Training+Guide+V4.pdf)
+* Lafferty, R. (2024). Policy Motions. [url](https://docs.google.com/document/d/1TjnZPiamsf_1v9yudjcMg__PvsRVnzFflVekrVP0nzw/edit?tab=t.0)
+* Toomey, M. (2025). Counter Propping. [url](https://www.youtube.com/watch?v=AWIKjFoz1tk)
+* EUDC AdjCore. (2025). EUDC Judge & Debating Manual. Copenhagen EUDC. [url](https://drive.google.com/file/d/1f6JmcUNFdF485AA8iBE6mU1BQgUf2tb4/view)  
+
 ---
 
 ## Temática: Movimentos Sociais
 
-Movimentos Sociais. Stock Cases. [[slides]]()
+[[slides]]()
 
 **Referências**:
 * Debatable. (2019). Social Movements Part 1. [url](https://open.spotify.com/episode/0GktlUGeCpzvnE9wD5Lvyk?si=55e4369325e14167)
 * Debatable. (2019). Social Movements Part 2. [url](https://open.spotify.com/episode/4APL4of3XReZeD04N7GTRR?si=a606824ff2d544b6)
 * Lafferty, R. (2024). Backlash Responses. [url](https://docs.google.com/document/d/1i4DqtFoXBTgpN9dRKSuRDZuDMOQ2tIOumOJesDq0OhY/edit?tab=t.0)
 * Lafferty, R. (2024). Stock Social Justice Arguments. [url](https://docs.google.com/document/d/1pZd0JSGiozBxWyDcGg-ETGpbLm1fsgcvRWr2pEEuXOk/edit?tab=t.0)
+
+## Temática: Criminal Justice System
+
+[[slides]]()
+
+**Referências**:
+* Slamova, L., Steele, R. (2020). Law And Criminal Justice. [url](https://www.youtube.com/watch?v=telbkLW8_6I)
+* Kwon, A. (2024). Debate Motions: Criminal Justice System. [url](https://www.youtube.com/watch?v=DvHh8EjRJe0)
+* Lafferty, R. (2024). Courts. [url](https://docs.google.com/document/d/15PsW7gIlB4WNaugcGy6nuEsscTFQzxKZHvG-gXNhB80/edit?tab=t.0)
+* Lafferty, R. (2024). Criminal Justice Stock Arguments. [url](https://docs.google.com/document/d/1rBKa7YVX3ysFP9HkY5tno5-8vRVIikYf2umCi2eDYC4/edit?tab=t.0#heading=h.a6dtqggsqvu8)
 
