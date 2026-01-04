@@ -47,13 +47,13 @@ U.Porto Argumenta, University of Porto.
 
 Teixeira, G. (2023).
 [Debater em Primeiras Casas]().
-Jornadas de Debate António Cândido, Online.  
+[Jornadas de Debate António Cândido](https://www.instagram.com/ac.jornadasdebate/), Online.  
 
-Teixeira, G. (2023).
+Teixeira, G. (Nov. 2022).
 [Debater em Primeiras Casas]().
 SdDCP, Online.  
 
-Teixeira, G. (2023).
+Teixeira, G. (2022).
 [Debater em Primeiras Casas]().
 SdDUP, Online.
 

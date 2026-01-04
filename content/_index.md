@@ -1,3 +1,5 @@
+❯ cat ./about.txt
+
 Hey! 🖖
 
 My name is Gonçalo :: ☕ -> λ.
@@ -15,4 +17,8 @@ Additionally, I'm the training officer for
 
 Outside of academia, I'm particularly interested in Science Fiction, Hip Hop and Competitive Debating.
 
-
+❯ tree ./content/  
+├── [blog/](/blog/)  
+├── [talks/](/talks/)  
+├── [teaching/](/teaching/)  
+└── [cv.pdf](/cv.pdf)
