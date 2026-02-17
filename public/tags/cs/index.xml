@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cs on tttardigrado</title>
+    <link>http://localhost:1313/tags/cs/</link>
+    <description>Recent content in Cs on tttardigrado</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 04 Jun 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/cs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>P=NP Utopia</title>
+      <link>http://localhost:1313/blog/utopia/</link>
+      <pubDate>Wed, 04 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/utopia/</guid>
+      <description>&lt;p&gt;My Computational Complexity exam is next week. I should definitely be&#xA;studying instead of writing this, but here I am, procrastinating in the&#xA;most roundabout way: writing a random blog post that (probably) no one&#xA;is going to read.&lt;/p&gt;&#xA;&lt;p&gt;While skimming through Sanjeev Arora’s lecture notes, I stumbled upon&#xA;this phrase:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;If P = NP, then the world would be mostly a Utopia.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Has anyone ever turned that idea into a story? A world where P = NP?&#xA;Think about it, there are plenty of short stories that act as vehicles&#xA;for philosophical ideas (the ones that come to my mind are Le Guin’s&#xA;&amp;ldquo;The Ones Who Walk Away from Omelas&amp;rdquo;, Chiang’s &amp;ldquo;Story of Your Life&amp;rdquo;,&#xA;and practically anything that Borges ever wrote). But I can&amp;rsquo;t remember&#xA;many that try to explore the consequences of results from Theoretical&#xA;Computer Science &amp;ndash; except for AI, I guess.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AI: licence to kill</title>
+      <link>http://localhost:1313/blog/ai_kill/</link>
+      <pubDate>Wed, 05 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/ai_kill/</guid>
+      <description>&lt;p&gt;So google just &lt;a href=&#34;https://www.bbc.com/news/articles/cy081nqx2zjo&#34;&gt;dropped their pledge&lt;/a&gt; to not use AI for weapons or surveillance&amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;I hope that this makes it clear to everyone that the tech industry has never&#xA;really cared about anyone&amp;rsquo;s interests other than its own profit.&lt;/p&gt;&#xA;&lt;p&gt;From the Cambridge Analytica scandal, to the devastating consequences of algotithmic&#xA;bias and discriminations, to the outright complicity of &amp;ldquo;Big Tech&amp;rdquo; companies like&#xA;Google, Amazon, and Microsoft in supporting the genocide of the Palestinian people,&#xA;technology has always been used by those who own it to exploit, surveil, oppress and&#xA;kill.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>A formal esolang</title>
+      <link>http://localhost:1313/blog/pll/</link>
+      <pubDate>Sat, 23 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/pll/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s almost impossible to discuss esoteric programming languages without someone bringing up &lt;a href=&#34;https://esolangs.org/wiki/Brainfuck&#34;&gt;brainfuck&lt;/a&gt;.&#xA;The thing that most people don&amp;rsquo;t know is that brainfuck has a formal cousin called P&amp;rsquo;&#39;.&lt;/p&gt;&#xA;&lt;p&gt;Invented in 1964 by Corrado Böhm¹ to describe a family of Turing Machines, P&amp;rsquo;&amp;rsquo; is, in some way, the &amp;ldquo;imperative analog&amp;rdquo; to &lt;a href=&#34;https://plato.stanford.edu/archives/sum2022/entries/lambda-calculus/&#34;&gt;λ-calculus&lt;/a&gt;: a simple and Turing complete language that beautifully captures the essence of its paradigm. I&amp;rsquo;ll illustrate that beauty by building an interpreter for P&amp;rsquo;&amp;rsquo; using just a few lines of Haskell. The complete source code is available on &lt;a href=&#34;https://gist.github.com/tttardigrado/4f6a2d5a4cdf1ca4287d8a8195d16d23&#34;&gt;here&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Math on tttardigrado</title>
+    <link>http://localhost:1313/tags/math/</link>
+    <description>Recent content in Math on tttardigrado</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 02 Jul 2024 15:17:06 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/math/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>E, No Entanto, Ela Move-se</title>
+      <link>http://localhost:1313/blog/zeno/</link>
+      <pubDate>Tue, 02 Jul 2024 15:17:06 +0100</pubDate>
+      <guid>http://localhost:1313/blog/zeno/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Abstract:&lt;/strong&gt; Desde a sua origem, os paradoxos de Zenão têm desafiado e fascinado pensadores de diversas áreas do conhecimento, exercendo uma profunda influência sobre a compreensão matemática e filosófica do infinito. Este artigo propõe-se a analisar não apenas os quatro paradoxos do movimento, mas também as várias soluções propostas ao longo da história, desde as tentativas iniciais de Aristóteles até as abordagens modernas baseadas em teorias rigorosas como o cálculo infinitesimal. Com isso, pretende-se demonstrar que, independentemente de Zenão estar correto ou não, a relevância dos seus paradoxos permanece imune à mudança.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

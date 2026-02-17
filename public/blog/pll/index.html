@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8" />
+    <title>tttardigrado</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="alternate"
+        type="application/rss+xml"
+        href="http://localhost:1313//index.xml"
+        title="tttardigrado">
+</head>
+<body><header>
+	<nav>
+		<p>
+      
+        <a href="/">tttardigrado</a>
+			
+		</p>
+	</nav>
+</header>
+<main class="container">
+
+<h1 style="margin-bottom: 0.5rem;">A formal esolang</h1> 
+<p>
+  <small>
+    
+      [ 23-11-2024 ]
+    
+    
+      [ 
+        <a href="/tags/cs/">#cs</a>
+       ]
+    
+  </small>
+</p>
+
+<p>It&rsquo;s almost impossible to discuss esoteric programming languages without someone bringing up <a href="https://esolangs.org/wiki/Brainfuck">brainfuck</a>.
+The thing that most people don&rsquo;t know is that brainfuck has a formal cousin called P&rsquo;'.</p>
+<p>Invented in 1964 by Corrado Böhm¹ to describe a family of Turing Machines, P&rsquo;&rsquo; is, in some way, the &ldquo;imperative analog&rdquo; to <a href="https://plato.stanford.edu/archives/sum2022/entries/lambda-calculus/">λ-calculus</a>: a simple and Turing complete language that beautifully captures the essence of its paradigm. I&rsquo;ll illustrate that beauty by building an interpreter for P&rsquo;&rsquo; using just a few lines of Haskell. The complete source code is available on <a href="https://gist.github.com/tttardigrado/4f6a2d5a4cdf1ca4287d8a8195d16d23">here</a></p>
+<p>Before discussing the language, we should describe the objects it acts upon: tapes. A (doubly infinite) tape is a sequence of cells that extends infinitely in both directions, paired with a pointer to the current cell &ndash; known as the head. Formally, we would define it as a pair <code>(s, i)</code> such that <code>s : ℤ → ℤ</code> and <code>i ∈ ℤ</code> but, by leveraging Haskell&rsquo;s lazy evaluation, we can be a bit more clever and represent it by a triple that divides the tape into its left half, its right half and the current cell:</p>
+<pre tabindex="0"><code>data Tape = Tape [Int] Int [Int]
+
+empty :: Tape
+empty = Tape (repeat 0) 0 (repeat 0)
+</code></pre><p>Since a data type without some way to interact with it is of little to no use, we will implement ways to move the tape&rsquo;s head and to read and write to the current cell²:</p>
+<pre tabindex="0"><code>left :: Tape -&gt; Tape
+left (Tape (l:ls) v rs) = Tape ls l (v:rs)
+
+right :: Tape -&gt; Tape
+right (Tape ls v (r:rs)) = Tape (v:ls) r rs
+
+peek :: Tape -&gt; Tape
+peek (Tape _ v _) = v
+
+edit :: (Int -&gt; Int) -&gt; Tape -&gt; Tape
+edit f (Tape ls v rs) = Tape ls (f v) rs
+</code></pre><p>With the memory model out of the way, let&rsquo;s return to P&rsquo;&rsquo;. A program is inductively defined by the following grammar:</p>
+<pre tabindex="0"><code>p  ::=  R  |  λ  |  p p  |  (p)
+</code></pre><p>which we can easily translate into Haskell:</p>
+<pre tabindex="0"><code>data P = R | L | Seq p p | Loop p
+  deriving (Show, Eq)
+</code></pre><p>For those familiar with brainfuck, the semantics of P&rsquo;&rsquo; shouldn&rsquo;t come off as a surprise:</p>
+<ul>
+<li><strong>R</strong> moves the head to the right (equivalent to <strong>&gt;</strong>)</li>
+<li><strong>λ</strong> increments the current value and moves the tape to the left (equivalent to <strong>+&lt;</strong>)</li>
+<li><strong>p p</strong> is the composition of programs</li>
+<li><strong>(p)</strong> loops the program <code>p</code> until the current value is 0 (equivalent to <strong>[p]</strong>)</li>
+</ul>
+<p>In complexity and computability theory, where P&rsquo;&rsquo; first originated, we work with finite alphabets of symbols. Because of this, the increment operation increments the value modulo of a given integer, usually 256.</p>
+<p>We can translate this informal exposition of the semantics of P&rsquo;&rsquo; into a simple function that interprets a program <code>p</code> over a tape <code>t</code> modulo some integer <code>n</code>:</p>
+<pre tabindex="0"><code>run :: Int -&gt; P -&gt; Tape -&gt; Tape
+run n R t = right t
+run n L t = left $ edit ((`mod`n) . (+1)) t
+run n (Seq p q) t = run n q $ run n p t
+run n (Loop  p) t = if peek t == 0
+  then t
+  else run n (Seq p $ Loop p) t
+</code></pre><p>Since most times we want to run a program over an empty tape modulo 256 and retrieve the value we get at the end, we define a function that does exactly that:</p>
+<pre tabindex="0"><code>eval :: P -&gt; Int
+eval p = peek $ run 256 p empty
+</code></pre><p>And that&rsquo;s it! Obviously, we could try to be a bit more clever and use Monads and Lenses to simplify the interpreter, but that&rsquo;s something to worry about in a future blog post.</p>
+<h2 id="notes">Notes</h2>
+<ol>
+<li>Böhm, C. (1964). On a family of Turing machines and the related programming language.</li>
+<li>Since we are only dealing with infinite lists, we do not need to consider the scenarios where the left or right tapes are empty.</li>
+</ol>
+
+
+
+
+
+        </main><footer>
+    
+      <a href="https://codeberg.org/tttardigrado"><i class="bi bi-git"></i> git</a> 
+    
+      <a href="index.xml"><i class="bi bi-rss-fill"></i> rss</a> 
+    
+      <a href="mailto:tttardigrado@proton.me"><i class="bi bi-envelope-fill"></i> e-mail</a> 
+    
+</footer>
+</body>
+</html>

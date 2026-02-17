@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Philosophy on tttardigrado</title>
+    <link>http://localhost:1313/tags/philosophy/</link>
+    <description>Recent content in Philosophy on tttardigrado</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 05 Feb 2025 15:17:06 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/philosophy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Debater Paradox</title>
+      <link>http://localhost:1313/blog/russel/</link>
+      <pubDate>Wed, 05 Feb 2025 15:17:06 +0100</pubDate>
+      <guid>http://localhost:1313/blog/russel/</guid>
+      <description>&lt;p&gt;Dear Debater,&lt;/p&gt;&#xA;&lt;p&gt;I have known your Basic Laws of Debating for three years and a half, but&#xA;only now have I been able to find the time for yhe thorough study I intend to&#xA;devote to your writings. I find myself in full accord with you on all main&#xA;points, especially in your rejection of personal beliefs in judging a debate and&#xA;in the value you attach to arguments for the foundations of&#xA;debate and of argumentation, which, incidentally, can hardly be&#xA;distinguished. On many questions of detail, I find discussions, distinctions&#xA;and definitions in your writings for which one looks in vain in other&#xA;debaters. On motions in particular I&#xA;have been led independently to the same views even in detail. I have&#xA;encountered a difficulty only on one point. You assert that a motion&#xA;could be of the form &amp;ldquo;This House Predict That [X]&amp;rdquo;. This is what I used to believe,&#xA;but this view now seems to me dubious because of the following&#xA;contradiction: Let X be the proposition &amp;ldquo;the government bench will lose this debate.&amp;rdquo;&#xA;Can any bench win a debate with this motion?&#xA;From either answer follows its contradictory.&#xA;Let us assume that a team from the government bench wins.&#xA;This means that they have successfully proved that they would lose, and thus a team from the opposition bench would win.&#xA;Alternatively, let us assume that a team from the opposition bench wins&#xA;This means that they have successfully prove that a team from the government bench whold not lose (i.e., would win), and thus that both teams from the opposition bench would lose.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>E, No Entanto, Ela Move-se</title>
+      <link>http://localhost:1313/blog/zeno/</link>
+      <pubDate>Tue, 02 Jul 2024 15:17:06 +0100</pubDate>
+      <guid>http://localhost:1313/blog/zeno/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Abstract:&lt;/strong&gt; Desde a sua origem, os paradoxos de Zenão têm desafiado e fascinado pensadores de diversas áreas do conhecimento, exercendo uma profunda influência sobre a compreensão matemática e filosófica do infinito. Este artigo propõe-se a analisar não apenas os quatro paradoxos do movimento, mas também as várias soluções propostas ao longo da história, desde as tentativas iniciais de Aristóteles até as abordagens modernas baseadas em teorias rigorosas como o cálculo infinitesimal. Com isso, pretende-se demonstrar que, independentemente de Zenão estar correto ou não, a relevância dos seus paradoxos permanece imune à mudança.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
