@@ -21,24 +21,48 @@ Open Estou Além, Online.
 [[video]](https://www.youtube.com/watch?v=XVgqn-RNBlg)
 
 Teixeira, G. (2025).
+[Comunicação & Public Speaking]().
+U. Porto Argumenta, University of Porto.
+
+Teixeira, G. (2025).
 [Debater o Futuro]().
 U.Porto Argumenta, University of Porto.
+
+Teixeira, G. (2025).
+[How to do a Great Pitch]().
+Psicologia U. Norte, UTAD.
 
 Teixeira, G. (2025).
 [Debater o Futuro]().
 ADAUM, University of Minho.
 
 Teixeira, G. (2025).
+[How to do a Great Pitch]().
+EBEC Porto 25, FEUP.
+
+Teixeira, G. (2025).
 [Adjudicação]().
 SdDUP, Online.
+
+Teixeira, G. (2024).
+[How to do a Great Pitch]().
+Inovation Days 24, UPTEC.
 
 Teixeira, G. (2024).
 [Adjudicação]().
 Encontro Nacional de Debate Competitivo 24, Lousã.
 
-Teixeira, G. (2024)
+Teixeira, G. (2024).
+[How to do a great pitch]().
+EBEC Porto 24, FEUP.
+
+Teixeira, G. (2024).
 [Impactos]().
 Distrital do Porto 24, ICBAS.
+
+Teixeira, G. (2023).
+[Comunicação & Public Speaking]().
+Semana da Psicologia, FPCEUP.
 
 Teixeira, G. (2023).
 [Introdução ao Debate]().
