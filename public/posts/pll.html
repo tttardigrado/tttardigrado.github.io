@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A formal esolang</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+  <style>pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { font-weight: bold; } /* Alert */
+code span.an { font-style: italic; } /* Annotation */
+code span.cf { font-weight: bold; } /* ControlFlow */
+code span.co { font-style: italic; } /* Comment */
+code span.cv { font-style: italic; } /* CommentVar */
+code span.do { font-style: italic; } /* Documentation */
+code span.dt { text-decoration: underline; } /* DataType */
+code span.er { font-weight: bold; } /* Error */
+code span.in { font-style: italic; } /* Information */
+code span.kw { font-weight: bold; } /* Keyword */
+code span.pp { font-weight: bold; } /* Preprocessor */
+code span.wa { font-style: italic; } /* Warning */</style>
+      <link rel="stylesheet" href="/style.css">
+  </head>
+<body>
+<header class="container">
+  <nav>
+    <ul>
+      <li><strong><a href="/" class="contrast">tttardigrado</a></strong></li>
+    </ul>
+    <ul>
+              <li><a href="/talks.html">Talks</a></li>
+              <li><a href="/papers.html">Papers</a></li>
+              <li><a href="/posts">Blog</a></li>
+          </ul>
+  </nav>
+</header>
+ 
+<main class="container">
+  <hgroup>
+    <h1>A formal esolang</h1>
+          <p>2024-11-23</p>
+      </hgroup>
+  <p>It’s almost impossible to discuss esoteric programming languages without someone bringing up <a href="https://esolangs.org/wiki/Brainfuck">brainfuck</a>. The thing that most people don’t know is that brainfuck has a formal cousin called P’’.</p>
+  <p>Invented in 1964 by Corrado Böhm¹ to describe a family of Turing Machines, P’’ is, in some way, the “imperative analog” to <a href="https://plato.stanford.edu/archives/sum2022/entries/lambda-calculus/"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>-calculus</a>: a simple and Turing complete language that beautifully captures the essence of its paradigm. I’ll illustrate that beauty by building an interpreter for P’’ using just a few lines of Haskell. The complete source code is available on <a href="https://gist.github.com/tttardigrado/4f6a2d5a4cdf1ca4287d8a8195d16d23">here</a></p>
+  <p>Before discussing the language, we should describe the objects it acts upon: tapes. A (doubly infinite) tape is a sequence of cells that extends infinitely in both directions, paired with a pointer to the current cell – known as the head. Formally, we would define it as a pair <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>s</mi><mo>,</mo><mi>i</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(s, i)</annotation></semantics></math> such that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>:</mo><mstyle mathvariant="double-struck"><mi>ℤ</mi></mstyle><mo>→</mo><mstyle mathvariant="double-struck"><mi>ℤ</mi></mstyle></mrow><annotation encoding="application/x-tex">s : \mathbb Z \to \mathbb Z</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>∈</mo><mstyle mathvariant="double-struck"><mi>ℤ</mi></mstyle></mrow><annotation encoding="application/x-tex">i \in \mathbb Z</annotation></semantics></math> but, by leveraging Haskell’s lazy evaluation, we can be a bit more clever and represent it by a triple that divides the tape into its left half, its right half and the current cell:</p>
+  <div class="sourceCode" id="cb1"><pre class="sourceCode hs"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a></span>
+  <span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="kw">data</span> <span class="dt">Tape</span> <span class="ot">=</span> <span class="dt">Tape</span> [<span class="dt">Int</span>] <span class="dt">Int</span> [<span class="dt">Int</span>]</span>
+  <span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a></span>
+  <span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="ot">empty ::</span> <span class="dt">Tape</span></span>
+  <span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>empty <span class="ot">=</span> <span class="dt">Tape</span> (<span class="fu">repeat</span> <span class="dv">0</span>) <span class="dv">0</span> (<span class="fu">repeat</span> <span class="dv">0</span>)</span></code></pre></div>
+  <p>Since a data type without some way to interact with it is of little to no use, we will implement ways to move the tape’s head and to read and write to the current cell²:</p>
+  <div class="sourceCode" id="cb2"><pre class="sourceCode hs"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a></span>
+  <span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="ot">left ::</span> <span class="dt">Tape</span> <span class="ot">-&gt;</span> <span class="dt">Tape</span></span>
+  <span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>left (<span class="dt">Tape</span> (l<span class="op">:</span>ls) v rs) <span class="ot">=</span> <span class="dt">Tape</span> ls l (v<span class="op">:</span>rs)</span>
+  <span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a></span>
+  <span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="ot">right ::</span> <span class="dt">Tape</span> <span class="ot">-&gt;</span> <span class="dt">Tape</span></span>
+  <span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>right (<span class="dt">Tape</span> ls v (r<span class="op">:</span>rs)) <span class="ot">=</span> <span class="dt">Tape</span> (v<span class="op">:</span>ls) r rs</span>
+  <span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a></span>
+  <span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a><span class="ot">peek ::</span> <span class="dt">Tape</span> <span class="ot">-&gt;</span> <span class="dt">Tape</span></span>
+  <span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>peek (<span class="dt">Tape</span> _ v _) <span class="ot">=</span> v</span>
+  <span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a></span>
+  <span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a><span class="ot">edit ::</span> (<span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>) <span class="ot">-&gt;</span> <span class="dt">Tape</span> <span class="ot">-&gt;</span> <span class="dt">Tape</span></span>
+  <span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a>edit f (<span class="dt">Tape</span> ls v rs) <span class="ot">=</span> <span class="dt">Tape</span> ls (f v) rs</span></code></pre></div>
+  <p>With the memory model out of the way, let’s return to P’’. A program is inductively defined by the following grammar:</p>
+  <div class="sourceCode" id="cb3"><pre class="sourceCode hs"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>p  <span class="op">::=</span>  <span class="dt">R</span>  <span class="op">|</span>  λ  <span class="op">|</span>  p p  <span class="op">|</span>  (p)</span></code></pre></div>
+  <p>which we can easily translate into Haskell:</p>
+  <div class="sourceCode" id="cb4"><pre class="sourceCode hs"><code class="sourceCode haskell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="kw">data</span> <span class="dt">P</span> <span class="ot">=</span> <span class="dt">R</span> <span class="op">|</span> <span class="dt">L</span> <span class="op">|</span> <span class="dt">Seq</span> p p <span class="op">|</span> <span class="dt">Loop</span> p</span>
+  <span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>  <span class="kw">deriving</span> (<span class="dt">Show</span>, <span class="dt">Eq</span>)</span></code></pre></div>
+  <p>For those familiar with brainfuck, the semantics of P’’ shouldn’t come off as a surprise: * <strong>R</strong> moves the head to the right (equivalent to <strong>&gt;</strong>) * <strong>λ</strong> increments the current value and moves the tape to the left (equivalent to <strong>+&lt;</strong>) * <strong>p p</strong> is the composition of programs * <strong>(p)</strong> loops the program <code>p</code> until the current value is 0 (equivalent to <strong>[p]</strong>)</p>
+  <p>In complexity and computability theory, where P’’ first originated, we work with finite alphabets of symbols. Because of this, the increment operation increments the value modulo of a given integer, usually 256.</p>
+  <p>We can translate this informal exposition of the semantics of P’’ into a simple function that interprets a program <code>p</code> over a tape <code>t</code> modulo some integer <code>n</code>:</p>
+  <div class="sourceCode" id="cb5"><pre class="sourceCode hs"><code class="sourceCode haskell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="ot">run ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">P</span> <span class="ot">-&gt;</span> <span class="dt">Tape</span> <span class="ot">-&gt;</span> <span class="dt">Tape</span></span>
+  <span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>run n <span class="dt">R</span> t <span class="ot">=</span> right t</span>
+  <span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>run n <span class="dt">L</span> t <span class="ot">=</span> left <span class="op">$</span> edit ((<span class="ot">`mod`</span>n) <span class="op">.</span> (<span class="op">+</span><span class="dv">1</span>)) t</span>
+  <span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>run n (<span class="dt">Seq</span> p q) t <span class="ot">=</span> run n q <span class="op">$</span> run n p t</span>
+  <span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>run n (<span class="dt">Loop</span>  p) t <span class="ot">=</span> <span class="kw">if</span> peek t <span class="op">==</span> <span class="dv">0</span></span>
+  <span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>  <span class="kw">then</span> t</span>
+  <span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a>  <span class="kw">else</span> run n (<span class="dt">Seq</span> p <span class="op">$</span> <span class="dt">Loop</span> p) t</span></code></pre></div>
+  <p>Since most times we want to run a program over an empty tape modulo 256 and retrieve the value we get at the end, we define a function that does exactly that:</p>
+  <div class="sourceCode" id="cb6"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="ot">eval ::</span> <span class="dt">P</span> <span class="ot">-&gt;</span> <span class="dt">Int</span></span>
+  <span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>eval p <span class="ot">=</span> peek <span class="op">$</span> run <span class="dv">256</span> p empty</span></code></pre></div>
+  <p>And that’s it! Obviously, we could try to be a bit more clever and use Monads and Lenses to simplify the interpreter, but that’s something to worry about in a future blog post.</p>
+  <h2 id="notes">Notes</h2>
+  <ol type="1">
+  <li>Böhm, C. (1964). On a family of Turing machines and the related programming language.</li>
+  <li>Since we are only dealing with infinite lists, we do not need to consider the scenarios where the left or right tapes are empty.</li>
+  </ol>
+</main>
+
+<footer class="container">
+  </footer>
+ 
+</body>

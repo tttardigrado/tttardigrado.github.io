@@ -2,83 +2,88 @@
 title: "Talks"
 draft: false
 ---
- 
-Montenegro, M., Teixeira, G., Videira, D., Gírio, F.
-(2025). [Debate Português Lá Fora](). Gala do CNADU,
-Catholic University of Porto.
 
-Teixeira, G., Montenegro, M. (2025). 
-[What is to be done? Burning Questions of Prep Time]().
-Distrital do Porto 25, ICBAS.
+## 2026
 
-Teixeira, G. (2025).
-[Debater o Desconhecido]().
-Open da Católica, Catholic University of Porto.
+* [On the Complexity of Multi-entry DFAs]()  
+<small>
+DCFS 26 @ Queens University, Kingston [[slides]](/assets/talks/dcfs.pdf)
+</small>
 
-Teixeira, G. (2025).
-[Estrutura Argumentativa]().
-Open Estou Além, Online.
+* [Pedagogia em Debate]()  
+<small>
+Forum DCU 26 @ Universidade de Coimbra
+</small>
+
+* [On the Plurality of Initial States]()  
+<small>
+IJUP 26 @ Edifício Abel Salazar [[slides]](/assets/talks/ijup.pdf)
+</small>
+
+## 2025
+
+* [Debate Português Lá Fora]()  
+<small>
+with Filipe Gírio, Marília Montenegro and Diogo Videira  
+Gala do CNADU 25 @ Universidade Católica do Porto
+</small>
+
+* [What is to be done? Burning Questions of Prep Time]()  
+<small>
+with Marília Montenegro  
+Distrital do Porto 25 @ Universidade do Porto [[slides]](/assets/talks/prep.pdf)
+</small>
+
+* [Comunicação & Public Speaking]()  
+<small>U.Porto Argumenta @ Universidade do Porto</small>
+
+* [Debater o Desconhecido]()  
+<small>
+Open da Católica @ Universidade Católica do Porto [[slides]](/assets/talks/debater_desconhecido.pdf)
+</small>
+
+* [Estrutura Argumentativa]()  
+<small>
+Open Estou Além @ Online
 [[video]](https://www.youtube.com/watch?v=XVgqn-RNBlg)
+[[slides]](/assets/talks/estrutura.pdf)
+</small>
 
-Teixeira, G. (2025).
-[Comunicação & Public Speaking]().
-U. Porto Argumenta, University of Porto.
+* [Debater o Futuro]()  
+<small>U.Porto Argumenta @ Universidade do Porto [[slides]](/assets/talks/futuro.pdf)</small>
 
-Teixeira, G. (2025).
-[Debater o Futuro]().
-U.Porto Argumenta, University of Porto.
+* [Debater o Futuro]()  
+<small>ADAUM @ Universidade do Minho [[slides]](/assets/talks/futuro.pdf)</small>
 
-Teixeira, G. (2025).
-[How to do a Great Pitch]().
-Psicologia U. Norte, UTAD.
+* [Adjudicação]()  
+<small>SdDUP @ Online [[slides]](/assets/talks/adjudicacao.pdf)</small>
 
-Teixeira, G. (2025).
-[Debater o Futuro]().
-ADAUM, University of Minho.
+## 2024
 
-Teixeira, G. (2025).
-[How to do a Great Pitch]().
-EBEC Porto 25, FEUP.
+* [Impactos]()  
+<small>Distrital do Porto @ Universidade do Porto</small> 
 
-Teixeira, G. (2025).
-[Adjudicação]().
-SdDUP, Online.
+* [Adjudicação]()  
+<small>ENDC 24 @ Lousã [[slides]](/assets/talks/adjudicacao.pdf)</small>
 
-Teixeira, G. (2024).
-[How to do a Great Pitch]().
-Inovation Days 24, UPTEC.
+## 2023
 
-Teixeira, G. (2024).
-[Adjudicação]().
-Encontro Nacional de Debate Competitivo 24, Lousã.
+* [Comunicação & Public Speaking]()  
+<small>
+with Marília Montenegro  
+Semana da Psicologia @ FPCEUP
+</small>
 
-Teixeira, G. (2024).
-[How to do a great pitch]().
-EBEC Porto 24, FEUP.
+* [Introdução ao Debate]()  
+<small>U.Porto Argumenta @ Universidade do Porto [[video]](https://youtu.be/7N00EsBnxu8?si=4JtQ8BZLC199bQrN)</small>
 
-Teixeira, G. (2024).
-[Impactos]().
-Distrital do Porto 24, ICBAS.
+* [Debater em Primeiras Casas]()  
+<small>Jornadas de Debate António Cândido @ Online</small>  
 
-Teixeira, G. (2023).
-[Comunicação & Public Speaking]().
-Semana da Psicologia, FPCEUP.
+## 2022
 
-Teixeira, G. (2023).
-[Introdução ao Debate]().
-U.Porto Argumenta, University of Porto.
-[[video]](https://youtu.be/7N00EsBnxu8?si=4JtQ8BZLC199bQrN)
+* [Debater em Primeiras Casas]()  
+<small>SdDCP @ Online</small>  
 
-Teixeira, G. (2023).
-[Debater em Primeiras Casas]().
-[Jornadas de Debate António Cândido](https://www.instagram.com/ac.jornadasdebate/), Online.  
-
-Teixeira, G. (Nov. 2022).
-[Debater em Primeiras Casas]().
-SdDCP, Online.  
-
-Teixeira, G. (2022).
-[Debater em Primeiras Casas]().
-SdDUP, Online.
-
-
+* [Debater em Primeiras Casas]()  
+<small>SdDUP @ Online</small>  

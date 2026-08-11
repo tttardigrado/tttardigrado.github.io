@@ -3,11 +3,22 @@ title: "Papers"
 draft: false
 ---
 
-Moreira, N. Reis, R., Teixeira, G. (2026).
-[On the Complexity of Multientry DFAs]().
-In perparation.
+* Minimization II: Brzozowski Strikes Back  
+<small>
+Nelma Moreira, Rogério Reis, *Gonçalo Teixeira* @ INForum 26  
+[[preprint]](/assets/papers/MRT26-2-Preprint.pdf)
+[[bib]](/assets/bibs/MRT26-2.bib)
+</smalL>
 
-Teixeira, G. (2026).
-[On the Plurality of Initial States]().
-[Bachelor's thesis, University of Porto].
-[url](https://drive.proton.me/urls/4Z9CBCYFF0#0Akdjg523Yw-)
+* On the Complexity of Multientry DFAs   
+<small>
+Nelma Moreira, Rogério Reis, *Gonçalo Teixeira* @ DCFS 26  
+[[preprint]](/assets/papers/MRT26-Preprint.pdf)
+[[bib]](/assets/bibs/MRT26.bib)
+</small>
+
+* On the Plurality of Initial States  
+<small>
+*Gonçalo Teixeira* [Bachelor's thesis] @ University of Porto  
+[[pdf]](/assets/papers/TeseLicGT.pdf)
+</small>

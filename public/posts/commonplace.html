@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>On how I take notes</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+  <style></style>
+      <link rel="stylesheet" href="/style.css">
+  </head>
+<body>
+<header class="container">
+  <nav>
+    <ul>
+      <li><strong><a href="/" class="contrast">tttardigrado</a></strong></li>
+    </ul>
+    <ul>
+              <li><a href="/talks.html">Talks</a></li>
+              <li><a href="/papers.html">Papers</a></li>
+              <li><a href="/posts">Blog</a></li>
+          </ul>
+  </nav>
+</header>
+ 
+<main class="container">
+  <hgroup>
+    <h1>On how I take notes</h1>
+          <p>2025-12-15</p>
+      </hgroup>
+  <p>This is more of a personal note than a blog post <em>per se</em>, but I’ll still post it anyways.</p>
+  <p>Those who know me know that I’m somewhat addicted to notebooks, stationary and personal knowledge management systems (PKMs). I’ve had my <a href="https://zettelkasten.de/introduction/">physical zettelkasten</a>, my <a href="https://obsidian.md/download">digital zettelkasten</a>, my completely unorganized <a href="https://en.wikipedia.org/wiki/Zibaldone">zibaldone</a>, and basically everything in between.</p>
+  <p>TLDR: I’ve tried a lot of things and I think I’m finally more or less satisfied with my current setup.</p>
+  <p>My current setup is composed of 4 elements: 1. An A6 notebook that I use as a calendar 2. An A6 notebook that I use as a catch all 3. An A5 commonplace book 4. A text file listing page numbers and entries on my commonplace book</p>
+  <p>I think the calendar is pretty self explanatory so I will skip it.</p>
+  <p>The catch all is also pretty simple: I have an idea, task, … I write it down. No filter. No <a href="https://www.ool.co.uk/blog/blank-page-syndrome-and-how-to-beat-it/">blank page syndrome</a>. No worrying about making a mess out of the notebook. Nothing. It is a mess. It will be a mess. And that’s fine.</p>
+  <p>The commonplace is probably the most interesting part of the setup. It gives me the flexibility of a zettelkasten without the hassle of having to carry a stack of cards.</p>
+  <p>First on the standard things. All pages are numbered and labelled using some kind of heading (e.g. Automata Theory, Fermi Paradox, …). The granularity of the labels is pretty inconsistent, but, as a general rule of thumb, I add a new label if I could see myself studying just that thing (e.g. I have an entry on Thomas Kuhn, but not one on Incomensurability). Additionally, I use a <a href="https://fs.blog/john-locke-common-place-book/">Locke-style index</a> (which, by the way, is very computer-sciency and I still want to write a blog post about it).</p>
+  <p>Now we turn to the fun part: the not-so-standard things (at least, as far as I know).</p>
+  <p>Firstly, I frequently back reference things written on other pages using the <code>[NN/PP]</code> notation, where <code>NN</code> refers to the notebook and <code>PP</code> to the page where the information is. In the (usual) case where the information is contained in the same book I simply write <code>[PP]</code>.</p>
+  <p>Furthermore, I keep a list of references in the back of the book in a weird citation format (that’s what works for me… sorry). Each entry looks something like this:</p>
+  <blockquote>
+  <p>[NNYY] Authors. (Year). Title. [Format]</p>
+  </blockquote>
+  <p>The <code>[NNYY]</code> notation is used for in text citations.</p>
+  <p>The third thing that I want to note is that all pages have a <em>back</em> and a <em>forward</em> link in the bottom left and right corners respectivelly. The link is composed of an arrow and a number that indicates the last/next page where the same label is covered. I find that this reduces a lot the number of times I need to use the index, and, in general, just makes my life easier.</p>
+  <p>Finally, I use a (somewhat) weird key system inspired by the <a href="https://bulletjournal.com/">bullet journal</a> method. Here is a table with the ones I use the most and their meaning:</p>
+  <table>
+  <thead>
+  <tr class="header">
+  <th>Key</th>
+  <th>Meaning</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr class="odd">
+  <td><code>:=</code></td>
+  <td>Definition/Concept</td>
+  </tr>
+  <tr class="even">
+  <td><code>⊢</code></td>
+  <td>Theorem</td>
+  </tr>
+  <tr class="odd">
+  <td><code>@</code></td>
+  <td>Algorithm</td>
+  </tr>
+  <tr class="even">
+  <td><code>:</code></td>
+  <td>Example</td>
+  </tr>
+  <tr class="odd">
+  <td><code>&gt;</code></td>
+  <td>Argument (in favor)</td>
+  </tr>
+  <tr class="even">
+  <td><code>&lt;</code></td>
+  <td>Argument (against)</td>
+  </tr>
+  <tr class="odd">
+  <td><code>"</code></td>
+  <td>Quote</td>
+  </tr>
+  <tr class="even">
+  <td><code>ψ</code></td>
+  <td>Recipe (it looks like a fork)</td>
+  </tr>
+  </tbody>
+  </table>
+  <p>So, the entry for the definition of a DFA would look somethink like</p>
+  <blockquote>
+  <p>⊢ DFA [HU79]: a deterministic finite automaton is a 5-tuple ⟨Q, Σ, δ, q₀, F⟩, where: * Q is a finite set of states * Σ is an alphabet * δ : Q × Σ → Q is a transition function * q₀ ∈ Q is the initial state * F ⫅ Q is the set of final states</p>
+  </blockquote>
+  <p>The common place book is already interesting on its own, but retrieving information is, at times, still very cumbersome. I think that this is where digital methods shine: it’s simply easier to <code>Ctrl+F</code> something than to look it up in an index and flip through hundreds of notebooks and pages. This is why I have a digital index. It is pretty much bare bones: Just a text file where I have a “name” for every entry in the commonplace book using the <code>[NN/PP]</code> notation. It is not pretty, but <code>Ctrl+F</code> works like a charm.</p>
+  <p>This method is not set in stone and I’ll probably change it someday, but I hope that this note is usefull to someone that, as me, has struggled on how to properly organize knowledge and information.</p>
+</main>
+
+<footer class="container">
+  </footer>
+ 
+</body>

@@ -1,0 +1,9 @@
+@media (min-width: 1280px) {
+  .container {
+    max-width: 950px !important;
+  }
+}
+
+footer {
+  text-align: right;
+}

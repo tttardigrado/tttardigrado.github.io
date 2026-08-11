@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="$lang$">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>$title$</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+  <style>$highlighting-css$</style>
+  $if(css)$
+    <link rel="stylesheet" href="$css$">
+  $endif$
+</head>
+<body>
+<header class="container">
+  <nav>
+    <ul>
+      <li><strong><a href="/" class="contrast">tttardigrado</a></strong></li>
+    </ul>
+    <ul>
+      $for(nav)$
+        <li><a href="$nav.url$">$nav.name$</a></li>
+      $endfor$
+    </ul>
+  </nav>
+</header>
+ 
+<main class="container">
+  <hgroup>
+    <h1>$title$</h1>
+    $if(date)$
+      <p>$date$</p>
+    $endif$
+  </hgroup>
+  $body$
+</main>
+
+<footer class="container">
+  $for(social)$
+      <span>&nbsp; <a href="$social.url$"><img src="/assets/svgs/$social.icon$"></a></span>
+  $endfor$
+</footer>
+ 
+</body>

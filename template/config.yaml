@@ -1,0 +1,9 @@
+title: tttardigrado
+
+nav:
+  - name: Talks
+    url: /talks.html
+  - name: Papers
+    url: /papers.html
+  - name: Blog
+    url: /posts
